@@ -1,0 +1,38 @@
+{
+  "name": "atelier",
+  "private": true,
+  "engines": {
+    "node": ">=20.15.0"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "scripts": {
+    "build": "turbo build",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "turbo clean",
+    "gen": "turbo gen init",
+    "dev": "turbo dev --parallel",
+    "format": "turbo format --continue -- --cache --cache-location node_modules/.cache/.prettiercache",
+    "format:fix": "turbo format --continue -- --write --cache --cache-location node_modules/.cache/.prettiercache",
+    "lint": "turbo lint --continue -- --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:fix": "turbo lint --continue -- --fix --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:ws": "pnpm dlx sherif@latest",
+    "lint:ws:fix": "pnpm dlx sherif@latest --fix",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch",
+    "postinstall": "pnpm lint:ws",
+    "typecheck": "turbo typecheck",
+    "docker:start": "docker compose up --detach",
+    "docker:dev": "docker compose up --detach",
+    "docker:pull": "docker compose up --detach --pull always",
+    "docker:restart": "docker compose restart",
+    "docker:stop": "docker compose down"
+  },
+  "devDependencies": {
+    "@configs/prettier-config": "workspace:*",
+    "@turbo/gen": "^2.0.8",
+    "prettier": "catalog:",
+    "turbo": "^2.0.8",
+    "typescript": "catalog:"
+  },
+  "prettier": "@configs/prettier-config"
+}

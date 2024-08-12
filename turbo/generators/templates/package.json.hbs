@@ -1,0 +1,50 @@
+{
+  "name": "@{{ workspace }}/{{ name }}",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "tsup": {
+    "dts": true,
+    "format": ["cjs", "esm"],
+    "splitting": true,
+    "sourcemap": true,
+    "clean": true,
+    "bundle": true,
+    "minify": true,
+    "entry": ["src/index.ts"]
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsc --watch",
+    "test": "pnpm jest --passWithNoTests",
+    "test:watch": "pnpm jest --watchAll",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
+
+  "dependencies": {
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@configs/eslint-config": "workspace:*",
+    "@configs/prettier-config": "workspace:*",
+    "@configs/tsconfig": "workspace:*",
+    "@types/jest": "catalog:",
+    "eslint": "catalog:",
+    "jest": "catalog:",
+    "ts-jest": "catalog:",
+    "prettier": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@configs/prettier-config"
+}

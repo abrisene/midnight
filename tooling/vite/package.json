@@ -1,0 +1,36 @@
+{
+  "name": "@configs/vite",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./base.js",
+    "./react": "./react.js"
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tanstack/router": "0.0.1-beta.53"
+  },
+  "devDependencies": {
+    "@configs/eslint-config": "workspace:*",
+    "@configs/prettier-config": "workspace:*",
+    "@configs/tsconfig": "workspace:*",
+    "@mdx-js/rollup": "^3.0.1",
+    "eslint": "^9.2.0",
+    "prettier": "^3.2.5",
+    "typescript": "5.5.2",
+    "vite": "^5.1.4"
+  },
+  "peerDependencies": {
+    "@tanstack/router": "0.0.1-beta.53",
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.1.4"
+  },
+  "prettier": "@configs/prettier-config"
+}

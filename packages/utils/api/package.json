@@ -1,0 +1,63 @@
+{
+  "name": "@acausal/api-utils",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "default": "./dist/index.cjs",
+      "main": "./dist/index.cjs",
+      "types": "./dist/index.d.cts"
+    },
+    "./http": {
+      "default": "./dist/http/index.cjs",
+      "main": "./dist/http/index.cjs",
+      "types": "./dist/http/index.d.cts"
+    }
+  },
+  "tsup": {
+    "dts": true,
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "splitting": true,
+    "sourcemap": true,
+    "clean": true,
+    "bundle": true,
+    "minify": true,
+    "entry": [
+      "src/index.ts",
+      "src/http/index.ts"
+    ]
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsc --watch",
+    "test": "pnpm jest --passWithNoTests",
+    "test:watch": "pnpm jest --watchAll",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "catalog:",
+    "pino": "catalog:",
+    "pino-pretty": "catalog:"
+  },
+  "devDependencies": {
+    "@configs/eslint-config": "workspace:*",
+    "@configs/prettier-config": "workspace:*",
+    "@configs/tsconfig": "workspace:*",
+    "@types/jest": "catalog:",
+    "eslint": "catalog:",
+    "jest": "catalog:",
+    "ts-jest": "catalog:",
+    "prettier": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@configs/prettier-config"
+}
