@@ -60,7 +60,7 @@ importers:
         specifier: 'catalog:'
         version: 5.5.4
 
-  packages/ai/textgen:
+  packages/ai/textgen.wip:
     dependencies:
       '@acausal/api-utils':
         specifier: workspace:*
@@ -103,7 +103,47 @@ importers:
         specifier: 'catalog:'
         version: 5.5.4
 
-  packages/structs/game:
+  packages/procgen/wave-function-collapse:
+    dependencies:
+      '@acausal/structs-spatial':
+        specifier: workspace:*
+        version: link:../../structs/spatial-partitioning
+      zod:
+        specifier: 'catalog:'
+        version: 3.23.8
+    devDependencies:
+      '@configs/eslint-config':
+        specifier: workspace:*
+        version: link:../../../tooling/eslint
+      '@configs/prettier-config':
+        specifier: workspace:*
+        version: link:../../../tooling/prettier
+      '@configs/tsconfig':
+        specifier: workspace:*
+        version: link:../../../tooling/typescript
+      '@types/jest':
+        specifier: 'catalog:'
+        version: 29.5.12
+      eslint:
+        specifier: 'catalog:'
+        version: 9.9.0(jiti@1.21.6)
+      jest:
+        specifier: 'catalog:'
+        version: 29.7.0(@types/node@22.2.0)(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))
+      prettier:
+        specifier: 'catalog:'
+        version: 3.3.3
+      ts-jest:
+        specifier: 'catalog:'
+        version: 29.2.4(@babel/core@7.25.2)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.2))(esbuild@0.23.0)(jest@29.7.0(@types/node@22.2.0)(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4)))(typescript@5.5.4)
+      tsup:
+        specifier: 'catalog:'
+        version: 8.2.4(jiti@1.21.6)(postcss@8.4.41)(typescript@5.5.4)(yaml@2.5.0)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
+  packages/structs/game.wip:
     dependencies:
       zod:
         specifier: 'catalog:'
@@ -141,6 +181,43 @@ importers:
         version: 5.5.4
 
   packages/structs/observable:
+    dependencies:
+      zod:
+        specifier: 'catalog:'
+        version: 3.23.8
+    devDependencies:
+      '@configs/eslint-config':
+        specifier: workspace:*
+        version: link:../../../tooling/eslint
+      '@configs/prettier-config':
+        specifier: workspace:*
+        version: link:../../../tooling/prettier
+      '@configs/tsconfig':
+        specifier: workspace:*
+        version: link:../../../tooling/typescript
+      '@types/jest':
+        specifier: 'catalog:'
+        version: 29.5.12
+      eslint:
+        specifier: 'catalog:'
+        version: 9.9.0(jiti@1.21.6)
+      jest:
+        specifier: 'catalog:'
+        version: 29.7.0(@types/node@22.2.0)(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))
+      prettier:
+        specifier: 'catalog:'
+        version: 3.3.3
+      ts-jest:
+        specifier: 'catalog:'
+        version: 29.2.4(@babel/core@7.25.2)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.2))(esbuild@0.23.0)(jest@29.7.0(@types/node@22.2.0)(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4)))(typescript@5.5.4)
+      tsup:
+        specifier: 'catalog:'
+        version: 8.2.4(jiti@1.21.6)(postcss@8.4.41)(typescript@5.5.4)(yaml@2.5.0)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
+  packages/structs/spatial-partitioning:
     dependencies:
       zod:
         specifier: 'catalog:'
@@ -349,7 +426,7 @@ importers:
         version: 7.35.0(eslint@9.9.0(jiti@1.21.6))
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc-2d2cc042-20240809(eslint@9.9.0(jiti@1.21.6))
+        version: 5.1.0-rc-d48603a5-20240813(eslint@9.9.0(jiti@1.21.6))
       eslint-plugin-turbo:
         specifier: ^2.0.8
         version: 2.0.12(eslint@9.9.0(jiti@1.21.6))
@@ -2088,8 +2165,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
 
-  eslint-plugin-react-hooks@5.1.0-rc-2d2cc042-20240809:
-    resolution: {integrity: sha512-PEZ2M6eAd+DWlbrE561PumDgwHNYrLUPEcP4P/el+GjT5HnZh1lvr+UecKez547u49EtICPTEwd9VS2u66edTw==}
+  eslint-plugin-react-hooks@5.1.0-rc-d48603a5-20240813:
+    resolution: {integrity: sha512-T5iENFr+/a1pZ9qog/tKWfPi0cME190dYbDC7MJUjKx7BZ/AxiLdbRAuOAQ60BHz2/rvLC9SYGIhXSCeK6EKoA==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -6261,7 +6338,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.0
 
-  eslint-plugin-react-hooks@5.1.0-rc-2d2cc042-20240809(eslint@9.9.0(jiti@1.21.6)):
+  eslint-plugin-react-hooks@5.1.0-rc-d48603a5-20240813(eslint@9.9.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.9.0(jiti@1.21.6)
 
