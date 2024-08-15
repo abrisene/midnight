@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "@tanstack/router": "0.0.1-beta.53",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "^4.3.1",
     "vite": "^5.1.4"
   },
   "prettier": "@configs/prettier-config"
