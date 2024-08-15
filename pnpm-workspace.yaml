@@ -1,7 +1,8 @@
 packages:
-  - packages/schemas/*
+  # - packages/schemas/*
   - packages/utils/*
   - packages/structs/*
+  - packages/types/*
   # - packages/ai/*
   # - packages/procgen/*
   - tooling/*
