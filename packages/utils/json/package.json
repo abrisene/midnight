@@ -1,0 +1,135 @@
+{
+  "name": "@acausal/utils-json",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.cts"
+      },
+      "require": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.cts"
+      }
+    },
+    "./parser": {
+      "import": {
+        "import": "./dist/parser/index.js",
+        "types": "./dist/parser/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/parser/index.cjs",
+        "types": "./dist/parser/index.d.cts"
+      }
+    },
+    "./json5": {
+      "import": {
+        "import": "./dist/json5/index.js",
+        "types": "./dist/json5/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/json5/index.cjs",
+        "types": "./dist/json5/index.d.cts"
+      }
+    },
+    "./zod": {
+      "import": {
+        "import": "./dist/zod/index.js",
+        "types": "./dist/zod/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/zod/index.cjs",
+        "types": "./dist/zod/index.d.cts"
+      }
+    },
+    "./beautify": {
+      "import": {
+        "import": "./dist/beautify/index.js",
+        "types": "./dist/beautify/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/beautify/index.cjs",
+        "types": "./dist/beautify/index.d.cts"
+      }
+    },
+    "./fix": {
+      "import": {
+        "import": "./dist/fix/index.js",
+        "types": "./dist/fix/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/fix/index.cjs",
+        "types": "./dist/fix/index.d.cts"
+      }
+    },
+    "./parse-partial": {
+      "import": {
+        "import": "./dist/partial/index.js",
+        "types": "./dist/partial/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/partial/index.cjs",
+        "types": "./dist/partial/index.d.cts"
+      }
+    }
+  },
+  "tsup": {
+    "dts": true,
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "splitting": true,
+    "sourcemap": true,
+    "clean": true,
+    "bundle": true,
+    "minify": true,
+    "entry": [
+      "src/index.ts",
+      "src/parser/index.ts",
+      "src/json5/index.ts",
+      "src/zod/index.ts",
+      "src/beautify/index.ts",
+      "src/fix/index.ts",
+      "src/partial/index.ts"
+    ]
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "pnpm jest --passWithNoTests",
+    "test:watch": "pnpm jest --watchAll",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "lint:exports": "pnpx @arethetypeswrong/cli",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "json-beautify": "^1.1.1",
+    "json-schema": "^0.4.0",
+    "json5": "^2.2.3",
+    "zod": "catalog:",
+    "zod-to-json-schema": "^3.23.2"
+  },
+  "devDependencies": {
+    "@configs/eslint-config": "workspace:*",
+    "@configs/prettier-config": "workspace:*",
+    "@configs/tsconfig": "workspace:*",
+    "@types/jest": "catalog:",
+    "@types/json-schema": "^7.0.15",
+    "eslint": "catalog:",
+    "jest": "catalog:",
+    "prettier": "catalog:",
+    "ts-jest": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@configs/prettier-config"
+}

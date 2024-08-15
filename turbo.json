@@ -4,6 +4,7 @@
     "**/.env"
   ],
   "globalEnv": [],
+  "ui": "tui",
   "tasks": {
     "topo": {
       "dependsOn": [
@@ -46,6 +47,12 @@
       ],
       "outputs": [
         "node_modules/.cache/.eslintcache"
+      ]
+    },
+    "lint:exports": {
+      "dependsOn": [
+        "^topo",
+        "^build"
       ]
     },
     "typecheck": {

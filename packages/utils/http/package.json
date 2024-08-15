@@ -1,5 +1,5 @@
 {
-  "name": "@acausal/{{ name }}",
+  "name": "@acausal/utils-http",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -21,13 +21,18 @@
   },
   "tsup": {
     "dts": true,
-    "format": ["cjs", "esm"],
+    "format": [
+      "cjs",
+      "esm"
+    ],
     "splitting": true,
     "sourcemap": true,
     "clean": true,
     "bundle": true,
     "minify": true,
-    "entry": ["src/index.ts"]
+    "entry": [
+      "src/index.ts"
+    ]
   },
   "scripts": {
     "build": "tsup",
@@ -40,7 +45,6 @@
     "lint:exports": "pnpx @arethetypeswrong/cli",
     "typecheck": "tsc --noEmit"
   },
-
   "dependencies": {
     "zod": "catalog:"
   },
