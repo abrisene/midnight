@@ -4,18 +4,39 @@
   "version": "0.1.0",
   "type": "module",
   "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "default": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      }
     },
     "./grid": {
-      "default": "./dist/grid.js",
-      "types": "./dist/grid.d.ts"
+      "import": {
+        "import": "./dist/grid.js",
+        "types": "./dist/grid.d.ts"
+      },
+      "require": {
+        "import": "./dist/grid.cjs",
+        "types": "./dist/grid.d.cts"
+      }
     },
     "./octree": {
-      "default": "./dist/octree.js",
-      "types": "./dist/octree.d.ts"
+      "import": {
+        "import": "./dist/octree.js",
+        "types": "./dist/octree.d.ts"
+      },
+      "require": {
+        "import": "./dist/octree.cjs",
+        "types": "./dist/octree.d.cts"
+      }
     }
   },
   "tsup": {
@@ -37,7 +58,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsc --watch",
+    "dev": "tsup --watch",
     "test": "pnpm jest --passWithNoTests",
     "test:watch": "pnpm jest --watchAll",
     "clean": "git clean -xdf .cache .turbo dist node_modules",

@@ -1,8 +1,8 @@
 packages:
   - packages/utils/*
   - packages/structs/*
-  - packages/ai/*
-  - packages/procgen/*
+  # - packages/ai/*
+  # - packages/procgen/*
   - tooling/*
 catalog:
   eslint: ^9.7.0

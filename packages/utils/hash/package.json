@@ -4,22 +4,49 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "default": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      }
     },
     "./hashers": {
-      "default": "./dist/hashers/index.js",
-      "types": "./dist/hashers/index.d.ts"
+      "import": {
+        "import": "./dist/hashers/index.js",
+        "types": "./dist/hashers/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/hashers/index.cjs",
+        "types": "./dist/hashers/index.d.cts"
+      }
     },
     "./factory": {
-      "default": "./dist/hash-factory/index.js",
-      "types": "./dist/hash-factory/index.d.ts"
+      "import": {
+        "import": "./dist/hash-factory/index.js",
+        "types": "./dist/hash-factory/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/hash-factory/index.cjs",
+        "types": "./dist/hash-factory/index.d.cts"
+      }
     },
-    "./hash-schema": {
-      "default": "./dist/hash-schema/index.js",
-      "types": "./dist/hash-schema/index.d.ts"
+    "./schema": {
+      "import": {
+        "import": "./dist/hash-schema/index.js",
+        "types": "./dist/hash-schema/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/hash-schema/index.cjs",
+        "types": "./dist/hash-schema/index.d.cts"
+      }
     }
   },
   "tsup": {
@@ -42,7 +69,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsc --watch",
+    "dev": "tsup --watch",
     "test": "pnpm jest --passWithNoTests",
     "test:watch": "pnpm jest --watchAll",
     "clean": "git clean -xdf .cache .turbo dist node_modules",

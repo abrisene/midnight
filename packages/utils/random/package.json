@@ -4,22 +4,49 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "default": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      }
     },
     "./seed": {
-      "default": "./dist/seed/index.js",
-      "types": "./dist/seed/index.d.ts"
+      "import": {
+        "import": "./dist/seed/index.js",
+        "types": "./dist/seed/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/seed/index.cjs",
+        "types": "./dist/seed/index.d.cts"
+      }
     },
     "./mersenne-twister": {
-      "default": "./dist/mersenne-twister/index.js",
-      "types": "./dist/mersenne-twister/index.d.ts"
+      "import": {
+        "import": "./dist/mersenne-twister/index.js",
+        "types": "./dist/mersenne-twister/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/mersenne-twister/index.cjs",
+        "types": "./dist/mersenne-twister/index.d.cts"
+      }
     },
     "./random": {
-      "default": "./dist/random/index.js",
-      "types": "./dist/random/index.d.ts"
+      "import": {
+        "import": "./dist/random/index.js",
+        "types": "./dist/random/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/random/index.cjs",
+        "types": "./dist/random/index.d.cts"
+      }
     }
   },
   "tsup": {
@@ -42,7 +69,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsc --watch",
+    "dev": "tsup --watch",
     "test": "pnpm jest --passWithNoTests",
     "test:watch": "pnpm jest --watchAll",
     "clean": "git clean -xdf .cache .turbo dist node_modules",

@@ -1,2 +1,2 @@
 export * from "./grid";
-export * from "./octree";
+export * from "./octree.wip";

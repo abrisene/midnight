@@ -1,13 +1,22 @@
 {
-  "name": "@structs/observable",
+  "name": "@atelier/structs-observable",
   "private": true,
   "version": "0.1.0",
   "type": "module",
   "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "default": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      }
     }
   },
   "tsup": {
@@ -27,7 +36,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsc --watch",
+    "dev": "tsup --watch",
     "test": "pnpm jest --passWithNoTests",
     "test:watch": "pnpm jest --watchAll",
     "clean": "git clean -xdf .cache .turbo dist node_modules",

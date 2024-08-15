@@ -4,15 +4,24 @@
   "version": "0.1.0",
   "type": "module",
   "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "default": "./dist/index.js"
+      "import": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      }
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "dev": "tsc --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "test-": "pnpm jest --passWithNoTests",
     "test:watch": "pnpm jest --watchAll",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
@@ -21,11 +30,19 @@
     "typecheck": "tsc --noEmit"
   },
   "tsup": {
+    "dts": true,
+    "format": [
+      "cjs",
+      "esm"
+    ],
     "splitting": true,
     "sourcemap": true,
     "clean": true,
     "bundle": true,
-    "minify": true
+    "minify": true,
+    "entry": [
+      "src/index.ts"
+    ]
   },
   "prettier": "@configs/prettier-config",
   "devDependencies": {
