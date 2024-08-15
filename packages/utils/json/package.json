@@ -77,6 +77,16 @@
         "import": "./dist/partial/index.cjs",
         "types": "./dist/partial/index.d.cts"
       }
+    },
+    "./deep-equal": {
+      "import": {
+        "import": "./dist/deep-equal/index.js",
+        "types": "./dist/deep-equal/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/deep-equal/index.cjs",
+        "types": "./dist/deep-equal/index.d.cts"
+      }
     }
   },
   "tsup": {
