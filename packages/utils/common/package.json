@@ -1,5 +1,5 @@
 {
-  "name": "@acausal/types",
+  "name": "@acausal/common",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -18,14 +18,34 @@
         "types": "./dist/index.d.cts"
       }
     },
-    "./zod": {
+    "./string": {
       "import": {
-        "import": "./dist/zod/index.js",
-        "types": "./dist/zod/index.d.ts"
+        "import": "./dist/string/index.js",
+        "types": "./dist/string/index.d.ts"
       },
       "require": {
-        "import": "./dist/zod/index.cjs",
-        "types": "./dist/zod/index.d.cts"
+        "import": "./dist/string/index.cjs",
+        "types": "./dist/string/index.d.cts"
+      }
+    },
+    "./number": {
+      "import": {
+        "import": "./dist/number/index.js",
+        "types": "./dist/number/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/number/index.cjs",
+        "types": "./dist/number/index.d.cts"
+      }
+    },
+    "./array": {
+      "import": {
+        "import": "./dist/array/index.js",
+        "types": "./dist/array/index.d.ts"
+      },
+      "require": {
+        "import": "./dist/array/index.cjs",
+        "types": "./dist/array/index.d.cts"
       }
     }
   },
@@ -42,7 +62,9 @@
     "minify": true,
     "entry": [
       "src/index.ts",
-      "src/zod/index.ts"
+      "src/string/index.ts",
+      "src/number/index.ts",
+      "src/array/index.ts"
     ]
   },
   "scripts": {
@@ -60,6 +82,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "@acausal/types": "workspace:*",
     "@configs/eslint-config": "workspace:*",
     "@configs/prettier-config": "workspace:*",
     "@configs/tsconfig": "workspace:*",
