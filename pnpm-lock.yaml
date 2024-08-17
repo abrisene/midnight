@@ -627,7 +627,7 @@ importers:
         specifier: ^9.9.0
         version: 9.9.0(jiti@1.21.6)
       prettier:
-        specifier: ^3.2.5
+        specifier: ^3.3.3
         version: 3.3.3
       typescript:
         specifier: 5.5.4
