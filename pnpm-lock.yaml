@@ -591,8 +591,8 @@ importers:
         specifier: ^1.2.6
         version: 1.2.6(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))
       tailwindcss-3d:
-        specifier: ^1.0.6
-        version: 1.0.6(tailwindcss@3.4.9(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4)))
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.9(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4)))
       tailwindcss-signals:
         specifier: ^0.0.25
         version: 0.0.25
@@ -1374,8 +1374,8 @@ packages:
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
 
-  '@swc/helpers@0.5.8':
-    resolution: {integrity: sha512-lruDGw3pnfM3wmZHeW7JuhkGQaJjPyiKjxeGhdmfoOT53Ic9qb5JLDNaK2HUdl1zLDeX28H221UvKjfdvSLVMg==}
+  '@swc/helpers@0.5.12':
+    resolution: {integrity: sha512-KMZNXiGibsW9kvZAO1Pam2JPTDBm+KSHMMHWdsyI/1DbIZjT2A6Gy3hblVXUMEDvUAKq+e0vL0X0o54owWji7g==}
 
   '@tailwindcss/container-queries@0.1.1':
     resolution: {integrity: sha512-p18dswChx6WnTSaJCSGx6lTmrGzNNvm2FtXmiO6AuA1V4U5REyoqwmT6kgAsIMdjo07QdAfYXHJ4hnMtfHzWgA==}
@@ -4056,8 +4056,8 @@ packages:
   tailwind-lerp-colors@1.2.6:
     resolution: {integrity: sha512-YUFTo5GEV2HHfu+On9UbxCgzQTE/RbgZbBJ50gTcKK1bvBimWy7QzTjWAjrKqrhuRZsm2bB1+KatoFwaXGX0gg==}
 
-  tailwindcss-3d@1.0.6:
-    resolution: {integrity: sha512-Bym5X7QZr753dIW7UIrF1VaxCmkUEAetI1DmD00xJ6mdwgfMnO5mGILGTrfmupWwasjn8FcQ13R2Wexw75t4XA==}
+  tailwindcss-3d@1.0.7:
+    resolution: {integrity: sha512-WRW0HTwtBSlbFt4dztoDlCZyPHWM1wu/hn52kVqdVYrTFfgTcSCU5lNAIU+seL5eoaH7EIyQC5N4ok252ktSeQ==}
     peerDependencies:
       tailwindcss: '>=3.2.0'
 
@@ -5230,7 +5230,7 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  '@swc/helpers@0.5.8':
+  '@swc/helpers@0.5.12':
     dependencies:
       tslib: 2.6.3
 
@@ -8702,9 +8702,9 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  tailwindcss-3d@1.0.6(tailwindcss@3.4.9(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))):
+  tailwindcss-3d@1.0.7(tailwindcss@3.4.9(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))):
     dependencies:
-      '@swc/helpers': 0.5.8
+      '@swc/helpers': 0.5.12
       lodash: 4.17.21
       tailwindcss: 3.4.9(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))
 
