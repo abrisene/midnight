@@ -25,7 +25,7 @@
     "@configs/tsconfig": "workspace:*",
     "@tailwindcss/container-queries": "^0.1.1",
     "eslint": "catalog:",
-    "fluid-tailwind": "^0.3.9",
+    "fluid-tailwind": "^1.0.3",
     "prettier": "catalog:",
     "tailwind-lerp-colors": "^1.2.6",
     "tailwindcss-3d": "^1.0.7",
