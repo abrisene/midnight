@@ -514,7 +514,7 @@ importers:
         specifier: ^2.0.8
         version: 2.0.12(eslint@9.9.0(jiti@1.21.6))
       typescript-eslint:
-        specifier: ^7.8.0
+        specifier: ^7.18.0
         version: 7.18.0(eslint@9.9.0(jiti@1.21.6))(typescript@5.5.4)
     devDependencies:
       '@configs/prettier-config':
