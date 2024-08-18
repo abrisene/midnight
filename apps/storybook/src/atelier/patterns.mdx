@@ -1,0 +1,43 @@
+import { Canvas, Meta } from "@storybook/blocks";
+
+import * as PatternStories from "./patterns.stories";
+
+<Meta of={PatternStories} />
+
+# Patterns
+
+These are various SVG patterns that can be used as backgrounds or decorative elements in your UI.
+
+## Dot Grid Pattern
+
+<Canvas of={PatternStories.DotGrid} />
+
+## Grid Pattern
+
+<Canvas of={PatternStories.Grid} />
+
+## Hexagon Pattern
+
+<Canvas of={PatternStories.Hexagon} />
+
+## Diagonal Stripes Pattern
+
+<Canvas of={PatternStories.DiagonalStripes} />
+
+## Usage
+
+To use these patterns in your components, import them from `@acausal/ui-core/patterns` and use them as React components. You can customize their appearance by passing props such as `width`, `height`, `fill`, `stroke`, etc.
+
+Example:
+
+```jsx
+import { DotGridPattern } from "@acausal/ui-core/patterns";
+
+function MyComponent() {
+  return (
+    <DotGridPattern width={200} height={200} fill="#000" radius={2} gap={20} />
+  );
+}
+```
+
+Each pattern component is built on top of a base `BasePattern` component, which allows for consistent sizing and styling across all patterns.

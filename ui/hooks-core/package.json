@@ -1,0 +1,193 @@
+{
+  "name": "@acausal/hooks",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./state": {
+      "import": "./src/hooks/state/index.ts",
+      "require": "./dist/hooks/state/index.cjs",
+      "types": "./dist/hooks/state/index.d.ts"
+    },
+    "./image": {
+      "import": "./src/hooks/image/index.ts",
+      "require": "./dist/hooks/image/index.cjs",
+      "types": "./dist/hooks/image/index.d.ts"
+    },
+    "./use-color-matrix": {
+      "import": "./src/hooks/use-color-matrix.ts",
+      "require": "./dist/hooks/use-color-matrix.cjs",
+      "types": "./dist/hooks/use-color-matrix.d.ts"
+    },
+    "./use-dom-aspect-ratio": {
+      "import": "./src/hooks/use-dom-aspect-ratio.ts",
+      "require": "./dist/hooks/use-dom-aspect-ratio.cjs",
+      "types": "./dist/hooks/use-dom-aspect-ratio.d.ts"
+    },
+    "./use-dom-attention": {
+      "import": "./src/hooks/use-dom-attention.ts",
+      "require": "./dist/hooks/use-dom-attention.cjs",
+      "types": "./dist/hooks/use-dom-attention.d.ts"
+    },
+    "./use-dom-hover": {
+      "import": "./src/hooks/use-dom-hover.ts",
+      "require": "./dist/hooks/use-dom-hover.cjs",
+      "types": "./dist/hooks/use-dom-hover.d.ts"
+    },
+    "./use-dom-window-rect": {
+      "import": "./src/hooks/use-dom-window-rect.ts",
+      "require": "./dist/hooks/use-dom-window-rect.cjs",
+      "types": "./dist/hooks/use-dom-window-rect.d.ts"
+    },
+    "./use-force-update": {
+      "import": "./src/hooks/use-force-update.ts",
+      "require": "./dist/hooks/use-force-update.cjs",
+      "types": "./dist/hooks/use-force-update.d.ts"
+    },
+    "./use-input-options": {
+      "import": "./src/hooks/use-input-options.ts",
+      "require": "./dist/hooks/use-input-options.cjs",
+      "types": "./dist/hooks/use-input-options.d.ts"
+    },
+    "./use-mouse-parallax": {
+      "import": "./src/hooks/use-mouse-parallax.ts",
+      "require": "./dist/hooks/use-mouse-parallax.cjs",
+      "types": "./dist/hooks/use-mouse-parallax.d.ts"
+    },
+    "./use-mouse-position": {
+      "import": "./src/hooks/use-mouse-position.ts",
+      "require": "./dist/hooks/use-mouse-position.cjs",
+      "types": "./dist/hooks/use-mouse-position.d.ts"
+    },
+    "./use-ref-merge-ref": {
+      "import": "./src/hooks/use-ref-merge-ref.ts",
+      "require": "./dist/hooks/use-ref-merge-ref.cjs",
+      "types": "./dist/hooks/use-ref-merge-ref.d.ts"
+    },
+    "./use-scaled-array": {
+      "import": "./src/hooks/use-scaled-array.ts",
+      "require": "./dist/hooks/use-scaled-array.cjs",
+      "types": "./dist/hooks/use-scaled-array.d.ts"
+    },
+    "./use-scroll-to-percentage": {
+      "import": "./src/hooks/use-scroll-to-percentage.ts",
+      "require": "./dist/hooks/use-scroll-to-percentage.cjs",
+      "types": "./dist/hooks/use-scroll-to-percentage.d.ts"
+    },
+    "./use-scroll-to-ref": {
+      "import": "./src/hooks/use-scroll-to-ref.ts",
+      "require": "./dist/hooks/use-scroll-to-ref.cjs",
+      "types": "./dist/hooks/use-scroll-to-ref.d.ts"
+    },
+    "./use-text-segments": {
+      "import": "./src/hooks/use-text-segments.ts",
+      "require": "./dist/hooks/use-text-segments.cjs",
+      "types": "./dist/hooks/use-text-segments.d.ts"
+    },
+    "./use-timer-cooldown": {
+      "import": "./src/hooks/use-timer-cooldown.ts",
+      "require": "./dist/hooks/use-timer-cooldown.cjs",
+      "types": "./dist/hooks/use-timer-cooldown.d.ts"
+    },
+    "./use-timer-interval": {
+      "import": "./src/hooks/use-timer-interval.ts",
+      "require": "./dist/hooks/use-timer-interval.cjs",
+      "types": "./dist/hooks/use-timer-interval.d.ts"
+    },
+    "./utils": {
+      "import": "./src/utils/index.ts",
+      "require": "./dist/utils/index.cjs",
+      "types": "./dist/utils/index.d.ts"
+    },
+    "./schemas": {
+      "import": "./src/schemas/index.ts",
+      "require": "./dist/schemas/index.cjs",
+      "types": "./dist/schemas/index.d.ts"
+    }
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts",
+      "src/hooks/state/index.ts",
+      "src/hooks/timing/index.ts",
+      "src/hooks/input/index.ts",
+      "src/hooks/use-color-matrix.ts",
+      "src/hooks/use-dom-aspect-ratio.ts",
+      "src/hooks/use-dom-attention.ts",
+      "src/hooks/use-dom-hover.ts",
+      "src/hooks/use-dom-window-rect.ts",
+      "src/hooks/use-force-update.ts",
+      "src/hooks/use-input-options.ts",
+      "src/hooks/use-mouse-parallax.ts",
+      "src/hooks/use-mouse-position.ts",
+      "src/hooks/use-ref-merge-ref.ts",
+      "src/hooks/use-scaled-array.ts",
+      "src/hooks/use-scroll-to-percentage.ts",
+      "src/hooks/use-scroll-to-ref.ts",
+      "src/hooks/use-text-segments.ts",
+      "src/hooks/use-text-selection.ts",
+      "src/utils/index.ts",
+      "src/schemas/index.ts"
+    ],
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "dts": true,
+    "splitting": false,
+    "sourcemap": true,
+    "clean": true,
+    "bundle": false,
+    "minify": false
+  },
+  "scripts": {
+    "build:wip": "tsup",
+    "dev": "tsup --watch",
+    "test": "pnpm jest --passWithNoTests",
+    "test:watch": "pnpm jest --watchAll",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "lint:exports": "pnpx @arethetypeswrong/cli",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "jotai": "^2.9.3",
+    "tinycolor2": "^1.6.0",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@acausal/types": "workspace:*",
+    "@configs/eslint-config": "workspace:*",
+    "@configs/prettier-config": "workspace:*",
+    "@configs/tailwind-config": "workspace:*",
+    "@configs/tsconfig": "workspace:*",
+    "@types/node": "^20.12.7",
+    "@types/jest": "catalog:",
+    "@types/react": "catalog:react18",
+    "@types/tinycolor2": "^1.4.3",
+    "eslint": "catalog:",
+    "jest": "catalog:",
+    "ts-jest": "catalog:",
+    "prettier": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@configs/eslint-config/base",
+      "@configs/eslint-config/react"
+    ]
+  },
+  "prettier": "@configs/prettier-config"
+}
