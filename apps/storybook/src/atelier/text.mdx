@@ -1,0 +1,47 @@
+import { Canvas, Meta, Primary } from "@storybook/blocks";
+
+import * as TextStories from "./text.stories";
+
+<Meta of={TextStories} />
+
+## Text
+
+The Text component renders text based on provided variants, fonts, and sizes.
+
+## Headers
+
+<Canvas of={TextStories.H1} />
+<Canvas of={TextStories.H2} />
+<Canvas of={TextStories.H3} />
+<Canvas of={TextStories.H4} />
+<Canvas of={TextStories.H5} />
+<Canvas of={TextStories.H6} />
+
+## Paragraphs
+
+<Canvas of={TextStories.P} />
+<Canvas of={TextStories.Lead} />
+<Canvas of={TextStories.Large} />
+<Canvas of={TextStories.Small} />
+<Canvas of={TextStories.Muted} />
+
+## Additional Variants
+
+<Canvas of={TextStories.Pre} />
+<Canvas of={TextStories.Blockquote} />
+<Canvas of={TextStories.Aside} />
+
+## Font Variations
+
+<Canvas of={TextStories.FontSerif} />
+<Canvas of={TextStories.FontMono} />
+
+## Size Variations
+
+<Canvas of={TextStories.SizeXL} />
+<Canvas of={TextStories.SizeXS} />
+
+## Customization
+
+<Canvas of={TextStories.CustomClassName} />
+<Canvas of={TextStories.AsChild} />
