@@ -5,14 +5,14 @@ import { BasePattern, BasePatternProps } from "./base-pattern";
 interface DotGridPatternProps
   extends Omit<BasePatternProps, "patternContent" | "patternId"> {
   fill?: string;
-  radius: number;
-  gap: number;
+  radius?: number;
+  gap?: number;
 }
 
 export const DotGridPattern: React.FC<DotGridPatternProps> = ({
   fill,
-  radius,
-  gap,
+  radius = 10,
+  gap = 10,
   patternHeight,
   patternWidth,
   ...props

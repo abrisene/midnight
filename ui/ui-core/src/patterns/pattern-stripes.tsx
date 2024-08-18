@@ -4,15 +4,15 @@ import { BasePattern, BasePatternProps } from "./base-pattern";
 
 interface DiagonalStripesPatternProps
   extends Omit<BasePatternProps, "patternContent" | "patternId"> {
-  stroke: string;
-  strokeWidth: number;
-  gap: number;
+  stroke?: string;
+  strokeWidth?: number;
+  gap?: number;
 }
 
 export const DiagonalStripesPattern: React.FC<DiagonalStripesPatternProps> = ({
   stroke,
-  strokeWidth,
-  gap,
+  strokeWidth = 1,
+  gap = 10,
   patternWidth,
   patternHeight,
   ...props
@@ -28,7 +28,7 @@ export const DiagonalStripesPattern: React.FC<DiagonalStripesPatternProps> = ({
           y1="0"
           x2="0"
           y2={gap}
-          // stroke={stroke}
+          stroke={stroke}
           strokeWidth={strokeWidth}
         />
       }

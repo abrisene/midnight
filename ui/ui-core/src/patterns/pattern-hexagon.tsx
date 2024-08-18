@@ -7,14 +7,14 @@ interface HexagonPatternProps
   fill?: string;
   stroke?: string;
   strokeWidth?: number;
-  sideLength: number;
+  sideLength?: number;
 }
 
 export const HexagonPattern: React.FC<HexagonPatternProps> = ({
   fill,
   stroke,
   strokeWidth = 1,
-  sideLength,
+  sideLength = 10,
   patternWidth,
   patternHeight,
   ...props

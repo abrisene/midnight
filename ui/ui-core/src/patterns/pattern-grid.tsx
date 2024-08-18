@@ -6,13 +6,13 @@ interface GridPatternProps
   extends Omit<BasePatternProps, "patternContent" | "patternId"> {
   stroke?: string;
   strokeWidth?: number;
-  gap: number;
+  gap?: number;
 }
 
 export const GridPattern: React.FC<GridPatternProps> = ({
   stroke,
   strokeWidth,
-  gap,
+  gap = 10,
   patternWidth,
   patternHeight,
   ...props
