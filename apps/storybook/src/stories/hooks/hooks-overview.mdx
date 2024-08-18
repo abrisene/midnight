@@ -1,0 +1,144 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Hooks/Overview" />
+
+# Hooks
+
+This documentation provides an overview of various custom hooks available in our library. These hooks are categorized based on their functionality to help you find and use them more easily.
+
+## Timer Hooks
+
+### useTimer
+
+A versatile timer hook that supports both countdown and stopwatch modes.
+
+```jsx
+import { useTimer } from "@acausal/hooks";
+
+function TimerComponent() {
+  const { elapsed, remaining, start, stop, toggle, reset } = useTimer({
+    mode: "countdown",
+    duration: 60,
+    onElapsed: () => console.log("Timer finished!"),
+  });
+
+  return (
+    <div>
+      <p>Elapsed time: {elapsed}</p>
+      <p>Remaining time: {remaining}</p>
+      <button onClick={start}>Start</button>
+      <button onClick={stop}>Stop</button>
+      <button onClick={toggle}>Toggle</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+```
+
+```jsx
+import { useTimer } from "@acausal/hooks";
+
+function TimerComponent() {
+  const { elapsed, remaining, start, stop, toggle, reset } = useTimer({
+    mode: "countdown",
+    duration: 60,
+    onElapsed: () => console.log("Timer finished!"),
+  });
+  return (
+    <div>
+      <p>Remaining: {remaining} seconds</p>
+      <button onClick={toggle}>Start/Stop</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+```
+
+```jsx
+import { useCooldown } from "@acausal/hooks";
+
+function CooldownComponent() {
+  const { start, clear, active } = useCooldown(() => {
+    console.log("Cooldown finished!");
+  }, 5000);
+  return (
+    <div>
+      <button onClick={start} disabled={active}>
+        Start Cooldown
+      </button>
+      <button onClick={clear}>Clear Cooldown</button>
+      {active && <p>Cooldown active...</p>}
+    </div>
+  );
+}
+```
+
+```jsx
+import { useInterval } from "@acausal/hooks";
+
+function IntervalComponent() {
+  const [count, setCount] = useState(0);
+  const { start, stop, toggle, active } = useInterval(() => {
+    setCount((c) => c + 1);
+  }, 1000);
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={toggle}>{active ? "Stop" : "Start"}</button>
+    </div>
+  );
+}
+```
+
+```jsx
+import { useMousePosition } from "@acausal/hooks";
+
+function MouseTracker() {
+  const { position, hovering } = useMousePosition();
+  return (
+    <div>
+      <p>Mouse X: {position.x}</p>
+      <p>Mouse Y: {position.y}</p>
+      <p>Hovering: {hovering ? "Yes" : "No"}</p>
+    </div>
+  );
+}
+```
+
+```jsx
+import { useMouseParallax } from "@acausal/hooks";
+
+function ParallaxElement() {
+  const { style } = useMouseParallax({ depth: 20 });
+  return <div style={style}>This element moves with the mouse!</div>;
+}
+```
+
+```jsx
+import { useHover } from "@acausal/hooks";
+
+function HoverableComponent() {
+  const { ref, hovered } = useHover();
+  return <div ref={ref}>{hovered ? "I'm being hovered!" : "Hover me!"}</div>;
+}
+```
+
+```jsx
+import { useScreenshot } from "@acausal/hooks";
+
+function ScreenshotComponent() {
+  const { image, takeScreenshot } = useScreenshot();
+  const elementRef = useRef(null);
+  return (
+    <div>
+      <div ref={elementRef}>
+        <h1>Take a screenshot of me!</h1>
+      </div>
+      <button onClick={() => takeScreenshot(elementRef.current)}>
+        Take Screenshot
+      </button>
+      {image && <img src={image} alt="Screenshot" />}
+    </div>
+  );
+}
+```

@@ -1,0 +1,30 @@
+import { Canvas } from "@storybook/addon-docs";
+import { Meta } from "@storybook/blocks";
+
+import {
+  CooldownExample,
+  IntervalExample,
+  // TimerExample,
+} from "./timer-examples";
+
+<Meta title="Hooks/Timer" />
+
+# Timer Hooks
+
+This section covers hooks related to timers, cooldowns, and intervals.
+
+## useTimer
+
+A versatile timer hook that supports both countdown and stopwatch modes.
+
+## useCooldown
+
+A hook for managing cooldown periods.
+
+<CooldownExample />
+
+## useInterval
+
+A hook for creating and managing intervals.
+
+<IntervalExample />
