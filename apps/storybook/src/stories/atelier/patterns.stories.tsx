@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
 import {
   DiagonalStripesPattern,
   DotGridPattern,
@@ -8,7 +7,7 @@ import {
 } from "@acausal/ui-core/patterns";
 
 const meta = {
-  title: "UI/Backgrounds",
+  title: "Atelier/Backgrounds/Patterns",
   parameters: {
     layout: "centered",
   },

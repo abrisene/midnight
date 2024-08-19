@@ -1,5 +1,5 @@
 /*
-./src/components/ui/text.tsx
+././text.tsx
 source: https://github.com/shadcn-ui/ui/pull/363#issuecomment-1659259897
 */
 

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import RadialMenu from "@acausal/ui-core/radial-menu";
 
 const meta = {
-  title: "UI/Menus/Radial Menu",
+  title: "Atelier/Menus/Radial Menu",
   component: RadialMenu,
   argTypes: {
     radius: { control: "number" },

@@ -1,5 +1,5 @@
 {
-  "name": "@acausal/hash-utils",
+  "name": "@acausal/utils-hash",
   "private": true,
   "version": "1.0.0",
   "type": "module",

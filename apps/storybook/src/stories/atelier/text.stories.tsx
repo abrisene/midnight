@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "@acausal/ui-core/text";
 
 const meta = {
-  title: "UI/Text/Typography",
+  title: "Atelier/Typography/Text",
   component: Text,
   argTypes: {
     variant: {

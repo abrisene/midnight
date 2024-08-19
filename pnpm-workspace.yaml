@@ -1,6 +1,7 @@
 packages:
   - apps/storybook/
   # - packages/schemas/*
+  - packages/utils/
   - packages/utils/*
   - packages/structs/*
   # - packages/ai/*

@@ -1,5 +1,5 @@
 {
-  "name": "@acausal/common",
+  "name": "@acausal/utils-common",
   "private": true,
   "version": "0.1.0",
   "type": "module",

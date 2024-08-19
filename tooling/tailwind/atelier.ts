@@ -3,12 +3,14 @@ import container from "@tailwindcss/container-queries";
 import fluid, { extract, screens } from "fluid-tailwind";
 import signals from "tailwindcss-signals";
 
+import { customBackgrounds, customColorVariables } from "./plugins/custom";
+
 // import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
   content: { files: ["./src/**/*.{ts,tsx,mdx}"], extract },
   presets: [],
-  plugins: [container, fluid, signals],
+  plugins: [container, fluid, signals, customBackgrounds, customColorVariables],
   theme: {
     screens,
     extend: {
@@ -79,13 +81,20 @@ export default {
         "20": "20",
       },
       animation: {
+        marquee: "marquee var(--duration, 30s) linear infinite",
         wiggle: "wiggle 1s ease-in-out infinite",
-        burns: "burns-pan 30s infinite alternate ease-in",
-        "burns-pan": "burns-pan 30s infinite alternate ease-in",
-        "burns-pan-up": "burns-pan-up 30s infinite alternate ease-in",
-        "burns-pan-down": "burns-pan-down 30s infinite alternate ease-in",
+        burns: "burns-pan var(--duration, 30s) infinite alternate ease-in",
+        "burns-pan":
+          "burns-pan var(--duration, 30s) infinite alternate ease-in",
+        "burns-pan-up":
+          "burns-pan-up var(--duration, 30s) infinite alternate ease-in",
+        "burns-pan-down":
+          "burns-pan-down var(--duration, 30s) infinite alternate ease-in",
       },
       keyframes: {
+        marquee: {
+          to: { transform: "translateX(-50%)" },
+        },
         wiggle: {
           "0%, 100%": { transform: "rotate(-3deg)" },
           "50%": { transform: "rotate(3deg)" },

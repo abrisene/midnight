@@ -4,13 +4,13 @@ import { ColorInput } from "@acausal/ui-core/color-input";
 // import "./globals.css";
 
 const meta: Meta<typeof ColorInput> = {
-  title: "Custom/Color Input",
+  title: "Atelier/Inputs/Color Input",
   component: ColorInput,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
 };
 
 export default meta;
