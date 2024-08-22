@@ -4,6 +4,7 @@ packages:
   - packages/utils/
   - packages/utils/*
   - packages/structs/*
+  - packages/ui/*
   # - packages/ai/*
   - packages/types
   # - packages/procgen/*

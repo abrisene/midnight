@@ -1,0 +1,16 @@
+{
+  "extends": "@configs/tsconfig/react.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": ".",
+    "incremental": false,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "*.ts",
+    "src",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
