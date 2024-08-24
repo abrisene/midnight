@@ -17,6 +17,7 @@
     "./skeleton-browser": "./src/extensions/skeleton-browser.tsx",
     "./tree-view": "./src/extensions/tree-view.tsx",
     "./color-input": "./src/custom/ui/color-input.tsx",
+    "./key-value-input": "./src/custom/ui/key-value-input.tsx",
     "./text": "./src/custom/ui/text.tsx",
     "./radial-menu": "./src/custom/ui/radial-menu.tsx",
     "./separator-label": "./src/custom/ui/separator-label.tsx",
