@@ -149,8 +149,8 @@ importers:
         specifier: ^5.1.0-rc.0
         version: 5.1.0-rc-1eaccd82-20240816(eslint@9.9.0(jiti@1.21.6))
       eslint-plugin-react-refresh:
-        specifier: ^0.4.9
-        version: 0.4.9(eslint@9.9.0(jiti@1.21.6))
+        specifier: ^0.4.12
+        version: 0.4.12(eslint@9.9.0(jiti@1.21.6))
       eslint-plugin-storybook:
         specifier: ^0.8.0
         version: 0.8.0(eslint@9.9.0(jiti@1.21.6))(typescript@5.5.4)
@@ -723,7 +723,7 @@ importers:
         version: 7.35.0(eslint@9.9.0(jiti@1.21.6))
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc-e740d4b1-20240919(eslint@9.9.0(jiti@1.21.6))
+        version: 5.1.0-rc-e4953922-20240919(eslint@9.9.0(jiti@1.21.6))
       eslint-plugin-turbo:
         specifier: ^2.0.14
         version: 2.0.14(eslint@9.9.0(jiti@1.21.6))
@@ -5088,14 +5088,14 @@ packages:
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
 
-  eslint-plugin-react-hooks@5.1.0-rc-e740d4b1-20240919:
-    resolution: {integrity: sha512-+PFjivirj4bkEC+icGsD1HAs7Tfs2cG9M2hDQL2tlNwCRE2NY65TeqXRBd1wrGPMXjwhcotoeM/NZDfzYYsdFA==}
+  eslint-plugin-react-hooks@5.1.0-rc-e4953922-20240919:
+    resolution: {integrity: sha512-W/CJVTs49Wn34P3RTMGb5jx7JW8ftUIUzNqYDsWqO/tz26DU3fXrou44jxAvu1HR5VH9DutXgxq7DCgDM2MBGQ==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
 
-  eslint-plugin-react-refresh@0.4.9:
-    resolution: {integrity: sha512-QK49YrBAo5CLNLseZ7sZgvgTy21E6NEw22eZqc4teZfH8pxV3yXc9XXOYfUI6JNpw7mfHNkAeWtBxrTyykB6HA==}
+  eslint-plugin-react-refresh@0.4.12:
+    resolution: {integrity: sha512-9neVjoGv20FwYtCP6CB1dzR1vr57ZDNOXst21wd2xJ/cTlM2xLq0GWVlSNTdMn/4BtP6cHYBMCSp1wFBJ9jBsg==}
     peerDependencies:
       eslint: '>=7'
 
@@ -13559,11 +13559,11 @@ snapshots:
     dependencies:
       eslint: 9.9.0(jiti@1.21.6)
 
-  eslint-plugin-react-hooks@5.1.0-rc-e740d4b1-20240919(eslint@9.9.0(jiti@1.21.6)):
+  eslint-plugin-react-hooks@5.1.0-rc-e4953922-20240919(eslint@9.9.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.9.0(jiti@1.21.6)
 
-  eslint-plugin-react-refresh@0.4.9(eslint@9.9.0(jiti@1.21.6)):
+  eslint-plugin-react-refresh@0.4.12(eslint@9.9.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.9.0(jiti@1.21.6)
 
