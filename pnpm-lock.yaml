@@ -893,7 +893,7 @@ importers:
         specifier: catalog:react18
         version: 18.3.3
       '@types/tinycolor2':
-        specifier: ^1.4.3
+        specifier: ^1.4.6
         version: 1.4.6
       eslint:
         specifier: 'catalog:'
