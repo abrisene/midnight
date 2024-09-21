@@ -56,9 +56,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "zod": "catalog:",
     "pino": "catalog:",
-    "pino-pretty": "catalog:"
+    "pino-pretty": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@configs/eslint-config": "workspace:*",
@@ -67,8 +67,8 @@
     "@types/jest": "catalog:",
     "eslint": "catalog:",
     "jest": "catalog:",
-    "ts-jest": "catalog:",
     "prettier": "catalog:",
+    "ts-jest": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:"
   },

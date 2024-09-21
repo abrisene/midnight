@@ -12,10 +12,10 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@acausal/ui-core": "workspace:*",
-    "@acausal/ui-admin": "workspace:*",
-    "@acausal/ui-llm": "workspace:*",
     "@acausal/hooks": "workspace:*",
+    "@acausal/ui-admin": "workspace:*",
+    "@acausal/ui-core": "workspace:*",
+    "@acausal/ui-llm": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

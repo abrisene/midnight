@@ -55,8 +55,8 @@
     "@types/jest": "catalog:",
     "eslint": "catalog:",
     "jest": "catalog:",
-    "ts-jest": "catalog:",
     "prettier": "catalog:",
+    "ts-jest": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:"
   },

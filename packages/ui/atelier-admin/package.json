@@ -41,8 +41,7 @@
     "bundle": true,
     "minify": true,
     "entry": [
-      "src/index.ts",
-      "src/use-ui-context/use-ui-context.ts"
+      "src/index.ts"
     ]
   },
   "scripts": {
@@ -70,8 +69,8 @@
     "@types/react": "catalog:react18",
     "eslint": "catalog:",
     "jest": "catalog:",
-    "ts-jest": "catalog:",
     "prettier": "catalog:",
+    "ts-jest": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:"
   },

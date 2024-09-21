@@ -1,5 +1,6 @@
 packages:
   - apps/storybook/
+  - apps/*
   # - packages/schemas/*
   - packages/utils/
   - packages/utils/*
