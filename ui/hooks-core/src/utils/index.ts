@@ -6,3 +6,6 @@ export * from "./utils-clipboard";
 export * from "./utils-input-events";
 export * from "./utils-rect";
 export * from "./utils-ref";
+export * from "./rect/get-rect";
+export * from "./transform/inverse-transform";
+export * from "./transform/parse-transform";

@@ -17,6 +17,21 @@
       "require": "./dist/hooks/state/index.cjs",
       "types": "./dist/hooks/state/index.d.ts"
     },
+    "./use-debounced-state": {
+      "import": "./src/hooks/state/index.tsuse-debounced-state.ts",
+      "require": "./dist/hooks/state/use-debounced-state.cjs",
+      "types": "./dist/hooks/state/use-debounced-state.d.ts"
+    },
+    "./use-debounced-value": {
+      "import": "./src/hooks/state/use-debounced-value.ts",
+      "require": "./dist/hooks/state/use-debounced-value.cjs",
+      "types": "./dist/hooks/state/use-debounced-value.d.ts"
+    },
+    "./use-set-state": {
+      "import": "./src/hooks/state/use-set-state.ts",
+      "require": "./dist/hooks/state/use-set-state.cjs",
+      "types": "./dist/hooks/state/use-set-state.d.ts"
+    },
     "./image": {
       "import": "./src/hooks/image/index.ts",
       "require": "./dist/hooks/image/index.cjs",
@@ -67,10 +82,25 @@
       "require": "./dist/hooks/use-mouse-position.cjs",
       "types": "./dist/hooks/use-mouse-position.d.ts"
     },
+    "./use-mutation-observer": {
+      "import": "./src/layout/use-mutation-observer.ts",
+      "require": "./dist/layout/use-mutation-observer.cjs",
+      "types": "./dist/layout/use-mutation-observer.d.ts"
+    },
+    "./use-rect": {
+      "import": "./src/layout/use-rect.ts",
+      "require": "./dist/layout/use-rect.cjs",
+      "types": "./dist/layout/use-rect.d.ts"
+    },
     "./use-ref-merge-ref": {
       "import": "./src/hooks/use-ref-merge-ref.ts",
       "require": "./dist/hooks/use-ref-merge-ref.cjs",
       "types": "./dist/hooks/use-ref-merge-ref.d.ts"
+    },
+    "./use-resize-observer": {
+      "import": "./src/layout/use-resize-observer.ts",
+      "require": "./dist/layout/use-resize-observer.cjs",
+      "types": "./dist/layout/use-resize-observer.d.ts"
     },
     "./use-scaled-array": {
       "import": "./src/hooks/use-scaled-array.ts",
@@ -117,6 +147,9 @@
     "entry": [
       "src/index.ts",
       "src/hooks/state/index.ts",
+      "src/hooks/state/use-debounced-state.ts",
+      "src/hooks/state/use-debounced-value.ts",
+      "src/hooks/state/use-set-state.ts",
       "src/hooks/timing/index.ts",
       "src/hooks/input/index.ts",
       "src/hooks/use-color-matrix.ts",
@@ -129,11 +162,14 @@
       "src/hooks/use-mouse-parallax.ts",
       "src/hooks/use-mouse-position.ts",
       "src/hooks/use-ref-merge-ref.ts",
+      "src/layout/use-resize-observer.ts",
       "src/hooks/use-scaled-array.ts",
       "src/hooks/use-scroll-to-percentage.ts",
       "src/hooks/use-scroll-to-ref.ts",
       "src/hooks/use-text-segments.ts",
       "src/hooks/use-text-selection.ts",
+      "src/layout/use-mutation-observer.ts",
+      "src/layout/use-rect.ts",
       "src/utils/index.ts",
       "src/schemas/index.ts"
     ],
@@ -160,6 +196,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@dnd-kit/utilities": "^3.2.2",
     "html2canvas": "^1.4.1",
     "jotai": "^2.9.3",
     "tinycolor2": "^1.6.0",

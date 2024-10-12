@@ -1,426 +1,377 @@
+// src/components/multi-select.tsx
+import type { VariantProps } from "class-variance-authority";
 import * as React from "react";
-import { DialogClose } from "@radix-ui/react-dialog";
-import { Check, ChevronsUpDown, Edit2 } from "lucide-react";
+import { cva } from "class-variance-authority";
+import {
+  CheckIcon,
+  ChevronDown,
+  WandSparkles,
+  XCircle,
+  XIcon,
+} from "lucide-react";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../shadcn/ui/accordion";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "../shadcn/ui/alert-dialog";
 import { Badge } from "../shadcn/ui/badge";
 import { Button } from "../shadcn/ui/button";
 import {
   Command,
+  CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
   CommandSeparator,
 } from "../shadcn/ui/command";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "../shadcn/ui/dialog";
-import { Input } from "../shadcn/ui/input";
-import { Label } from "../shadcn/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "../shadcn/ui/popover";
-import { cn } from "../utils/cn";
+import { Separator } from "../shadcn/ui/separator";
+import { cn } from "../utils";
 
-export interface Option {
-  value: string;
-  label: string;
-  color: string;
-}
-
-interface MultiSelectProps {
-  options: Option[];
-  selectedValues: Option[];
-  onChange: (selectedOptions: Option[]) => void;
-  onCreateOption?: (name: string) => void;
-  onUpdateOption?: (oldOption: Option, newOption: Option) => void;
-  onDeleteOption?: (option: Option) => void;
-  allowCreate?: boolean;
-  allowEdit?: boolean;
-  allowDelete?: boolean;
-  placeholder?: string;
-}
-
-const badgeStyle = (color: string) => ({
-  borderColor: `${color}20`,
-  backgroundColor: `${color}30`,
-  color,
-});
-
-export const useMultiSelect = (
-  initialOptions: Option[],
-  initialSelectedValues: Option[] = [],
-) => {
-  const [options, setOptions] = React.useState<Option[]>(initialOptions);
-  const [selectedValues, setSelectedValues] = React.useState<Option[]>(
-    initialSelectedValues,
-  );
-
-  const createOption = React.useCallback((name: string) => {
-    const newOption = {
-      value: name.toLowerCase(),
-      label: name,
-      color: "#ffffff",
-    };
-    setOptions((prev) => [...prev, newOption]);
-    setSelectedValues((prev) => [...prev, newOption]);
-  }, []);
-
-  const updateOption = React.useCallback(
-    (oldOption: Option, newOption: Option) => {
-      setOptions((prev) =>
-        prev.map((o) => (o.value === oldOption.value ? newOption : o)),
-      );
-      setSelectedValues((prev) =>
-        prev.map((o) => (o.value === oldOption.value ? newOption : o)),
-      );
+/**
+ * Variants for the multi-select component to handle different styles.
+ * Uses class-variance-authority (cva) to define different styles based on "variant" prop.
+ */
+const multiSelectVariants = cva(
+  "m-1 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110",
+  {
+    variants: {
+      variant: {
+        default:
+          "border-foreground/10 bg-card text-foreground hover:bg-card/80",
+        secondary:
+          "border-foreground/10 bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+        inverted: "inverted",
+      },
     },
-    [],
-  );
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
 
-  const deleteOption = React.useCallback((option: Option) => {
-    setOptions((prev) => prev.filter((o) => o.value !== option.value));
-    setSelectedValues((prev) => prev.filter((o) => o.value !== option.value));
-  }, []);
+/**
+ * Props for MultiSelect component
+ */
+interface MultiSelectProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof multiSelectVariants> {
+  /**
+   * An array of option objects to be displayed in the multi-select component.
+   * Each option object has a label, value, and an optional icon.
+   */
+  options: {
+    /** The text to display for the option. */
+    label: string;
+    /** The unique value associated with the option. */
+    value: string;
+    /** Optional icon component to display alongside the option. */
+    icon?: React.ComponentType<{ className?: string }>;
+  }[];
 
-  const toggleOption = React.useCallback((option: Option) => {
-    setSelectedValues((prev) =>
-      prev.includes(option)
-        ? prev.filter((o) => o.value !== option.value)
-        : [...prev, option],
-    );
-  }, []);
+  /**
+   * Callback function triggered when the selected values change.
+   * Receives an array of the new selected values.
+   */
+  onValueChange: (value: string[]) => void;
 
-  return {
-    options,
-    selectedValues,
-    createOption,
-    updateOption,
-    deleteOption,
-    toggleOption,
-    setSelectedValues,
-  };
-};
+  /** The default selected values when the component mounts. */
+  defaultValue?: string[];
 
-export const MultiSelect: React.FC<MultiSelectProps> = ({
-  options,
-  selectedValues,
-  onChange,
-  onCreateOption,
-  onUpdateOption,
-  onDeleteOption,
-  allowCreate = true,
-  allowEdit = true,
-  allowDelete = true,
-  placeholder = "Select options",
-}) => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const [openCombobox, setOpenCombobox] = React.useState(false);
-  const [openDialog, setOpenDialog] = React.useState(false);
-  const [inputValue, setInputValue] = React.useState<string>("");
+  /**
+   * Placeholder text to be displayed when no values are selected.
+   * Optional, defaults to "Select options".
+   */
+  placeholder?: string;
 
-  const toggleOption = (option: Option) => {
-    const newSelectedValues = selectedValues.includes(option)
-      ? selectedValues.filter((o) => o.value !== option.value)
-      : [...selectedValues, option];
-    onChange(newSelectedValues);
-    inputRef?.current?.focus();
-  };
+  /**
+   * Animation duration in seconds for the visual effects (e.g., bouncing badges).
+   * Optional, defaults to 0 (no animation).
+   */
+  animation?: number;
 
-  const onComboboxOpenChange = (value: boolean) => {
-    inputRef.current?.blur();
-    setOpenCombobox(value);
-  };
+  /**
+   * Maximum number of items to display. Extra selected items will be summarized.
+   * Optional, defaults to 3.
+   */
+  maxCount?: number;
 
-  return (
-    <div className="max-w-[200px]">
-      <Popover open={openCombobox} onOpenChange={onComboboxOpenChange}>
+  /**
+   * The modality of the popover. When set to true, interaction with outside elements
+   * will be disabled and only popover content will be visible to screen readers.
+   * Optional, defaults to false.
+   */
+  modalPopover?: boolean;
+
+  /**
+   * If true, renders the multi-select component as a child of another component.
+   * Optional, defaults to false.
+   */
+  asChild?: boolean;
+
+  /**
+   * Additional class names to apply custom styles to the multi-select component.
+   * Optional, can be used to add custom styles.
+   */
+  className?: string;
+}
+
+export const MultiSelect = React.forwardRef<
+  HTMLButtonElement,
+  MultiSelectProps
+>(
+  (
+    {
+      options,
+      onValueChange,
+      variant,
+      defaultValue = [],
+      placeholder = "Select options",
+      animation = 0,
+      maxCount = 3,
+      modalPopover = false,
+      asChild = false,
+      className,
+      ...props
+    },
+    ref,
+  ) => {
+    const [selectedValues, setSelectedValues] =
+      React.useState<string[]>(defaultValue);
+    const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
+    const [isAnimating, setIsAnimating] = React.useState(false);
+
+    const handleInputKeyDown = (
+      event: React.KeyboardEvent<HTMLInputElement>,
+    ) => {
+      if (event.key === "Enter") {
+        setIsPopoverOpen(true);
+      } else if (event.key === "Backspace" && !event.currentTarget.value) {
+        const newSelectedValues = [...selectedValues];
+        newSelectedValues.pop();
+        setSelectedValues(newSelectedValues);
+        onValueChange(newSelectedValues);
+      }
+    };
+
+    const toggleOption = (option: string) => {
+      const newSelectedValues = selectedValues.includes(option)
+        ? selectedValues.filter((value) => value !== option)
+        : [...selectedValues, option];
+      setSelectedValues(newSelectedValues);
+      onValueChange(newSelectedValues);
+    };
+
+    const handleClear = () => {
+      setSelectedValues([]);
+      onValueChange([]);
+    };
+
+    const handleTogglePopover = () => {
+      setIsPopoverOpen((prev) => !prev);
+    };
+
+    const clearExtraOptions = () => {
+      const newSelectedValues = selectedValues.slice(0, maxCount);
+      setSelectedValues(newSelectedValues);
+      onValueChange(newSelectedValues);
+    };
+
+    const toggleAll = () => {
+      if (selectedValues.length === options.length) {
+        handleClear();
+      } else {
+        const allValues = options.map((option) => option.value);
+        setSelectedValues(allValues);
+        onValueChange(allValues);
+      }
+    };
+
+    return (
+      <Popover
+        open={isPopoverOpen}
+        onOpenChange={setIsPopoverOpen}
+        modal={modalPopover}
+      >
         <PopoverTrigger asChild>
           <Button
-            variant="outline"
-            role="combobox"
-            aria-expanded={openCombobox}
-            className="w-[200px] justify-between text-foreground"
+            ref={ref}
+            {...props}
+            onClick={handleTogglePopover}
+            className={cn(
+              "flex h-auto min-h-10 w-full items-center justify-between rounded-md border bg-inherit p-1 hover:bg-inherit",
+              className,
+            )}
           >
-            <span className="truncate">
-              {selectedValues.length === 0 && placeholder}
-              {selectedValues.length === 1 && selectedValues[0]!.label}
-              {selectedValues.length === 2 &&
-                selectedValues.map(({ label }) => label).join(", ")}
-              {selectedValues.length > 2 &&
-                `${selectedValues.length} options selected`}
-            </span>
-            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            {selectedValues.length > 0 ? (
+              <div className="flex w-full items-center justify-between">
+                <div className="flex flex-wrap items-center">
+                  {selectedValues.slice(0, maxCount).map((value) => {
+                    const option = options.find((o) => o.value === value);
+                    const IconComponent = option?.icon;
+                    return (
+                      <Badge
+                        key={value}
+                        className={cn(
+                          isAnimating ? "animate-bounce" : "",
+                          multiSelectVariants({ variant }),
+                        )}
+                        style={{ animationDuration: `${animation}s` }}
+                      >
+                        {IconComponent && (
+                          <IconComponent className="mr-2 h-4 w-4" />
+                        )}
+                        {option?.label}
+                        <XCircle
+                          className="ml-2 h-4 w-4 cursor-pointer"
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            toggleOption(value);
+                          }}
+                        />
+                      </Badge>
+                    );
+                  })}
+                  {selectedValues.length > maxCount && (
+                    <Badge
+                      className={cn(
+                        "border-foreground/1 bg-transparent text-foreground hover:bg-transparent",
+                        isAnimating ? "animate-bounce" : "",
+                        multiSelectVariants({ variant }),
+                      )}
+                      style={{ animationDuration: `${animation}s` }}
+                    >
+                      {`+ ${selectedValues.length - maxCount} more`}
+                      <XCircle
+                        className="ml-2 h-4 w-4 cursor-pointer"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          clearExtraOptions();
+                        }}
+                      />
+                    </Badge>
+                  )}
+                </div>
+                <div className="flex items-center justify-between">
+                  <XIcon
+                    className="mx-2 h-4 cursor-pointer text-muted-foreground"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      handleClear();
+                    }}
+                  />
+                  <Separator
+                    orientation="vertical"
+                    className="flex h-full min-h-6"
+                  />
+                  <ChevronDown className="mx-2 h-4 cursor-pointer text-muted-foreground" />
+                </div>
+              </div>
+            ) : (
+              <div className="mx-auto flex w-full items-center justify-between">
+                <span className="mx-3 text-sm text-muted-foreground">
+                  {placeholder}
+                </span>
+                <ChevronDown className="mx-2 h-4 cursor-pointer text-muted-foreground" />
+              </div>
+            )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[200px] p-0">
-          <Command loop>
+        <PopoverContent
+          className="w-auto p-0"
+          align="start"
+          onEscapeKeyDown={() => setIsPopoverOpen(false)}
+        >
+          <Command>
             <CommandInput
-              ref={inputRef}
-              placeholder="Search options..."
-              value={inputValue}
-              onValueChange={setInputValue}
+              placeholder="Search..."
+              onKeyDown={handleInputKeyDown}
             />
             <CommandList>
-              <CommandGroup className="max-h-[145px] overflow-auto">
+              <CommandEmpty>No results found.</CommandEmpty>
+              <CommandGroup>
+                <CommandItem
+                  key="all"
+                  onSelect={toggleAll}
+                  className="cursor-pointer"
+                >
+                  <div
+                    className={cn(
+                      "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary",
+                      selectedValues.length === options.length
+                        ? "bg-primary text-primary-foreground"
+                        : "opacity-50 [&_svg]:invisible",
+                    )}
+                  >
+                    <CheckIcon className="h-4 w-4" />
+                  </div>
+                  <span>(Select All)</span>
+                </CommandItem>
                 {options.map((option) => {
-                  const isActive = selectedValues.includes(option);
+                  const isSelected = selectedValues.includes(option.value);
                   return (
                     <CommandItem
                       key={option.value}
-                      value={option.value}
-                      onSelect={() => toggleOption(option)}
+                      onSelect={() => toggleOption(option.value)}
+                      className="cursor-pointer"
                     >
-                      <Check
-                        className={cn(
-                          "mr-2 h-4 w-4",
-                          isActive ? "opacity-100" : "opacity-0",
-                        )}
-                      />
-                      <div className="flex-1">{option.label}</div>
                       <div
-                        className="h-4 w-4 rounded-full"
-                        style={{ backgroundColor: option.color }}
-                      />
+                        className={cn(
+                          "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary",
+                          isSelected
+                            ? "bg-primary text-primary-foreground"
+                            : "opacity-50 [&_svg]:invisible",
+                        )}
+                      >
+                        <CheckIcon className="h-4 w-4" />
+                      </div>
+                      {option.icon && (
+                        <option.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+                      )}
+                      <span>{option.label}</span>
                     </CommandItem>
                   );
                 })}
-                {allowCreate && (
-                  <CommandItemCreate
-                    onSelect={() =>
-                      onCreateOption && onCreateOption(inputValue)
-                    }
-                    inputValue={inputValue}
-                    options={options}
-                  />
-                )}
               </CommandGroup>
-              {allowEdit && (
-                <>
-                  <CommandSeparator alwaysRender />
-                  <CommandGroup>
-                    <CommandItem
-                      value={`:${inputValue}:`}
-                      className="text-xs text-muted-foreground"
-                      onSelect={() => setOpenDialog(true)}
-                    >
-                      <div className={cn("mr-2 h-4 w-4")} />
-                      <Edit2 className="mr-2 h-2.5 w-2.5" />
-                      Edit Options
-                    </CommandItem>
-                  </CommandGroup>
-                </>
-              )}
+              <CommandSeparator />
+              <CommandGroup>
+                <div className="flex items-center justify-between">
+                  {selectedValues.length > 0 && (
+                    <>
+                      <CommandItem
+                        onSelect={handleClear}
+                        className="flex-1 cursor-pointer justify-center"
+                      >
+                        Clear
+                      </CommandItem>
+                      <Separator
+                        orientation="vertical"
+                        className="flex h-full min-h-6"
+                      />
+                    </>
+                  )}
+                  <CommandItem
+                    onSelect={() => setIsPopoverOpen(false)}
+                    className="max-w-full flex-1 cursor-pointer justify-center"
+                  >
+                    Close
+                  </CommandItem>
+                </div>
+              </CommandGroup>
             </CommandList>
           </Command>
         </PopoverContent>
-      </Popover>
-      {allowEdit && (
-        <Dialog
-          open={openDialog}
-          onOpenChange={(open) => {
-            if (!open) {
-              setOpenCombobox(true);
-            }
-            setOpenDialog(open);
-          }}
-        >
-          <DialogContent className="flex max-h-[90vh] flex-col">
-            <DialogHeader>
-              <DialogTitle>Edit Options</DialogTitle>
-              <DialogDescription>
-                Change the option names or delete the options. Create an option
-                through the combobox.
-              </DialogDescription>
-            </DialogHeader>
-            <div className="-mx-6 flex-1 overflow-scroll px-6 py-2">
-              {options.map((option) => (
-                <DialogListItem
-                  key={option.value}
-                  onDelete={
-                    allowDelete
-                      ? () => onDeleteOption && onDeleteOption(option)
-                      : undefined
-                  }
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    const target = e.target as typeof e.target &
-                      Record<"name" | "color", { value: string }>;
-                    const newOption = {
-                      value: target.name.value.toLowerCase(),
-                      label: target.name.value,
-                      color: target.color.value,
-                    };
-                    onUpdateOption && onUpdateOption(option, newOption);
-                  }}
-                  {...option}
-                />
-              ))}
-            </div>
-            <DialogFooter className="bg-opacity-40">
-              <DialogClose asChild>
-                <Button variant="outline">Close</Button>
-              </DialogClose>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
-      )}
-      <div className="relative -mb-24 mt-3 h-24 overflow-y-auto">
-        {selectedValues.map(({ label, value, color }) => (
-          <Badge
-            key={value}
-            variant="outline"
-            style={badgeStyle(color)}
-            className="mb-2 mr-2"
-          >
-            {label}
-          </Badge>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const CommandItemCreate: React.FC<{
-  inputValue: string;
-  options: Option[];
-  onSelect: () => void;
-}> = ({ inputValue, options, onSelect }) => {
-  const hasNoOption = !options
-    .map(({ value }) => value)
-    .includes(inputValue.toLowerCase());
-
-  if (inputValue === "" || !hasNoOption) return null;
-
-  return (
-    <CommandItem
-      value={inputValue}
-      className="text-xs text-muted-foreground"
-      onSelect={onSelect}
-    >
-      <div className={cn("mr-2 h-4 w-4")} />
-      Create new option &quot;{inputValue}&quot;
-    </CommandItem>
-  );
-};
-
-const DialogListItem: React.FC<
-  Option & {
-    onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-    onDelete?: () => void;
-  }
-> = ({ value, label, color, onSubmit, onDelete }) => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const [accordionValue, setAccordionValue] = React.useState<string>("");
-  const [inputValue, setInputValue] = React.useState<string>(label);
-  const [colorValue, setColorValue] = React.useState<string>(color);
-  const disabled = label === inputValue && color === colorValue;
-
-  React.useEffect(() => {
-    if (accordionValue !== "") {
-      inputRef.current?.focus();
-    }
-  }, [accordionValue]);
-
-  return (
-    <Accordion
-      type="single"
-      collapsible
-      value={accordionValue}
-      onValueChange={setAccordionValue}
-    >
-      <AccordionItem value={value}>
-        <div className="flex items-center justify-between">
-          <div>
-            <Badge variant="outline" style={badgeStyle(color)}>
-              {label}
-            </Badge>
-          </div>
-          <div className="flex items-center gap-4">
-            <AccordionTrigger>Edit</AccordionTrigger>
-            {onDelete && (
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
-                  <Button variant="destructive" size="sm">
-                    Delete
-                  </Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-                    <AlertDialogDescription>
-                      You are about to delete the option{" "}
-                      <Badge variant="outline" style={badgeStyle(color)}>
-                        {label}
-                      </Badge>
-                      .
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={onDelete}>
-                      Delete
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
+        {animation > 0 && selectedValues.length > 0 && (
+          <WandSparkles
+            className={cn(
+              "my-2 h-3 w-3 cursor-pointer bg-background text-foreground",
+              isAnimating ? "" : "text-muted-foreground",
             )}
-          </div>
-        </div>
-        <AccordionContent>
-          <form
-            className="flex items-end gap-4"
-            onSubmit={(e) => {
-              onSubmit(e);
-              setAccordionValue("");
-            }}
-          >
-            <div className="grid w-full gap-3">
-              <Label htmlFor="name">Option name</Label>
-              <Input
-                ref={inputRef}
-                id="name"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                className="h-8"
-              />
-            </div>
-            <div className="grid gap-3">
-              <Label htmlFor="color">Color</Label>
-              <Input
-                id="color"
-                type="color"
-                value={colorValue}
-                onChange={(e) => setColorValue(e.target.value)}
-                className="h-8 px-2 py-1"
-              />
-            </div>
-            <Button type="submit" disabled={disabled} size="sm">
-              Save
-            </Button>
-          </form>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-  );
-};
+            onClick={() => setIsAnimating(!isAnimating)}
+          />
+        )}
+      </Popover>
+    );
+  },
+);
+
+MultiSelect.displayName = "MultiSelect";

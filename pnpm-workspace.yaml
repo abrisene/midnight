@@ -12,18 +12,22 @@ packages:
   - ui/*
   - tooling/*
 catalog:
+  dotenv: ^16.4.5
   eslint: ^9.7.0
   hash-wasm: ^4.11.0
   jest: ^29.7.0
   ts-jest: ^29.1.5
   "@types/jest": ^29.5.12
+  nanoid: ^5.0.7
   openai: ^4.55.7
   pino: ^9.3.2
   pino-pretty: ^11.2.2
   prettier: ^3.3.3
+  superjson: ^2.2.1
   tailwindcss: ^3.4.10
   tsup: ^8.2.4
   typescript: ^5.5.3
+  vinxi: ^0.4.3
   zod: ^3.23.8
 catalogs:
   pino:
@@ -34,5 +38,24 @@ catalogs:
     react-dom: 18.3.1
     "@types/react": ^18.3.3
     "@types/react-dom": ^18.3.0
+  tanstack:
+    "@tanstack/start": "^1.62.1"
+    "@tanstack/react-query": ^5.59.0
+    "@tanstack/react-query-devtools": ^5.59.0
+    "@tanstack/react-router": "^1.62.1"
+    "@tanstack/react-router-with-query": "^1.62.1"
+    "@tanstack/router-devtools": ^1.62.1
   tailwind:
     tailwindcss: ^3.4.10
+    autoprefixer: ^10.4.18
+    class-variance-authority: ^0.7.0
+  trpc:
+    "@trpc/client": ^11.0.0-rc.477
+    "@trpc/server": ^11.0.0-rc.477
+    "@trpc/react-query": ^11.0.0-rc.477
+  vite:
+    "@vitejs/plugin-react": ^4.3.1
+    "vite-plugin-top-level-await": ^1.4.4
+    "vite-plugin-wasm": ^3.3.0
+    "vite-tsconfig-paths": ^5.0.1
+    "@mdx-js/rollup": ^3.0.1
