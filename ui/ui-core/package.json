@@ -158,7 +158,7 @@
     "embla-carousel-react": "^8.1.8",
     "framer-motion": "^11.3.28",
     "input-otp": "^1.2.4",
-    "lucide-react": "^0.428.0",
+    "lucide-react": "^0.452.0",
     "next-themes": "^0.3.0",
     "react": "catalog:react18",
     "react-day-picker": "9.1.1",
