@@ -187,8 +187,8 @@
   "scripts": {
     "build:wip": "tsup",
     "dev": "tsup --watch",
-    "test": "pnpm jest --passWithNoTests",
-    "test:watch": "pnpm jest --watchAll",
+    "test-wip": "pnpm jest --passWithNoTests",
+    "test:watch-wip": "pnpm jest --watchAll",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
@@ -208,6 +208,7 @@
     "@configs/prettier-config": "workspace:*",
     "@configs/tailwind-config": "workspace:*",
     "@configs/tsconfig": "workspace:*",
+    "@testing-library/react-hooks": "^8.0.1",
     "@types/jest": "catalog:",
     "@types/node": "^20.16.5",
     "@types/react": "catalog:react18",
