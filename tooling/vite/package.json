@@ -25,12 +25,12 @@
     "eslint": "^9.9.0",
     "prettier": "^3.3.3",
     "typescript": "5.5.4",
-    "vite": "^5.4.7"
+    "vite": "^5.4.9"
   },
   "peerDependencies": {
     "@tanstack/router": "0.0.1-beta.53",
     "@vitejs/plugin-react": "^4.3.2",
-    "vite": "^5.4.7"
+    "vite": "^5.4.9"
   },
   "prettier": "@configs/prettier-config"
 }
