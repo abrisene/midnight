@@ -23,6 +23,46 @@
         "import": "./dist/curve/index.cjs",
         "types": "./dist/curve/index.d.cts"
       }
+    },
+    "./bezier-curve": {
+      "import": {
+        "import": "./src/components/curve/bezier-curve.tsx",
+        "types": "./src/components/curve/bezier-curve.d.tsx"
+      },
+      "require": {
+        "import": "./dist/components/curve/bezier-curve.cjs",
+        "types": "./dist/components/curve/bezier-curve.d.cts"
+      }
+    },
+    "./bezier-editor": {
+      "import": {
+        "import": "./src/components/curve/bezier-editor.tsx",
+        "types": "./src/components/curve/bezier-editor.d.tsx"
+      },
+      "require": {
+        "import": "./dist/components/curve/bezier-editor.cjs",
+        "types": "./dist/components/curve/bezier-editor.d.cts"
+      }
+    },
+    "./bezier-manager": {
+      "import": {
+        "import": "./src/components/curve/bezier-manager.tsx",
+        "types": "./src/components/curve/bezier-manager.d.tsx"
+      },
+      "require": {
+        "import": "./dist/components/curve/bezier-manager.cjs",
+        "types": "./dist/components/curve/bezier-manager.d.cts"
+      }
+    },
+    "./use-bezier-editor": {
+      "import": {
+        "import": "./src/components/curve/use-bezier-editor.tsx",
+        "types": "./src/components/curve/use-bezier-editor.d.tsx"
+      },
+      "require": {
+        "import": "./dist/components/curve/use-bezier-editor.cjs",
+        "types": "./dist/components/curve/use-bezier-editor.d.cts"
+      }
     }
   },
   "tsup": {
@@ -38,7 +78,11 @@
     "minify": true,
     "entry": [
       "src/index.ts",
-      "src/components/curve/index.ts"
+      "src/components/curve/index.ts",
+      "src/components/curve/bezier-curve.tsx",
+      "src/components/curve/bezier-editor.tsx",
+      "src/components/curve/bezier-manager.tsx",
+      "src/components/curve/use-bezier-editor.tsx"
     ]
   },
   "scripts": {

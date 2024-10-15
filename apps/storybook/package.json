@@ -15,7 +15,9 @@
     "@acausal/hooks": "workspace:*",
     "@acausal/ui-admin": "workspace:*",
     "@acausal/ui-core": "workspace:*",
+    "@acausal/ui-json": "workspace:*",
     "@acausal/ui-llm": "workspace:*",
+    "@acausal/ui-viz": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
