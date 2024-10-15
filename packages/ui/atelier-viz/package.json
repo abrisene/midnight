@@ -110,7 +110,7 @@
     "jotai-optics": "^0.3.1",
     "optics-ts": "^2.4.1",
     "zod": "catalog:",
-    "zustand": "^4.4.1"
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@configs/eslint-config": "workspace:*",
