@@ -104,8 +104,8 @@ importers:
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@chromatic-com/storybook':
-        specifier: ^1.9.0
-        version: 1.9.0(react@18.3.1)
+        specifier: ^2.0.2
+        version: 2.0.2(react@18.3.1)
       '@configs/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
@@ -476,8 +476,8 @@ importers:
         specifier: ^10.1.1
         version: 10.1.1
       jotai-effect:
-        specifier: ^0.3.2
-        version: 0.3.2(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1))
+        specifier: ^1.0.3
+        version: 1.0.3(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1))
       jotai-immer:
         specifier: ^0.3.0
         version: 0.3.0(immer@10.1.1)(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1))(react@18.3.1)
@@ -1023,8 +1023,8 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
       typescript:
-        specifier: 5.5.4
-        version: 5.5.4
+        specifier: 5.6.3
+        version: 5.6.3
       vite:
         specifier: ^5.4.9
         version: 5.4.9(@types/node@22.7.4)(terser@5.34.1)
@@ -1258,8 +1258,8 @@ importers:
         specifier: ^9.1.0
         version: 9.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       vaul:
-        specifier: ^0.9.9
-        version: 0.9.9(@types/react-dom@18.3.1)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^1.1.0
+        version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       zod:
         specifier: 'catalog:'
         version: 3.23.8
@@ -2353,8 +2353,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@chromatic-com/storybook@1.9.0':
-    resolution: {integrity: sha512-vYQ+TcfktEE3GHnLZXHCzXF/sN9dw+KivH8a5cmPyd9YtQs7fZtHrEgsIjWpYycXiweKMo1Lm1RZsjxk8DH3rA==}
+  '@chromatic-com/storybook@2.0.2':
+    resolution: {integrity: sha512-7bPIliISedeIpnVKbzktysFYW5n56bN91kxuOj1XXKixmjbUHRUMvcXd4K2liN6MiR5ZqJtmtcPsZ6CebbGlEA==}
     engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
 
   '@cspotcode/source-map-support@0.8.1':
@@ -7172,8 +7172,8 @@ packages:
   joi@17.13.3:
     resolution: {integrity: sha512-otDA4ldcIx+ZXsKHWmp0YizCweVRZG96J10b0FevjfuncLO1oX59THoAmHkNubYJ+9gWsYsp5k8v4ib6oDv1fA==}
 
-  jotai-effect@0.3.2:
-    resolution: {integrity: sha512-gfHYmA8Xbru2phaPI7DLB7su2EKpJcVyZZCK+xuLuA+1v5BxKJOmR80q9x2W0W0pHn1HMUa3wYTGPsjg9z23Ag==}
+  jotai-effect@1.0.3:
+    resolution: {integrity: sha512-Xye6oVMQkhOmkF9G5gdtwlqG2w9GuMcfYdRS0aV/HeoYCj1LfLJ4O8jQRVT/Zb5hPGOLGNll/x6k5wxifn1jYg==}
     peerDependencies:
       jotai: '>=2.5.0'
 
@@ -9425,6 +9425,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@5.6.3:
+    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
 
@@ -9591,8 +9596,8 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  vaul@0.9.9:
-    resolution: {integrity: sha512-7afKg48srluhZwIkaU+lgGtFCUsYBSGOl8vcc8N/M3YQlZFlynHD15AE+pwrYdc826o7nrIND4lL9Y6b9WWZZQ==}
+  vaul@1.1.0:
+    resolution: {integrity: sha512-YhO/bikcauk48hzhMhvIvT+U87cuCbNbKk9fF4Ou5UkI9t2KkBMernmdP37pCzF15hrv55fcny1YhexK8h6GVQ==}
     peerDependencies:
       react: ^16.8 || ^17.0 || ^18.0
       react-dom: ^16.8 || ^17.0 || ^18.0
@@ -11885,7 +11890,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@chromatic-com/storybook@1.9.0(react@18.3.1)':
+  '@chromatic-com/storybook@2.0.2(react@18.3.1)':
     dependencies:
       chromatic: 11.7.1
       filesize: 10.1.4
@@ -18158,7 +18163,7 @@ snapshots:
       '@sideway/formula': 3.0.1
       '@sideway/pinpoint': 2.0.0
 
-  jotai-effect@0.3.2(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1)):
+  jotai-effect@1.0.3(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1)):
     dependencies:
       jotai: 2.10.1(@types/react@18.3.8)(react@18.3.1)
 
@@ -21155,6 +21160,8 @@ snapshots:
 
   typescript@5.5.4: {}
 
+  typescript@5.6.3: {}
+
   ufo@1.5.4: {}
 
   uglify-js@3.19.2:
@@ -21321,7 +21328,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vaul@0.9.9(@types/react-dom@18.3.1)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  vaul@1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@radix-ui/react-dialog': 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1

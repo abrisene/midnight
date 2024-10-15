@@ -22,7 +22,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.9.0",
+    "@chromatic-com/storybook": "^2.0.2",
     "@configs/prettier-config": "workspace:*",
     "@configs/tailwind-config": "workspace:*",
     "@eslint/js": "^9.9.0",
