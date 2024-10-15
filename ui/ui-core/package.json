@@ -162,7 +162,7 @@
     "next-themes": "^0.3.0",
     "react": "catalog:react18",
     "react-day-picker": "9.1.4",
-    "react-dropzone": "^14.2.3",
+    "react-dropzone": "^14.2.9",
     "react-hook-form": "^7.52.2",
     "react-icon-cloud": "^4.1.4",
     "react-resizable-panels": "^2.1.4",
