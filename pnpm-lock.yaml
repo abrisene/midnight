@@ -479,8 +479,8 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1))
       jotai-immer:
-        specifier: ^0.3.0
-        version: 0.3.0(immer@10.1.1)(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1))(react@18.3.1)
+        specifier: ^0.4.1
+        version: 0.4.1(immer@10.1.1)(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1))
       jotai-optics:
         specifier: ^0.4.0
         version: 0.4.0(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1))(optics-ts@2.4.1)
@@ -1259,7 +1259,7 @@ importers:
         version: 9.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       vaul:
         specifier: ^1.1.0
-        version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       zod:
         specifier: 'catalog:'
         version: 3.23.8
@@ -7232,12 +7232,11 @@ packages:
     peerDependencies:
       jotai: '>=2.5.0'
 
-  jotai-immer@0.3.0:
-    resolution: {integrity: sha512-k+o4rWfWWLyHfucHAdoiN+l8flxMrKC/bEFvJA98znj+kbPW5R90EPa1u8mhWLJTABW3xjAp7Z3kyD3FVi0Hgw==}
+  jotai-immer@0.4.1:
+    resolution: {integrity: sha512-nQTt1HBKie/5OJDck1qLpV1PeBA6bjJLAczEYAx70PD8R4Mbu7gtexfBUCzJh6W6ecsOfwHksAYAesVth6SN9A==}
     peerDependencies:
-      immer: '*'
+      immer: '>=9.0.0'
       jotai: '>=2.0.0'
-      react: '>=17.0.0'
 
   jotai-optics@0.4.0:
     resolution: {integrity: sha512-osbEt9AgS55hC4YTZDew2urXKZkaiLmLqkTS/wfW5/l0ib8bmmQ7kBXSFaosV6jDDWSp00IipITcJARFHdp42g==}
@@ -18363,11 +18362,10 @@ snapshots:
     dependencies:
       jotai: 2.10.1(@types/react@18.3.8)(react@18.3.1)
 
-  jotai-immer@0.3.0(immer@10.1.1)(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1))(react@18.3.1):
+  jotai-immer@0.4.1(immer@10.1.1)(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1)):
     dependencies:
       immer: 10.1.1
       jotai: 2.10.1(@types/react@18.3.8)(react@18.3.1)
-      react: 18.3.1
 
   jotai-optics@0.4.0(jotai@2.10.1(@types/react@18.3.8)(react@18.3.1))(optics-ts@2.4.1):
     dependencies:
@@ -21535,7 +21533,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vaul@1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  vaul@1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@radix-ui/react-dialog': 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
