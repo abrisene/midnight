@@ -22,7 +22,7 @@
     "@configs/prettier-config": "workspace:*",
     "@configs/tsconfig": "workspace:*",
     "@mdx-js/rollup": "^3.0.1",
-    "eslint": "^9.9.0",
+    "eslint": "^9.12.0",
     "prettier": "^3.3.3",
     "typescript": "5.5.4",
     "vite": "^5.4.9"
