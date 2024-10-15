@@ -1249,8 +1249,8 @@ importers:
         specifier: ^1.5.0
         version: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwind-merge:
-        specifier: ^2.5.2
-        version: 2.5.2
+        specifier: ^2.5.4
+        version: 2.5.4
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.10(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@22.7.4)(typescript@5.5.2)))
@@ -9094,8 +9094,8 @@ packages:
   tailwind-lerp-colors@1.2.6:
     resolution: {integrity: sha512-YUFTo5GEV2HHfu+On9UbxCgzQTE/RbgZbBJ50gTcKK1bvBimWy7QzTjWAjrKqrhuRZsm2bB1+KatoFwaXGX0gg==}
 
-  tailwind-merge@2.5.2:
-    resolution: {integrity: sha512-kjEBm+pvD+6eAwzJL2Bi+02/9LFLal1Gs61+QB7HvTfQQ0aXwC5LGT8PEt1gS0CWKktKe6ysPTAy3cBC5MeiIg==}
+  tailwind-merge@2.5.4:
+    resolution: {integrity: sha512-0q8cfZHMu9nuYP/b5Shb7Y7Sh1B7Nnl5GqNr1U+n2p6+mybvRtayrQ+0042Z5byvTA8ihjlP8Odo8/VnHbZu4Q==}
 
   tailwindcss-3d@1.0.7:
     resolution: {integrity: sha512-WRW0HTwtBSlbFt4dztoDlCZyPHWM1wu/hn52kVqdVYrTFfgTcSCU5lNAIU+seL5eoaH7EIyQC5N4ok252ktSeQ==}
@@ -20582,7 +20582,7 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  tailwind-merge@2.5.2: {}
+  tailwind-merge@2.5.4: {}
 
   tailwindcss-3d@1.0.7(tailwindcss@3.4.14(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@22.7.4)(typescript@5.5.4))):
     dependencies:
