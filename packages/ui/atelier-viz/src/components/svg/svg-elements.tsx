@@ -14,7 +14,7 @@ export const SVGViewer = forwardRef<
   SVGSVGElement,
   React.SVGAttributes<SVGSVGElement> & SVGViewerProps
 >(({ children, className, width, height, ...props }, ref) => {
-  const ratio = width / height;
+  // const ratio = width / height;
   return (
     <svg
       ref={ref}

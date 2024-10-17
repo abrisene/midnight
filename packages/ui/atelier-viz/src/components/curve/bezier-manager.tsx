@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { cn } from "@acausal/ui-core";
 import { Button } from "@acausal/ui-core/button";
 import { ColorInput } from "@acausal/ui-core/color-input";
 import { PlusCircledIcon } from "@acausal/ui-core/icons";
@@ -16,8 +17,74 @@ import { SVGViewer } from "../svg/svg-elements";
 import {
   BezierCurve,
   BezierCurvesCallbacks,
+  CURVE_OPTIONS,
+  CurveType,
+  DEFAULT_CURVE,
   useBezierCurves,
 } from "./use-bezier-editor";
+
+/* -------------------------------------------------------------------------------------------------
+ * BezierCurveTypeSelect
+ * -----------------------------------------------------------------------------------------------*/
+
+interface BezierCurveTypeSelectProps
+  extends React.ComponentProps<typeof Select> {
+  value: BezierCurve["type"];
+  className?: string;
+  curve?: BezierCurve;
+  onChange: (type: BezierCurve["type"]) => void;
+}
+
+export const BezierCurveTypeSelect: React.FC<BezierCurveTypeSelectProps> = ({
+  value,
+  onChange,
+  className,
+  curve = DEFAULT_CURVE,
+  ...props
+}) => {
+  return (
+    <Select
+      value={value}
+      onValueChange={(value) => onChange(value as BezierCurve["type"])}
+      {...props}
+    >
+      <SelectTrigger className={cn("flex-initial capitalize", className)}>
+        <div className="flex-shrink-0">{value}</div>
+        {curve && (
+          <SVGViewer
+            width={100}
+            height={45}
+            className="flex-initial flex-shrink-0"
+          >
+            <BezierCurvePath
+              curve={{ ...curve, type: value as BezierCurve["type"] }}
+              width={100}
+              height={45}
+            />
+          </SVGViewer>
+        )}
+      </SelectTrigger>
+      <SelectContent>
+        {Object.entries(CURVE_OPTIONS).map(([value, label]) => (
+          <SelectItem key={value} value={value} className="capitalize">
+            <div className="justify-apart flex w-full items-center gap-2">
+              <div className="flex-shrink-0">{label}</div>
+              {curve && (
+                <SVGViewer width={94} height={36}>
+                  <BezierCurvePath
+                    curve={{ ...curve, type: value as BezierCurve["type"] }}
+                    width={94}
+                    height={36}
+                  />
+                </SVGViewer>
+              )}
+            </div>
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
+};
 
 /* -------------------------------------------------------------------------------------------------
  * BezierCurvesManager
@@ -64,20 +131,10 @@ export const BezierCurvesManager: React.FC<BezierCurvesManagerProps> = ({
           value={newCurveColor}
           onChange={(e) => setNewCurveColor(e.target.value)}
         />
-        <Select
+        <BezierCurveTypeSelect
           value={newCurveType}
-          onValueChange={(value) =>
-            setNewCurveType(value as BezierCurve["type"])
-          }
-        >
-          <SelectTrigger className="capitalize">{newCurveType}</SelectTrigger>
-          <SelectContent>
-            <SelectItem value="linear">Linear</SelectItem>
-            <SelectItem value="bezier">Bezier</SelectItem>
-            <SelectItem value="bezier-quadratic">Bezier (Quadratic)</SelectItem>
-            {/* Add more curve types as needed */}
-          </SelectContent>
-        </Select>
+          onChange={(value) => setNewCurveType(CurveType.parse(value))}
+        />
         <Input
           type="text"
           placeholder="Curve ID"
@@ -109,37 +166,21 @@ export const BezierCurvesManager: React.FC<BezierCurvesManagerProps> = ({
               {curve.id}
             </div>
 
-            <SVGViewer
+            {/* <SVGViewer
               width={94}
               height={36}
-              // className="rounded-md border border-white/20"
               className="rounded-md bg-muted/50"
             >
               <BezierCurvePath curve={curve} width={94} height={36} />
-            </SVGViewer>
-            {/* </div> */}
-            <Select
+            </SVGViewer> */}
+            <BezierCurveTypeSelect
               value={curve.type ?? newCurveType}
-              onValueChange={(value) => {
-                if (!value) return;
-                handlers.setType(
-                  curve.id,
-                  value as NonNullable<BezierCurve["type"]>,
-                );
-              }}
-            >
-              <SelectTrigger className="w-24 flex-shrink-0 truncate capitalize">
-                {curve.type ?? newCurveType}
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="linear">Linear</SelectItem>
-                <SelectItem value="bezier">Bezier</SelectItem>
-                <SelectItem value="bezier-quadratic">
-                  Bezier (Quadratic)
-                </SelectItem>
-                {/* Add more curve types as needed */}
-              </SelectContent>
-            </Select>
+              curve={curve}
+              onChange={(value) =>
+                handlers.setType(curve.id, CurveType.parse(value))
+              }
+            />
+
             <Button
               className="p-2 text-orange-700 dark:text-orange-300"
               variant="ghost"

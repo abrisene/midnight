@@ -17,6 +17,7 @@ interface BezierCurveEditorProps {
   lineWidth?: number;
   handleRadius?: number;
   onCurvesChange?: (curves: BezierCurve[]) => void;
+  onAddPoint?: (curveId: string, x: number, y: number) => void;
 }
 
 export const BezierCurveEditor = forwardRef<
@@ -30,13 +31,38 @@ export const BezierCurveEditor = forwardRef<
       lineWidth = 2,
       handleRadius = 8,
       onCurvesChange,
+      onAddPoint,
       className,
       ...props
     },
     ref,
   ) => {
-    const { curves, ref: containerRef, width, height } = useBezierCurves();
+    const {
+      curves,
+      ref: containerRef,
+      width,
+      height,
+      addPoint,
+      removePoint,
+    } = useBezierCurves();
     const mergedRef = useMergedRef(ref, containerRef);
+
+    const handleAddPoint = useCallback(
+      (curveId: string, x: number, y: number) => {
+        addPoint(curveId, x, y);
+        if (onAddPoint) {
+          onAddPoint(curveId, x, y);
+        }
+      },
+      [addPoint, onAddPoint],
+    );
+
+    const handleRemovePoint = useCallback(
+      (curveId: string, pointIndex: number) => {
+        removePoint(curveId, pointIndex);
+      },
+      [removePoint],
+    );
 
     return (
       <div
@@ -51,6 +77,7 @@ export const BezierCurveEditor = forwardRef<
               curve={curve}
               width={width}
               height={height}
+              onAddPoint={handleAddPoint}
             />
           ))}
           <BezierCurveHandles
@@ -59,6 +86,7 @@ export const BezierCurveEditor = forwardRef<
             handleRadius={handleRadius}
             width={width}
             height={height}
+            onRemovePoint={handleRemovePoint}
           />
         </SVGViewer>
         <div className="absolute bottom-1 right-1 font-mono text-xs text-muted">
@@ -79,6 +107,7 @@ interface BezierCurveHandlesProps {
   handleRadius: number;
   width: number;
   height: number;
+  onRemovePoint: (curveId: string, pointIndex: number) => void;
 }
 
 export const BezierCurveHandles: React.FC<BezierCurveHandlesProps> = ({
@@ -87,8 +116,14 @@ export const BezierCurveHandles: React.FC<BezierCurveHandlesProps> = ({
   handleRadius,
   width,
   height,
+  onRemovePoint,
 }) => {
-  const { setSelectedCurveIndex, setDraggingPointIndex } = useBezierCurves();
+  const {
+    setSelectedCurveIndex,
+    setDraggingPointIndex,
+    selectedCurveIndex,
+    draggingPointIndex,
+  } = useBezierCurves();
 
   const handleMouseDown = useCallback(
     (curveIndex: number, pointIndex: number) => {
@@ -98,10 +133,17 @@ export const BezierCurveHandles: React.FC<BezierCurveHandlesProps> = ({
     [setSelectedCurveIndex, setDraggingPointIndex],
   );
 
+  const handleDoubleClick = useCallback(
+    (curveId: string, pointIndex: number) => {
+      onRemovePoint(curveId, pointIndex);
+    },
+    [onRemovePoint],
+  );
+
   return (
     <>
       {curves.map((curve, curveIndex) => (
-        <g key={`${curve.id}-handles`}>
+        <g key={`${curve.id}-handles`} className="cursor-pointer">
           {curve.points.map((point, pointIndex) => (
             <CurveHandle
               key={`${curve.id}-${pointIndex}`}
@@ -110,8 +152,13 @@ export const BezierCurveHandles: React.FC<BezierCurveHandlesProps> = ({
               handleRadius={handleRadius}
               handleColor={handleColor}
               onMouseDown={() => handleMouseDown(curveIndex, pointIndex)}
+              onDoubleClick={() => handleDoubleClick(curve.id, pointIndex)}
               width={width}
               height={height}
+              dragging={
+                selectedCurveIndex === curveIndex &&
+                draggingPointIndex === pointIndex
+              }
             />
           ))}
         </g>

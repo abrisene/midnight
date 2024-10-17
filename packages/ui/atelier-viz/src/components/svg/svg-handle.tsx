@@ -14,6 +14,7 @@ interface CurveHandleProps extends React.SVGAttributes<SVGCircleElement> {
   handleColor: string;
   width: number;
   height: number;
+  dragging?: boolean;
 }
 
 export const CurveHandle: React.FC<CurveHandleProps> = ({
@@ -24,6 +25,8 @@ export const CurveHandle: React.FC<CurveHandleProps> = ({
   handleRadius,
   handleColor,
   onMouseDown,
+  className,
+  dragging,
   ...props
 }) => {
   const point = curve.points[pointIndex];
@@ -33,7 +36,11 @@ export const CurveHandle: React.FC<CurveHandleProps> = ({
 
   return (
     <circle
-      className={cn(`opacity-25 hover:opacity-100`)}
+      className={cn(
+        `cursor-pointer opacity-25 transition-opacity hover:opacity-100 active:cursor-grabbing active:opacity-100`,
+        dragging ? "cursor-grabbing" : "cursor-pointer",
+        className,
+      )}
       cx={x * width * 0.98}
       cy={y * height * 0.98}
       r={handleRadius}
