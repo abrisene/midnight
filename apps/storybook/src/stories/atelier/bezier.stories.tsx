@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
+import { Card, CardContent, CardHeader } from "@acausal/ui-core/card";
 import { BezierCurveEditor } from "@acausal/ui-viz/bezier-editor";
 import { BezierCurvesManager } from "@acausal/ui-viz/bezier-manager";
 import { BezierCurvesProvider } from "@acausal/ui-viz/use-bezier-editor";
 
 const meta = {
-  title: "Atelier/Bezier",
+  title: "Atelier/Viz/Bezier",
   component: BezierCurveEditor,
   decorators: [
     (Story) => (
@@ -61,10 +62,14 @@ export const BezierCurvesManagerStory: Story = {
 export const CombinedBezierComponents: Story = {
   render: () => (
     <div className="flex flex-col gap-4" style={{ width: "600px" }}>
-      <div style={{ height: "300px" }}>
-        <BezierCurveEditor />
-      </div>
-      <BezierCurvesManager />
+      <Card>
+        <CardContent className="mt-4">
+          <div style={{ height: "300px" }}>
+            <BezierCurveEditor />
+          </div>
+          <BezierCurvesManager />
+        </CardContent>
+      </Card>
     </div>
   ),
 };

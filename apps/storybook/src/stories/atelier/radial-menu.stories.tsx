@@ -4,6 +4,13 @@ import RadialMenu from "@acausal/ui-core/radial-menu";
 const meta = {
   title: "Atelier/Menus/Radial Menu",
   component: RadialMenu,
+  decorators: [
+    (Story) => (
+      <div className="relative h-96 w-96">
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     radius: { control: "number" },
     arcOffset: { control: "number" },
