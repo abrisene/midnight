@@ -32,9 +32,9 @@
   },
   "devDependencies": {
     "@configs/prettier-config": "workspace:*",
-    "@turbo/gen": "^2.0.14",
+    "@turbo/gen": "^2.1.3",
     "prettier": "catalog:",
-    "turbo": "^2.0.14",
+    "turbo": "^2.1.3",
     "typescript": "catalog:"
   },
   "prettier": "@configs/prettier-config"
