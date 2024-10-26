@@ -79,6 +79,10 @@
     },
     "//#clean": {
       "cache": false
+    },
+    "ui-add": {
+      "cache": false,
+      "interactive": true
     }
   }
 }

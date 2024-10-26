@@ -12,9 +12,6 @@ catalogs:
     '@phosphor-icons/react':
       specifier: ^2.1.7
       version: 2.1.7
-    cmdk:
-      specifier: 1.0.0
-      version: 1.0.0
     framer-motion:
       specifier: ^11.11.9
       version: 11.11.9
@@ -461,13 +458,13 @@ importers:
         version: 9.9.0(jiti@2.3.3)
       jest:
         specifier: 'catalog:'
-        version: 29.7.0(@types/node@22.7.4)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@22.7.4)(typescript@5.5.4))
+        version: 29.7.0(@types/node@20.16.12)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@20.16.12)(typescript@5.5.4))
       prettier:
         specifier: 'catalog:'
         version: 3.3.3
       ts-jest:
         specifier: 'catalog:'
-        version: 29.2.4(@babel/core@7.25.8)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.8))(jest@29.7.0(@types/node@22.7.4)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@22.7.4)(typescript@5.5.4)))(typescript@5.5.4)
+        version: 29.2.4(@babel/core@7.25.8)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.8))(esbuild@0.23.0)(jest@29.7.0(@types/node@20.16.12)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@20.16.12)(typescript@5.5.4)))(typescript@5.5.4)
       tsup:
         specifier: 'catalog:'
         version: 8.2.4(@swc/core@1.7.26(@swc/helpers@0.5.12))(jiti@2.3.3)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.5.4)(yaml@2.5.1)
@@ -498,13 +495,13 @@ importers:
         version: 9.9.0(jiti@2.3.3)
       jest:
         specifier: 'catalog:'
-        version: 29.7.0(@types/node@20.16.12)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@20.16.12)(typescript@5.5.4))
+        version: 29.7.0(@types/node@22.7.4)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@22.7.4)(typescript@5.5.4))
       prettier:
         specifier: 'catalog:'
         version: 3.3.3
       ts-jest:
         specifier: 'catalog:'
-        version: 29.2.4(@babel/core@7.25.8)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.8))(esbuild@0.23.0)(jest@29.7.0(@types/node@20.16.12)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@20.16.12)(typescript@5.5.4)))(typescript@5.5.4)
+        version: 29.2.4(@babel/core@7.25.8)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.8))(jest@29.7.0(@types/node@22.7.4)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@22.7.4)(typescript@5.5.4)))(typescript@5.5.4)
       tsup:
         specifier: 'catalog:'
         version: 8.2.4(@swc/core@1.7.26(@swc/helpers@0.5.12))(jiti@2.3.3)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.5.4)(yaml@2.5.1)
@@ -1213,6 +1210,9 @@ importers:
       '@configs/tsconfig':
         specifier: workspace:*
         version: link:../typescript
+      '@types/eslint__js':
+        specifier: 8.42.3
+        version: 8.42.3
       eslint:
         specifier: 'catalog:'
         version: 9.9.0(jiti@2.3.3)
@@ -1553,7 +1553,7 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       cmdk:
-        specifier: catalog:client
+        specifier: ^1.0.0
         version: 1.0.0(@types/react-dom@18.3.1)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       cobe:
         specifier: ^0.6.3
@@ -1580,8 +1580,8 @@ importers:
         specifier: catalog:react18
         version: 18.3.1
       react-day-picker:
-        specifier: 9.1.4
-        version: 9.1.4(react@18.3.1)
+        specifier: 8.10.1
+        version: 8.10.1(date-fns@4.1.0)(react@18.3.1)
       react-dropzone:
         specifier: ^14.2.9
         version: 14.2.9(react@18.3.1)
@@ -2468,9 +2468,6 @@ packages:
   '@csstools/convert-colors@2.0.0':
     resolution: {integrity: sha512-P7BVvddsP2Wl5v3drJ3ArzpdfXMqoZ/oHOV/yFiGFb3JQr9Z9UXZ9tnHAKJsO89lfprR1F9ExW3Yij21EjEBIA==}
     engines: {node: '>=6.0.0'}
-
-  '@date-fns/tz@1.1.2':
-    resolution: {integrity: sha512-Xmg2cPmOPQieCLAdf62KtFPU9y7wbQDq1OAzrs/bEQFvhtCPXDiks1CHDE/sTXReRfh/MICVkw/vY6OANHUGiA==}
 
   '@deno/shim-deno-test@0.5.0':
     resolution: {integrity: sha512-4nMhecpGlPi0cSzT67L+Tm+GOJqvuk8gqHBziqcUQOarnuIax1z96/gJHCSIz2Z0zhxE6Rzwb3IZXPtFh51j+w==}
@@ -5118,6 +5115,12 @@ packages:
 
   '@types/escodegen@0.0.6':
     resolution: {integrity: sha512-AjwI4MvWx3HAOaZqYsjKWyEObT9lcVV0Y0V8nXo6cXzN8ZiMxVhf6F3d/UNvXVGKrEzL/Dluc5p+y9GkzlTWig==}
+
+  '@types/eslint@9.6.1':
+    resolution: {integrity: sha512-FXx2pKgId/WyYo2jXw63kk7/+TY7u7AziEJxJAnSFzHlqTAS3Ync6SvgYAN/k4/PQpnnVuzoMuVnByKK2qp0ag==}
+
+  '@types/eslint__js@8.42.3':
+    resolution: {integrity: sha512-alfG737uhmPdnvkrLdZLcEKJ/B8s9Y4hrZ+YAdzUeoArBlSUERA2E87ROfOaS4jd/C45fzOoZzidLc1IPwLqOw==}
 
   '@types/estree-jsx@1.0.5':
     resolution: {integrity: sha512-52CcUVNFyfb1A2ALocQw/Dd1BQFNmSdkuC3BkZ6iqhdMfQz7JWOFRuJFloOzjk+6WijU56m9oKXFAXc7o3Towg==}
@@ -9356,11 +9359,11 @@ packages:
     peerDependencies:
       react: ^16.3.0 || ^17.0.1 || ^18.0.0
 
-  react-day-picker@9.1.4:
-    resolution: {integrity: sha512-S5ixQz32vl9OTvtu8STGhZH6yQnqAqWTTeiTBgaYNgrVda5+cAUL3+cgvozG3BUruiXETAnVXDFkFmoB2brkwQ==}
-    engines: {node: '>=18'}
+  react-day-picker@8.10.1:
+    resolution: {integrity: sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==}
     peerDependencies:
-      react: '>=16.8.0'
+      date-fns: ^2.28.0 || ^3.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   react-devtools-core@5.3.1:
     resolution: {integrity: sha512-7FSb9meX0btdBQLwdFOwt6bGqvRPabmVMMslv8fgoSPqXyuGpgQe36kx8gR86XPw7aV1yVouTp6fyZ0EH+NfUw==}
@@ -12207,8 +12210,6 @@ snapshots:
       '@jridgewell/trace-mapping': 0.3.9
 
   '@csstools/convert-colors@2.0.0': {}
-
-  '@date-fns/tz@1.1.2': {}
 
   '@deno/shim-deno-test@0.5.0': {}
 
@@ -15188,6 +15189,15 @@ snapshots:
   '@types/doctrine@0.0.9': {}
 
   '@types/escodegen@0.0.6': {}
+
+  '@types/eslint@9.6.1':
+    dependencies:
+      '@types/estree': 1.0.6
+      '@types/json-schema': 7.0.15
+
+  '@types/eslint__js@8.42.3':
+    dependencies:
+      '@types/eslint': 9.6.1
 
   '@types/estree-jsx@1.0.5':
     dependencies:
@@ -20918,9 +20928,8 @@ snapshots:
       react: 18.3.1
       tween-functions: 1.2.0
 
-  react-day-picker@9.1.4(react@18.3.1):
+  react-day-picker@8.10.1(date-fns@4.1.0)(react@18.3.1):
     dependencies:
-      '@date-fns/tz': 1.1.2
       date-fns: 4.1.0
       react: 18.3.1
 
