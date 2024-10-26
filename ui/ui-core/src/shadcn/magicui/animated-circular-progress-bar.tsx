@@ -54,7 +54,7 @@ export default function AnimatedCircularProgressBar({
             strokeDashoffset="0"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className=" opacity-100"
+            className="opacity-100"
             style={
               {
                 stroke: gaugeSecondaryColor,

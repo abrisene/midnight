@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useCallback, useEffect } from "react";
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-
 import { cn } from "@acausal/ui-core";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 
 export interface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {
   gradientSize?: number;
@@ -45,7 +44,7 @@ export function MagicCard({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "group relative flex size-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white",
+        "group relative flex size-full overflow-hidden rounded-xl border bg-neutral-100 text-black dark:bg-neutral-900 dark:text-white",
         className,
       )}
     >

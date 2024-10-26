@@ -1,4 +1,4 @@
-import { cn } from "../../utils/cn";
+import { cn } from "@acausal/ui-core";
 
 function Skeleton({
   className,

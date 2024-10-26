@@ -1,5 +1,4 @@
 import { useId } from "react";
-
 import { cn } from "@acausal/ui-core";
 
 interface DotPatternProps {

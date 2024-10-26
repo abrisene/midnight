@@ -1,8 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, Variants } from "framer-motion";
-
 import { cn } from "@acausal/ui-core";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 
 interface GradualSpacingProps {
   text: string;
@@ -33,7 +32,7 @@ export default function GradualSpacing({
             exit="hidden"
             variants={framerProps}
             transition={{ duration, delay: i * delayMultiple }}
-            className={cn("drop-shadow-sm ", className)}
+            className={cn("drop-shadow-sm", className)}
           >
             {char === " " ? <span>&nbsp;</span> : char}
           </motion.h1>

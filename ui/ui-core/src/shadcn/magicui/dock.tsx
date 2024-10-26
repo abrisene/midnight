@@ -1,10 +1,10 @@
 "use client";
 
+import type { VariantProps } from "class-variance-authority";
 import React, { PropsWithChildren, useRef } from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-
 import { cn } from "@acausal/ui-core";
+import { cva } from "class-variance-authority";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
   className?: string;
@@ -18,7 +18,7 @@ const DEFAULT_MAGNIFICATION = 60;
 const DEFAULT_DISTANCE = 140;
 
 const dockVariants = cva(
-  "mx-auto w-max mt-8 h-[58px] p-2 flex gap-2 rounded-2xl border supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 backdrop-blur-md",
+  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-8 flex h-[58px] w-max gap-2 rounded-2xl border p-2 backdrop-blur-md",
 );
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(

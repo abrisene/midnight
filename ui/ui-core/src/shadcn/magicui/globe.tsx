@@ -1,10 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef } from "react";
+import { cn } from "@acausal/ui-core";
 import createGlobe, { COBEOptions } from "cobe";
 import { useSpring } from "react-spring";
-
-import { cn } from "@acausal/ui-core";
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,

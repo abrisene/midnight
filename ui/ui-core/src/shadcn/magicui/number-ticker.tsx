@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useInView, useMotionValue, useSpring } from "framer-motion";
-
 import { cn } from "@acausal/ui-core";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
 
 export default function NumberTicker({
   value,
@@ -46,7 +45,7 @@ export default function NumberTicker({
   return (
     <span
       className={cn(
-        "inline-block tabular-nums text-black dark:text-white tracking-wider",
+        "inline-block tabular-nums tracking-wider text-black dark:text-white",
         className,
       )}
       ref={ref}

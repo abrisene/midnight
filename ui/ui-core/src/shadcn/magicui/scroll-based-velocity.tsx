@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { cn } from "@acausal/ui-core";
 import {
   motion,
   useAnimationFrame,
@@ -10,8 +11,6 @@ import {
   useTransform,
   useVelocity,
 } from "framer-motion";
-
-import { cn } from "@acausal/ui-core";
 
 interface VelocityScrollProps {
   text: string;

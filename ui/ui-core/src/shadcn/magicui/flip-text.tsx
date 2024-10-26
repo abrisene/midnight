@@ -1,8 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, Variants } from "framer-motion";
-
 import { cn } from "@acausal/ui-core";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 
 interface SlightFlipProps {
   word: string;

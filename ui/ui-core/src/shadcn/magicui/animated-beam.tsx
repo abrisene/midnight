@@ -1,9 +1,8 @@
 "use client";
 
 import { RefObject, useEffect, useId, useState } from "react";
-import { motion } from "framer-motion";
-
 import { cn } from "@acausal/ui-core";
+import { motion } from "framer-motion";
 
 export interface AnimatedBeamProps {
   className?: string;

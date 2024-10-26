@@ -4,7 +4,7 @@ export const Marquee: React.FC<{ children: React.ReactNode }> = ({
   return (
     <div className="z-10 mt-10 w-full overflow-hidden sm:mt-24">
       <div className="relative flex max-w-[90vw] overflow-hidden py-5">
-        <div className="animate-marquee flex w-max [--duration:30s]">
+        <div className="flex w-max animate-marquee [--duration:30s]">
           {children}
         </div>
       </div>

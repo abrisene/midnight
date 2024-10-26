@@ -1,13 +1,9 @@
+import type { EnrichedTweet, TweetProps, TwitterComponents } from "react-tweet";
+import type { Tweet } from "react-tweet/api";
 import { Suspense } from "react";
-import {
-  enrichTweet,
-  type EnrichedTweet,
-  type TweetProps,
-  type TwitterComponents,
-} from "react-tweet";
-import { getTweet, type Tweet } from "react-tweet/api";
-
 import { cn } from "@acausal/ui-core";
+import { enrichTweet } from "react-tweet";
+import { getTweet } from "react-tweet/api";
 
 interface TwitterIconProps {
   className?: string;

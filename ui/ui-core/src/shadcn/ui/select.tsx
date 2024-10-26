@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { cn } from "@acausal/ui-core";
 import {
   CaretSortIcon,
   CheckIcon,
@@ -8,8 +9,6 @@ import {
   ChevronUpIcon,
 } from "@radix-ui/react-icons";
 import * as SelectPrimitive from "@radix-ui/react-select";
-
-import { cn } from "../../utils/cn";
 
 const Select = SelectPrimitive.Root;
 

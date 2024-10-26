@@ -1,8 +1,7 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
-
 import { cn } from "@acausal/ui-core";
+import { motion, Variants } from "framer-motion";
 
 interface WordPullUpProps {
   words: string;

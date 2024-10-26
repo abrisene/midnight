@@ -28,7 +28,8 @@
     "docker:dev": "docker compose up --detach",
     "docker:pull": "docker compose up --detach --pull always",
     "docker:restart": "docker compose restart",
-    "docker:stop": "docker compose down"
+    "docker:stop": "docker compose down",
+    "ui-add": "turbo run ui-add"
   },
   "devDependencies": {
     "@configs/prettier-config": "workspace:*",

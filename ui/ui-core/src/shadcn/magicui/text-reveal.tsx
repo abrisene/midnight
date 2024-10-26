@@ -1,9 +1,8 @@
 "use client";
 
 import { FC, ReactNode, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-
 import { cn } from "@acausal/ui-core";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 interface TextRevealByWordProps {
   text: string;

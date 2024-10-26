@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, type AnimationProps } from "framer-motion";
-
+import type { AnimationProps } from "framer-motion";
 import { cn } from "@acausal/ui-core";
+import { motion } from "framer-motion";
 
 const animationProps = {
   initial: { "--x": "100%", scale: 0.8 },

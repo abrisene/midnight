@@ -6,7 +6,7 @@ export const SkeletonBrowser: React.FC<{
 }> = ({ className, children }) => (
   <div
     className={cn(
-      "dark:dots-neutral-800 dots-gray-300 relative h-[400px] w-full rounded-lg border bg-white text-sm text-neutral-950 shadow-lg shadow-gray-200 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-400 dark:shadow-none",
+      "relative h-[400px] w-full rounded-lg border bg-white text-sm text-neutral-950 shadow-lg shadow-gray-200 dots-gray-300 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-400 dark:shadow-none dark:dots-neutral-800",
       className,
     )}
   >

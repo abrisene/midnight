@@ -1,9 +1,8 @@
 "use client";
 
 import { CSSProperties, ReactElement, useEffect, useState } from "react";
-import { motion } from "framer-motion";
-
 import { cn } from "@acausal/ui-core";
+import { motion } from "framer-motion";
 
 interface Sparkle {
   id: string;
