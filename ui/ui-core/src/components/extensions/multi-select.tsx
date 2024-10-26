@@ -10,8 +10,8 @@ import {
   XIcon,
 } from "lucide-react";
 
-import { Badge } from "../shadcn/ui/badge";
-import { Button } from "../shadcn/ui/button";
+import { Badge } from "../components/shadcn/badge";
+import { Button } from "../components/shadcn/button";
 import {
   Command,
   CommandEmpty,
@@ -20,9 +20,13 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "../shadcn/ui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "../shadcn/ui/popover";
-import { Separator } from "../shadcn/ui/separator";
+} from "../components/shadcn/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "../components/shadcn/popover";
+import { Separator } from "../components/shadcn/separator";
 import { cn } from "../utils";
 
 /**

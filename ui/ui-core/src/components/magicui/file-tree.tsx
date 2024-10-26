@@ -12,8 +12,8 @@ import { cn } from "@acausal/ui-core";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { FileIcon, FolderIcon, FolderOpenIcon } from "lucide-react";
 
-import { Button } from "../ui/button";
-import { ScrollArea } from "../ui/scroll-area";
+import { Button } from "../shadcn/button";
+import { ScrollArea } from "../shadcn/scroll-area";
 
 type TreeViewElement = {
   id: string;

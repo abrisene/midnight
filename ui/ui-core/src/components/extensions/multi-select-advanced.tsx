@@ -7,7 +7,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../shadcn/ui/accordion";
+} from "../components/shadcn/accordion";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -18,9 +18,9 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "../shadcn/ui/alert-dialog";
-import { Badge } from "../shadcn/ui/badge";
-import { Button } from "../shadcn/ui/button";
+} from "../components/shadcn/alert-dialog";
+import { Badge } from "../components/shadcn/badge";
+import { Button } from "../components/shadcn/button";
 import {
   Command,
   CommandGroup,
@@ -28,7 +28,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "../shadcn/ui/command";
+} from "../components/shadcn/command";
 import {
   Dialog,
   DialogContent,
@@ -36,10 +36,14 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "../shadcn/ui/dialog";
-import { Input } from "../shadcn/ui/input";
-import { Label } from "../shadcn/ui/label";
-import { Popover, PopoverContent, PopoverTrigger } from "../shadcn/ui/popover";
+} from "../components/shadcn/dialog";
+import { Input } from "../components/shadcn/input";
+import { Label } from "../components/shadcn/label";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "../components/shadcn/popover";
 import { cn } from "../utils/cn";
 
 export interface Option {

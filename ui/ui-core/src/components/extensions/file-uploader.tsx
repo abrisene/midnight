@@ -20,8 +20,8 @@ import {
 } from "react-dropzone";
 import { toast } from "sonner";
 
-import { buttonVariants } from "../shadcn/ui/button";
-import { Input } from "../shadcn/ui/input";
+import { buttonVariants } from "../components/shadcn/button";
+import { Input } from "../components/shadcn/input";
 import { cn } from "../utils";
 
 type DirectionOptions = "rtl" | "ltr" | undefined;

@@ -1,9 +1,8 @@
 import React, { useCallback, useState } from "react";
 
-import { Button } from "../../shadcn/ui/button";
-import { Input } from "../../shadcn/ui/input";
-import { Label } from "../../shadcn/ui/label";
 import { cn } from "../../utils";
+import { Input } from "../shadcn/input";
+import { Label } from "../shadcn/label";
 
 interface KeyValuePair {
   key: string;

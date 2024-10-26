@@ -12,8 +12,8 @@
   "aliases": {
     "utils": "@acausal/ui-core",
     "ui": "@acausal/ui-core",
-    "components": "src2/components",
-    "lib": "src2/lib",
+    "components": "src/components",
+    "lib": "src/lib",
     "hooks": "@acausal/ui-core/hooks",
     "magicui": "src/shadcn/magicui"
   }

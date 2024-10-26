@@ -15,8 +15,8 @@ import {
   ChevronDownIcon as FolderOpenIcon,
 } from "@radix-ui/react-icons";
 
-import { Button } from "../shadcn/ui/button";
-import { ScrollArea } from "../shadcn/ui/scroll-area";
+import { Button } from "../components/shadcn/button";
+import { ScrollArea } from "../components/shadcn/scroll-area";
 import { cn } from "../utils/cn";
 
 /**
