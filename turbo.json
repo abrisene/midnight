@@ -3,7 +3,9 @@
   "globalDependencies": [
     "**/.env"
   ],
-  "globalEnv": [],
+  "globalEnv": [
+    "NODE_ENV"
+  ],
   "ui": "tui",
   "tasks": {
     "topo": {
