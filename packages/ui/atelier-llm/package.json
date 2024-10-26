@@ -27,6 +27,16 @@
         "import": "./dist/use-ui-context/use-ui-context.cjs",
         "types": "./dist/use-ui-context/use-ui-context.d.cts"
       }
+    },
+    "./prompt-chain-editor": {
+      "import": {
+        "import": "./src/prompt-chain/prompt-chain.js",
+        "types": "./src/prompt-chain/prompt-chain.d.ts"
+      },
+      "require": {
+        "import": "./dist/prompt-chain/prompt-chain.cjs",
+        "types": "./dist/prompt-chain/prompt-chain.d.cts"
+      }
     }
   },
   "tsup": {
@@ -42,7 +52,8 @@
     "minify": true,
     "entry": [
       "src/index.ts",
-      "src/use-ui-context/use-ui-context.ts"
+      "src/use-ui-context/use-ui-context.ts",
+      "src/prompt-chain/prompt-chain.ts"
     ]
   },
   "scripts": {

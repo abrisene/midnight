@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { MouseEvent, useCallback, useRef, useState } from "react";
 
 /**
  * useContextualData Hook
@@ -100,35 +100,45 @@ export const useContextualData = (
     [maxHistoryLength],
   );
 
-  const handleHover = useCallback(
-    (element: HTMLElement) => {
+  const onMouseEnter = useCallback(
+    (event: MouseEvent) => {
+      const element = event.target;
+      if (!(element instanceof HTMLElement)) return;
+
       if (hoverTimerRef.current) {
         clearTimeout(hoverTimerRef.current);
       }
 
       hoverTimerRef.current = setTimeout(() => {
-        const data = {
-          type: element.tagName.toLowerCase(),
-          data: { ...element.dataset },
-        };
-        setCurrentData(data);
-        updateHistory(data, "hover");
+        const contextData = getContextData(element);
+        if (contextData) {
+          const data = {
+            type: element.tagName.toLowerCase(),
+            interaction: "hover",
+            data: contextData,
+          };
+          setCurrentData(data);
+          updateHistory(data, "hover");
+        }
       }, hoverThreshold);
     },
     [updateHistory, hoverThreshold],
   );
 
-  const handleMouseLeave = useCallback(() => {
+  const onMouseLeave = useCallback(() => {
     if (hoverTimerRef.current) {
       clearTimeout(hoverTimerRef.current);
     }
   }, []);
 
-  const handleInteraction = useCallback(
+  const onInteraction = useCallback(
     (element: HTMLElement, interactionType: string) => {
+      const contextData = getContextData(element);
+      if (!contextData) return;
       const data = {
         type: element.tagName.toLowerCase(),
-        data: { ...element.dataset },
+        interaction: interactionType,
+        data: contextData,
       };
       setCurrentData(data);
       updateHistory(data, interactionType);
@@ -136,11 +146,57 @@ export const useContextualData = (
     [updateHistory],
   );
 
+  const onClick = useCallback(
+    (element: MouseEvent) => {
+      if (!(element instanceof HTMLElement)) return;
+      onInteraction(element, "click");
+    },
+    [onInteraction],
+  );
+
   return {
     currentData,
     history,
-    handleHover,
-    handleMouseLeave,
-    handleInteraction,
+    onInteraction,
+    eventHandlers: {
+      onMouseEnter,
+      onMouseLeave,
+      onClick,
+    },
   };
+};
+
+/**
+ * Check if an element has a data attribute
+ * @param element - The element to check
+ * @param attribute - The attribute to check for
+ * @returns true if the element has the attribute, false otherwise
+ */
+const hasDataAttribute = (element: HTMLElement, attribute: string) => {
+  return element.dataset[attribute] !== undefined;
+};
+
+/**
+ * Check if an element has a data attribute in any of its parents
+ * @param element - The element to check
+ * @param attribute - The attribute to check for
+ * @returns The parent element if the attribute is found, undefined otherwise
+ */
+const hasDataAttributeParent = (element: HTMLElement, attribute: string) => {
+  let currentElement: HTMLElement | null = element;
+  while (currentElement) {
+    if (hasDataAttribute(currentElement, attribute)) return currentElement;
+    currentElement = currentElement.parentElement;
+  }
+  return undefined;
+};
+
+/**
+ * Get the data attribute from an element or its closest parent
+ * @param element - The element to check
+ * @returns The data attribute value
+ */
+const getContextData = (element: HTMLElement) => {
+  const parent = hasDataAttributeParent(element, "contextData");
+  return parent ? parent.dataset.contextData : element.dataset.contextData;
 };

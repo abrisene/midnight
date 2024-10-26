@@ -27,7 +27,7 @@ interface PromptChain {
 }
 
 // Custom Hook
-const usePromptChain = () => {
+export const usePromptChain = () => {
   const [chain, setChain] = React.useState<PromptChain>({
     name: "New Chain",
     description: "A new prompt chain",
@@ -153,12 +153,12 @@ const highlightVariables = (text: string) => {
   return text.replace(
     /\{([^}]+)\}/g,
     (match, variable) =>
-      `<span class="bg-yellow-200 px-1 rounded">${match}</span>`,
+      `<span class="bg-yellow-200/20 px-1 rounded">${match}</span>`,
   );
 };
 
 // Components
-const ChainMetadata: React.FC<{
+export const ChainMetadata: React.FC<{
   name: string;
   description: string;
   onUpdate: (name: string, description: string) => void;
@@ -192,7 +192,7 @@ const ChainMetadata: React.FC<{
   </Card>
 );
 
-const VariableDisplay: React.FC<{ variables: Set<string> }> = ({
+export const VariableDisplay: React.FC<{ variables: Set<string> }> = ({
   variables,
 }) => (
   <Card className="mb-4">
@@ -211,7 +211,7 @@ const VariableDisplay: React.FC<{ variables: Set<string> }> = ({
   </Card>
 );
 
-const PromptStepCard: React.FC<{
+export const PromptStepCard: React.FC<{
   step: PromptStep;
   onUpdate: (id: number, updates: Partial<PromptStep>) => void;
   onRemove: (id: number) => void;
@@ -262,7 +262,7 @@ const PromptStepCard: React.FC<{
         />
       </div>
       <div
-        className="mb-2 rounded bg-gray-100 p-2"
+        className="mb-2 rounded bg-muted p-2"
         dangerouslySetInnerHTML={{ __html: highlightVariables(step.content) }}
       />
       <Button variant="destructive" onClick={() => onRemove(step.id)}>
@@ -272,21 +272,25 @@ const PromptStepCard: React.FC<{
   </Card>
 );
 
-const CombinedTemplate: React.FC<{ template: string }> = ({ template }) => (
+export const CombinedTemplate: React.FC<{ template: string }> = ({
+  template,
+}) => (
   <Card className="mb-4">
     <CardHeader>
       <CardTitle>Combined Prompt Template</CardTitle>
     </CardHeader>
     <CardContent>
       <div
-        className="whitespace-pre-wrap rounded bg-gray-100 p-4"
+        className="whitespace-pre-wrap rounded bg-muted p-4"
         dangerouslySetInnerHTML={{ __html: highlightVariables(template) }}
       />
     </CardContent>
   </Card>
 );
 
-const SimulatedResponses: React.FC<{ steps: PromptStep[] }> = ({ steps }) => (
+export const SimulatedResponses: React.FC<{ steps: PromptStep[] }> = ({
+  steps,
+}) => (
   <Card>
     <CardHeader>
       <CardTitle>Simulated LLM Responses</CardTitle>
@@ -297,7 +301,7 @@ const SimulatedResponses: React.FC<{ steps: PromptStep[] }> = ({ steps }) => (
           <h3 className="font-bold">
             {step.key} ({step.name}):
           </h3>
-          <p className="whitespace-pre-wrap rounded bg-gray-100 p-2">
+          <p className="whitespace-pre-wrap rounded p-2">
             {step.previewResponse}
           </p>
         </div>
@@ -307,7 +311,7 @@ const SimulatedResponses: React.FC<{ steps: PromptStep[] }> = ({ steps }) => (
 );
 
 // Main Component
-const PromptChainEditor: React.FC = () => {
+export const PromptChainEditor: React.FC = () => {
   const {
     chain,
     variables,
@@ -365,5 +369,3 @@ const PromptChainEditor: React.FC = () => {
     </div>
   );
 };
-
-export default PromptChainEditor;

@@ -17,13 +17,10 @@ type Character = {
 };
 
 export const RPGCharacterGallery = () => {
-  const {
-    currentData,
-    history,
-    handleHover,
-    handleMouseLeave,
-    handleInteraction,
-  } = useContextualData({ type: "initial", data: null });
+  const { currentData, history, eventHandlers } = useContextualData({
+    type: "initial",
+    data: null,
+  });
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const characters = [
@@ -55,11 +52,12 @@ export const RPGCharacterGallery = () => {
   const CharacterCard = ({ character }: { character: Character }) => (
     <Card
       className="m-4 w-64"
-      onMouseEnter={(e) => handleHover(e.currentTarget)}
-      onMouseLeave={handleMouseLeave}
-      onClick={(e) => handleInteraction(e.currentTarget, "click")}
+      // onMouseEnter={onMouseEnter}
+      // onMouseLeave={onMouseLeave}
+      // onClick={(e) => onClick(e.currentTarget, "click")}
       data-name={character.name}
       data-description={character.description}
+      {...eventHandlers}
     >
       <CardHeader>
         <img
