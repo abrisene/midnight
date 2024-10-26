@@ -39,7 +39,7 @@
     },
     "format": {
       "outputs": [
-        "node_modules/.cache/.prettiercache"
+        ".cache/.prettiercache"
       ],
       "outputLogs": "new-only"
     },
@@ -49,7 +49,7 @@
         "^build"
       ],
       "outputs": [
-        "node_modules/.cache/.eslintcache"
+        ".cache/.eslintcache"
       ]
     },
     "lint:exports": {
@@ -64,7 +64,7 @@
         "^build"
       ],
       "outputs": [
-        "node_modules/.cache/tsbuildinfo.json"
+        ".cache/tsbuildinfo.json"
       ]
     },
     "test": {
