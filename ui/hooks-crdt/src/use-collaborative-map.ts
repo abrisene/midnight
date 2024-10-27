@@ -1,13 +1,14 @@
-
 // hooks/useCollaborativeMap.ts
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 import * as Y from "yjs";
-import { useWebSocketProvider } from "./use-yjs-provider-ws";
-import { useAwareness } from "./use-awareness";
+
 import type { WebSocketOptions } from "./types";
 
+import { useAwareness } from "./use-awareness";
+import { useWebSocketProvider } from "./use-yjs-provider-ws";
+
 export function useCollaborativeMap<T extends object>(
-  options: WebSocketOptions & { initialData?: T }
+  options: WebSocketOptions & { initialData?: T },
 ) {
   const [state] = useState(() => {
     const yDoc = new Y.Doc();
@@ -22,7 +23,10 @@ export function useCollaborativeMap<T extends object>(
     return { yDoc, yMap };
   });
 
-  const { wsProvider, status, error } = useWebSocketProvider(state.yDoc, options);
+  const { wsProvider, status, error } = useWebSocketProvider(
+    state.yDoc,
+    options,
+  );
   const awareness = useAwareness(wsProvider);
 
   const [data, setData] = useState<T>({} as T);
@@ -42,13 +46,19 @@ export function useCollaborativeMap<T extends object>(
     };
   }, [state.yMap, state.yDoc]);
 
-  const set = useCallback(<K extends keyof T>(key: K, value: T[K]) => {
-    state.yMap.set(key as string, value);
-  }, [state.yMap]);
+  const set = useCallback(
+    <K extends keyof T>(key: K, value: T[K]) => {
+      state.yMap.set(key as string, value);
+    },
+    [state.yMap],
+  );
 
-  const delete_ = useCallback(<K extends keyof T>(key: K) => {
-    state.yMap.delete(key as string);
-  }, [state.yMap]);
+  const delete_ = useCallback(
+    <K extends keyof T>(key: K) => {
+      state.yMap.delete(key as string);
+    },
+    [state.yMap],
+  );
 
   return {
     data,

@@ -1,12 +1,9 @@
 import pino from "pino";
 import { z } from "zod";
 
-import type {
-  BaseAPIClientOptions,
-  QueueTask} from "./http-api-wrapper";
-import {
-  BaseAPIWrapper
-} from "./http-api-wrapper";
+import type { BaseAPIClientOptions, QueueTask } from "./http-api-wrapper";
+
+import { BaseAPIWrapper } from "./http-api-wrapper";
 
 // Mock implementation of BaseAPIWrapper for testing
 class TestAPIWrapper extends BaseAPIWrapper {

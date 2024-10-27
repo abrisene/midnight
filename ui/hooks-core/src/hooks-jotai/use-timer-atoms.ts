@@ -128,7 +128,9 @@ export function createTimerAtoms({
 
   // If the mode is "countdown", calculate the initial duration based off of the start / end times
   if (mode === "countdown") {
-    initialDuration = endsAt ? (endsAt.getTime() - (startsAt ?? new Date()).getTime()) / 1000 : 0;
+    initialDuration = endsAt
+      ? (endsAt.getTime() - (startsAt ?? new Date()).getTime()) / 1000
+      : 0;
     initialElapsed = 0;
   } else {
     // If the mode is "stopwatch", use the provided duration
@@ -247,5 +249,12 @@ export function createTimerAtoms({
     }
   });
 
-  return { durationAtom, elapsedAtom, resetAtom, startAtom, stopAtom, toggleAtom };
+  return {
+    durationAtom,
+    elapsedAtom,
+    resetAtom,
+    startAtom,
+    stopAtom,
+    toggleAtom,
+  };
 }

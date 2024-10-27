@@ -2,7 +2,8 @@ import React, { useCallback, useMemo, useRef } from "react";
 import { cn } from "@acausal/ui-core";
 import * as d3 from "d3-shape";
 
-import type { BezierCurve} from "../curve/use-bezier-editor";
+import type { BezierCurve } from "../curve/use-bezier-editor";
+
 import { getCurveFunction } from "../curve/use-bezier-editor";
 
 /* -------------------------------------------------------------------------------------------------

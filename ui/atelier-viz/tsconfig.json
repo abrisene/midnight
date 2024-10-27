@@ -6,11 +6,6 @@
     "incremental": false,
     "jsx": "react-jsx"
   },
-  "include": [
-    "*.ts",
-    "src",
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["*.ts", "src"],
+  "exclude": ["node_modules"]
 }

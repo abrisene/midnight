@@ -56,7 +56,8 @@ export async function backoff<T>(
       if (retries > 0) {
         if (onRetry) onRetry(retries, currentBackoff, options.name);
         if (retries >= (maxRetries ?? DEFAULT_MAX_RETRIES))
-          throw new Error("Max retries reached");
+          // throw new Error("Max retries reached");
+          return Promise.reject(error);
       }
 
       await new Promise((resolve) => setTimeout(resolve, currentBackoff));

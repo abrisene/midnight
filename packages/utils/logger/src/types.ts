@@ -9,7 +9,7 @@ export interface LoggerOptions {
   prettify?: boolean;
 }
 
-export interface Logger extends Omit<PinoLogger, 'child'> {
+export interface Logger extends Omit<PinoLogger, "child"> {
   child(bindings: Record<string, unknown>): Logger;
 }
 

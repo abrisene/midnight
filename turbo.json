@@ -47,8 +47,7 @@
     },
     "lint": {
       "dependsOn": [
-        "^topo",
-        "^build"
+        "^topo"
       ],
       "outputs": [
         ".cache/.eslintcache"

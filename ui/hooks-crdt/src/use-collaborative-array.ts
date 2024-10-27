@@ -1,12 +1,14 @@
 // hooks/useCollaborativeArray.ts
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 import * as Y from "yjs";
-import { useWebSocketProvider } from "./use-yjs-provider-ws";
-import { useAwareness } from "./use-awareness";
+
 import type { WebSocketOptions } from "./types";
 
+import { useAwareness } from "./use-awareness";
+import { useWebSocketProvider } from "./use-yjs-provider-ws";
+
 export function useCollaborativeArray<T>(
-  options: WebSocketOptions & { initialData?: T[] }
+  options: WebSocketOptions & { initialData?: T[] },
 ) {
   const [state] = useState(() => {
     const yDoc = new Y.Doc();
@@ -19,7 +21,10 @@ export function useCollaborativeArray<T>(
     return { yDoc, yArray };
   });
 
-  const { wsProvider, status, error } = useWebSocketProvider(state.yDoc, options);
+  const { wsProvider, status, error } = useWebSocketProvider(
+    state.yDoc,
+    options,
+  );
   const awareness = useAwareness(wsProvider);
 
   const [items, setItems] = useState<T[]>([]);
@@ -40,20 +45,32 @@ export function useCollaborativeArray<T>(
 
   return {
     items,
-    push: useCallback((item: T) => {
-      state.yArray.push([item]);
-    }, [state.yArray]),
-    insert: useCallback((index: number, item: T) => {
-      state.yArray.insert(index, [item]);
-    }, [state.yArray]),
-    delete: useCallback((index: number) => {
-      state.yArray.delete(index, 1);
-    }, [state.yArray]),
-    move: useCallback((fromIndex: number, toIndex: number) => {
-      const item = state.yArray.get(fromIndex);
-      state.yArray.delete(fromIndex, 1);
-      state.yArray.insert(toIndex, [item]);
-    }, [state.yArray]),
+    push: useCallback(
+      (item: T) => {
+        state.yArray.push([item]);
+      },
+      [state.yArray],
+    ),
+    insert: useCallback(
+      (index: number, item: T) => {
+        state.yArray.insert(index, [item]);
+      },
+      [state.yArray],
+    ),
+    delete: useCallback(
+      (index: number) => {
+        state.yArray.delete(index, 1);
+      },
+      [state.yArray],
+    ),
+    move: useCallback(
+      (fromIndex: number, toIndex: number) => {
+        const item = state.yArray.get(fromIndex);
+        state.yArray.delete(fromIndex, 1);
+        state.yArray.insert(toIndex, [item]);
+      },
+      [state.yArray],
+    ),
     status,
     error,
     wsProvider,

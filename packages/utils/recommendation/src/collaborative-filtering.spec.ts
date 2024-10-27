@@ -1,4 +1,5 @@
 import type { Rating } from "./collaborative-filtering";
+
 import { CollaborativeFiltering } from "./collaborative-filtering";
 
 describe("CollaborativeFiltering", () => {

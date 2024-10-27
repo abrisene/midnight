@@ -3,6 +3,7 @@
 import { useCallback } from "react";
 
 import type { ScreenshotOptions } from "./use-screenshot";
+
 import { useScreenshot } from "./use-screenshot";
 
 /* -------------------------------------------------------------------------------------------------

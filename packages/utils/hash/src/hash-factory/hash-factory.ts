@@ -16,9 +16,9 @@ import { createMD5, createXXHash32 } from "hash-wasm";
  */
 export async function createXXHasher(
   seed: number,
-): Promise<(data: any) => string> {
+): Promise<(data: unknown) => string> {
   const xxHash = await createXXHash32(seed);
-  const xxHasher = (data: any): string => {
+  const xxHasher = (data: unknown): string => {
     return xxHash.init().update(JSON.stringify(data)).digest("hex");
   };
   return xxHasher;
@@ -28,8 +28,8 @@ export async function createXXHasher(
  * @returns The hasher.
  */
 
-export async function createMD5Hasher(): Promise<(data: any) => string> {
+export async function createMD5Hasher(): Promise<(data: unknown) => string> {
   const md5Hasher = await createMD5();
-  return (data: any): string =>
+  return (data: unknown): string =>
     md5Hasher.init().update(JSON.stringify(data)).digest("hex");
 }

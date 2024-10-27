@@ -2,10 +2,11 @@ import React, { forwardRef, useCallback } from "react";
 import { useMergedRef } from "@acausal/hooks";
 import { cn } from "@acausal/ui-core";
 
+import type { BezierCurve } from "./use-bezier-editor";
+
 import { BezierCurvePath } from "../svg/svg-bezier";
 import { SVGViewer } from "../svg/svg-elements";
 import { CurveHandle } from "../svg/svg-handle";
-import type { BezierCurve} from "./use-bezier-editor";
 import { useBezierCurves } from "./use-bezier-editor";
 
 /* -------------------------------------------------------------------------------------------------

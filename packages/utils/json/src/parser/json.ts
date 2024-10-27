@@ -1,5 +1,5 @@
-import * as json5 from "json5";
 import type { z } from "zod";
+import * as json5 from "json5";
 
 import { beautifyJSON } from "../beautify";
 import { parsePartialJson5 } from "../json5/parse-partial-json5";
