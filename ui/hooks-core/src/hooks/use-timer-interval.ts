@@ -43,8 +43,11 @@ export function useInterval(
 
   useEffect(() => {
     fnRef.current = fn;
-    active && start();
+    if (active) {
+      start();
+    }
     return stop;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fn, active, interval]);
 
   useEffect(() => {

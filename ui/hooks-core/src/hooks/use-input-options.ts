@@ -95,14 +95,16 @@ export function formatInputOptions<T extends InputValueType>(
   data: Record<string, any> | SelectOption<T>[],
   selectKey?: string,
 ): SelectOption<T>[] {
+  // If the data is an array, we assume it's an array of options
   if (Array.isArray(data)) {
-    return data.reduce((acc, option) => {
+    const options = data.reduce<SelectOption<T>[]>((acc, option) => {
       const parsed = InputOptionSchema.safeParse(option);
       if (parsed.success) {
         return [...acc, parsed.data as SelectOption<T>];
       }
       return acc;
     }, [] as SelectOption<T>[]);
+    return options;
   }
 
   const keys = Object.keys(data);
@@ -115,6 +117,7 @@ export function formatInputOptions<T extends InputValueType>(
     return keys.map((key) => ({ label: key, value: data[key] as T }));
   }
 
+  // Otherwise, we assume it's an object of options
   const options = Object.values(data).reduce<SelectOption<T>[]>(
     (acc, value) => {
       if (typeof value !== "object" || !value[selectKey]) {

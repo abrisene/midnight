@@ -17,13 +17,14 @@ export function useHover<T extends HTMLElement = HTMLDivElement>() {
   const onMouseLeave = useCallback(() => setHovered(false), []);
 
   useEffect(() => {
-    if (ref.current) {
-      ref.current.addEventListener("mouseenter", onMouseEnter);
-      ref.current.addEventListener("mouseleave", onMouseLeave);
+    const current = ref.current;
+    if (current) {
+      current.addEventListener("mouseenter", onMouseEnter);
+      current.addEventListener("mouseleave", onMouseLeave);
 
       return () => {
-        ref.current?.removeEventListener("mouseenter", onMouseEnter);
-        ref.current?.removeEventListener("mouseleave", onMouseLeave);
+        current.removeEventListener("mouseenter", onMouseEnter);
+        current.removeEventListener("mouseleave", onMouseLeave);
       };
     }
 

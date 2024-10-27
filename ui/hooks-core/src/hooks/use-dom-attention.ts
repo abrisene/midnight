@@ -83,6 +83,7 @@ export function useFocusWithin<T extends HTMLElement = HTMLElement>({
     }
 
     return undefined;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref, onFocus, onBlur]);
 
   return { ref, focused };

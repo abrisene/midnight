@@ -1,15 +1,21 @@
 // useWebSocketProvider.ts
-import { useState, useEffect, useCallback } from 'react';
-import { WebsocketProvider } from 'y-websocket';
-import type { ConnectionStatus, WebSocketOptions } from "./types";
 import type * as Y from "yjs";
+import { useCallback, useEffect, useState } from "react";
+import { WebsocketProvider } from "y-websocket";
+
+import type { ConnectionStatus, WebSocketOptions } from "./types";
 
 export const useWebSocketProvider = (
   yDoc: Y.Doc,
-  { websocketUrl, documentId, retryAttempts = 3, retryDelay = 1000 }: WebSocketOptions
+  {
+    websocketUrl,
+    documentId,
+    retryAttempts = 3,
+    retryDelay = 1000,
+  }: WebSocketOptions,
 ) => {
   const [wsProvider, setWsProvider] = useState<WebsocketProvider | null>(null);
-  const [status, setStatus] = useState<ConnectionStatus>('connecting');
+  const [status, setStatus] = useState<ConnectionStatus>("connecting");
   const [error, setError] = useState<Error | null>(null);
   const [attemptCount, setAttemptCount] = useState(0);
 
@@ -32,16 +38,16 @@ export const useWebSocketProvider = (
     const handleDisconnect = () => {
       if (attemptCount < retryAttempts) {
         retryTimeout = setTimeout(() => {
-          setAttemptCount(prev => prev + 1);
+          setAttemptCount((prev) => prev + 1);
           provider = connect();
         }, retryDelay);
       }
     };
 
     if (provider) {
-      provider.on('status', ({ status }: { status: ConnectionStatus }) => {
+      provider.on("status", ({ status }: { status: ConnectionStatus }) => {
         setStatus(status);
-        if (status === 'disconnected') {
+        if (status === "disconnected") {
           handleDisconnect();
         }
       });

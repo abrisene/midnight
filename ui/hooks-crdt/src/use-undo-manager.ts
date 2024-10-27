@@ -1,9 +1,10 @@
 // useUndoManager.ts
-import { useState, useEffect } from 'react';
-import * as Y from 'yjs';
-import type { UseUndoManager } from './types';
+import { useEffect, useState } from "react";
+import * as Y from "yjs";
 
-const useUndoManager: UseUndoManager = (yText) => {
+import type { UseUndoManager } from "./types";
+
+export const useUndoManager: UseUndoManager = (yText) => {
   const [undoManager] = useState(() => new Y.UndoManager(yText));
   const [canUndo, setCanUndo] = useState(false);
   const [canRedo, setCanRedo] = useState(false);
@@ -30,5 +31,3 @@ const useUndoManager: UseUndoManager = (yText) => {
     canRedo,
   };
 };
-
-export default useUndoManager;

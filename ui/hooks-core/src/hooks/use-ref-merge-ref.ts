@@ -1,6 +1,5 @@
 "use client";
 
-import type { Ref } from "react";
 import { useCallback } from "react";
 
 import type { PossibleRef } from "../utils/utils-ref";

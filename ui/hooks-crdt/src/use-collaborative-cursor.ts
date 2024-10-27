@@ -1,6 +1,6 @@
 // hooks/useCollaborativeCursor.ts
-import { useEffect, useCallback, useState } from "react";
 import type { WebsocketProvider } from "y-websocket";
+import { useCallback, useEffect, useState } from "react";
 
 interface CursorPosition {
   index: number;
@@ -16,7 +16,7 @@ interface CursorAwareness {
 
 export const useCollaborativeCursor = (
   wsProvider: WebsocketProvider | null,
-  elementRef: React.RefObject<HTMLTextAreaElement | HTMLInputElement>
+  elementRef: React.RefObject<HTMLTextAreaElement | HTMLInputElement>,
 ) => {
   const [cursors, setCursors] = useState<CursorAwareness[]>([]);
 
@@ -46,15 +46,18 @@ export const useCollaborativeCursor = (
       setCursors(cursorStates);
     };
 
-    elementRef.current?.addEventListener("select", handleSelectionChange);
-    elementRef.current?.addEventListener("click", handleSelectionChange);
-    elementRef.current?.addEventListener("keyup", handleSelectionChange);
+    const current = elementRef.current;
+    current?.addEventListener("select", handleSelectionChange);
+    current?.addEventListener("click", handleSelectionChange);
+    current?.addEventListener("keyup", handleSelectionChange);
     wsProvider.awareness.on("change", handleAwarenessChange);
 
     return () => {
-      elementRef.current?.removeEventListener("select", handleSelectionChange);
-      elementRef.current?.removeEventListener("click", handleSelectionChange);
-      elementRef.current?.removeEventListener("keyup", handleSelectionChange);
+      if (current) {
+        current.removeEventListener("select", handleSelectionChange);
+        current.removeEventListener("click", handleSelectionChange);
+        current.removeEventListener("keyup", handleSelectionChange);
+      }
       wsProvider.awareness.off("change", handleAwarenessChange);
     };
   }, [wsProvider, elementRef]);

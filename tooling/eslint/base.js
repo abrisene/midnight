@@ -75,6 +75,7 @@ export default tseslint.config(
       ],
       "@typescript-eslint/no-non-null-assertion": "warn",
       "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+      "react-hooks/exhaustive-deps": "warn",
     },
   },
   {

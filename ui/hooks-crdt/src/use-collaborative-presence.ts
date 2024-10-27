@@ -1,6 +1,6 @@
 // hooks/useCollaborativePresence.ts
-import { useState, useEffect } from "react";
 import type { WebsocketProvider } from "y-websocket";
+import { useEffect, useState } from "react";
 
 interface PresenceData {
   status: "active" | "idle" | "offline";
@@ -13,7 +13,7 @@ export const useCollaborativePresence = (
   options?: {
     idleTimeout?: number;
     customData?: Record<string, unknown>;
-  }
+  },
 ) => {
   const [presence, setPresence] = useState<Record<string, PresenceData>>({});
   const idleTimeout = options?.idleTimeout ?? 60000; // 1 minute default
@@ -48,7 +48,7 @@ export const useCollaborativePresence = (
         states.map(([clientId, state]) => [
           clientId.toString(),
           state.presence ?? { status: "offline", lastActive: 0 },
-        ])
+        ]),
       );
       setPresence(presenceStates);
     };
