@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
 import container from "@tailwindcss/container-queries";
-import fluid, { extract, screens } from "fluid-tailwind";
+import fluid, { extract, fontSize, screens } from "fluid-tailwind";
+import tailwind3d from "tailwindcss-3d";
+// import { lerpColors } from "tailwind-lerp-colors";
 import signals from "tailwindcss-signals";
 
 import { customBackgrounds, customColorVariables } from "./plugins/custom";
@@ -10,9 +12,17 @@ import { customBackgrounds, customColorVariables } from "./plugins/custom";
 export default {
   content: { files: ["./src/**/*.{ts,tsx,mdx}"], extract },
   presets: [],
-  plugins: [container, fluid, signals, customBackgrounds, customColorVariables],
+  plugins: [
+    container,
+    fluid,
+    signals,
+    tailwind3d,
+    customBackgrounds,
+    customColorVariables,
+  ],
   theme: {
     screens,
+    fontSize,
     extend: {
       fontSize: {
         "3xs": "0.5rem",

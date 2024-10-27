@@ -4,8 +4,11 @@
   "private": true,
   "type": "module",
   "exports": {
+    ".": "./utils/index.ts",
     "./native": "./native.ts",
-    "./web": "./web.ts"
+    "./web": "./web.ts",
+    "./utils/cva": "./utils/cva.ts",
+    "./utils/lerp": "./lerp/index.ts"
   },
   "license": "MIT",
   "scripts": {
@@ -21,14 +24,18 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@fluid-tailwind/tailwind-merge": "^0.0.3",
     "@configs/eslint-config": "workspace:*",
     "@configs/prettier-config": "workspace:*",
     "@configs/tsconfig": "workspace:*",
+    "class-variance-authority": "catalog:tailwind",
+    "clsx": "^2.1.1",
     "@tailwindcss/container-queries": "^0.1.1",
     "eslint": "catalog:",
     "fluid-tailwind": "^1.0.3",
     "prettier": "catalog:",
     "tailwind-lerp-colors": "^1.2.6",
+    "tailwind-merge": "catalog:tailwind",
     "tailwindcss-3d": "^1.0.7",
     "tailwindcss-signals": "^0.0.25",
     "typescript": "catalog:"
