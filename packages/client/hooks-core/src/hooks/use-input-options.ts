@@ -1,7 +1,8 @@
-import type { Replace } from "@acausal/types";
 import type React from "react";
 import { useMemo } from "react";
 import { z } from "zod";
+
+import type { Replace } from "../../../../packages/shared/types/dist";
 
 /* -------------------------------------------------------------------------------------------------
  * SCHEMAS AND TYPES

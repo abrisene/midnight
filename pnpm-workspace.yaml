@@ -1,15 +1,14 @@
 packages:
-  - apps/storybook/
-  - apps/*
-  # - packages/schemas/*
-  - packages/utils/
-  - packages/utils/*
-  - packages/structs/*
-  # - packages/ai/*
-  - packages/types
-  # - packages/procgen/*
-  - ui/*
-  - tooling/*
+  - apps/web/*
+  - configs/*
+  - packages/client/*
+  # - packages/models/*
+  # - packages/server/*
+  # - packages/server/services/*
+  - packages/shared/types
+  - packages/shared/utils/*
+  - packages/shared/structs/*
+  - packages/shared/types/*
 catalog:
   dotenv: ^16.4.5
   eslint: ^9.7.0
