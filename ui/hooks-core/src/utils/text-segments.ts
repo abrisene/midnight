@@ -70,6 +70,7 @@ export function mapKeysToClassNames({
         acc[n.text] = `${baseClass}${n.className}`;
       } else {
         // If we don't have a classList, only use the base class.
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (!classList) {
           acc[key] = baseClass;
           return acc;

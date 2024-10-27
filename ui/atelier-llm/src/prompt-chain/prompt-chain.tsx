@@ -101,7 +101,7 @@ export const usePromptChain = () => {
   };
 
   const detectVariables = (text: string) => {
-    const matches = text.match(/\{([^}]+)\}/g) || [];
+    const matches = text.match(/\{([^}]+)\}/g) ?? [];
     return new Set(matches.map((match) => match.slice(1, -1)));
   };
 
@@ -128,7 +128,7 @@ export const usePromptChain = () => {
   const loadChain = () => {
     const savedChain = localStorage.getItem("promptChain");
     if (savedChain) {
-      setChain(JSON.parse(savedChain));
+      setChain(JSON.parse(savedChain) as PromptChain);
       alert("Chain loaded successfully!");
     } else {
       alert("No saved chain found.");
@@ -152,7 +152,7 @@ export const usePromptChain = () => {
 const highlightVariables = (text: string) => {
   return text.replace(
     /\{([^}]+)\}/g,
-    (match, variable) =>
+    (match, _variable) =>
       `<span class="bg-yellow-200/20 px-1 rounded">${match}</span>`,
   );
 };

@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from "react";
 import { cn } from "@acausal/ui-core";
 import {
   Collapsible,
@@ -10,11 +11,15 @@ import { Label } from "@acausal/ui-core/label";
 import { ChevronDownIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 
 function sortObjectByKeyOrder(obj: any, keyOrder: string[]) {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const head = keyOrder.reduce(
     (acc: any, key) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (obj[key]) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         acc.push([key, obj[key]]);
       }
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return acc;
     },
     [] as [string, any][],
@@ -22,6 +27,7 @@ function sortObjectByKeyOrder(obj: any, keyOrder: string[]) {
 
   const tail = Object.entries(obj).filter(([key]) => !keyOrder.includes(key));
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-assignment
   return [...head, ...tail];
 
   // const tail = Object.entries(obj).filter(([key]) => !keyOrder.includes(key));
@@ -85,7 +91,8 @@ export const StaticJSONViewer: React.FC<JsonRendererProps> = ({
   const isArray = Array.isArray(children);
   const isEmpty = isArray
     ? children.length === 0
-    : Object.keys(children).length === 0;
+    : // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      Object.keys(children).length === 0;
 
   const sortedChildren = isArray
     ? Object.entries(children)
@@ -121,7 +128,9 @@ export const StaticJSONViewer: React.FC<JsonRendererProps> = ({
             <CollapsibleContent>
               {sortedChildren.map(([key, value]) => (
                 <StaticJSONViewer
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                   key={key}
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                   label={isArray ? undefined : key}
                   indent={indent + 1}
                 >
@@ -136,7 +145,9 @@ export const StaticJSONViewer: React.FC<JsonRendererProps> = ({
         <>
           {sortedChildren.map(([key, value]) => (
             <StaticJSONViewer
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
               key={key}
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
               label={isArray ? undefined : key}
               indent={indent}
             >
@@ -154,7 +165,7 @@ export const StaticJSONCodeStyleViewer: React.FC<JsonRendererProps> = ({
   indent = 0,
   className,
   keyOrder,
-  ...props
+  ..._props
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -165,8 +176,10 @@ export const StaticJSONCodeStyleViewer: React.FC<JsonRendererProps> = ({
   const isArray = Array.isArray(children);
 
   const entries = keyOrder
-    ? keyOrder.map((key) => [key, children[key]])
-    : Object.entries(children);
+    ? // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
+      keyOrder.map((key) => [key, children[key]])
+    : // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      Object.entries(children);
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
@@ -177,8 +190,12 @@ export const StaticJSONCodeStyleViewer: React.FC<JsonRendererProps> = ({
         <span className="font-mono">{isArray ? "[" : "{"}</span>
       </div>
       <CollapsibleContent>
-        <div style={{ marginLeft: `${indent + 20}px` }}>
+        <div
+          className={cn(className)}
+          style={{ marginLeft: `${indent + 20}px` }}
+        >
           {entries.map(([key, value], index) => (
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             <div key={key} className="my-1">
               <span className="mr-2 text-gray-500">
                 {isArray ? index : `"${key}"`}:

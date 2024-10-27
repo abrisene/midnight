@@ -27,7 +27,7 @@ function escapeRegex(value: string) {
  */
 export function highlighter(
   value: string,
-  keys: string | string[],
+  keys: string | string[] | null,
 ): HighlighterChunk[] {
   if (keys == null) {
     return [{ chunk: value, highlighted: false }];

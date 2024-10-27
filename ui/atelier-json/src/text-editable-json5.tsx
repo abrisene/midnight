@@ -1,5 +1,6 @@
 "use client";
 
+import type { JsonSchema } from "@acausal/utils-json";
 import React, { useState } from "react";
 import { cn } from "@acausal/ui-core";
 import { Button } from "@acausal/ui-core/button";
@@ -14,10 +15,10 @@ import { PrettyJSON } from "./text-pretty-json";
  * -----------------------------------------------------------------------------------------------*/
 
 interface EditableJSONProps {
-  initialData: any;
-  onSave: (data: any) => void;
+  initialData?: JsonSchema;
+  onSave?: <T extends JsonSchema = JsonSchema>(data: T) => void;
   className?: string;
-  parser?: (value: string) => any;
+  parser?: <T extends JsonSchema = JsonSchema>(value: string) => T;
 }
 /* -------------------------------------------------------------------------------------------------
  * COMPONENTS
@@ -27,7 +28,7 @@ export const EditableJSON: React.FC<EditableJSONProps> = ({
   initialData,
   onSave,
   className,
-  parser = CoerceJSONSchema.parse,
+  parser = (value: string) => CoerceJSONSchema.parse(value),
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedData, setEditedData] = useState(
@@ -43,7 +44,7 @@ export const EditableJSON: React.FC<EditableJSONProps> = ({
     try {
       // const parsedData = JSON5.parse(editedData);
       const parsedData = parser(editedData);
-      onSave(parsedData);
+      onSave?.(parsedData);
       setIsEditing(false);
     } catch (error) {
       console.error("Invalid JSON5:", error);
@@ -64,7 +65,7 @@ export const EditableJSON: React.FC<EditableJSONProps> = ({
             value={editedData}
             onChange={(e) => setEditedData(e.target.value)}
             // onValueChange={(e) => setEditedData(e.target.value)}
-            className="text-md h-60 h-full w-full overflow-y-auto rounded p-2 font-mono text-white"
+            className="text-md h-full w-full overflow-y-auto rounded p-2 font-mono text-white"
           />
           <div className="mt-4 flex justify-end gap-2">
             <Button
