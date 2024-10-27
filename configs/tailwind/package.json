@@ -24,13 +24,13 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@fluid-tailwind/tailwind-merge": "^0.0.3",
     "@configs/eslint-config": "workspace:*",
     "@configs/prettier-config": "workspace:*",
     "@configs/tsconfig": "workspace:*",
+    "@fluid-tailwind/tailwind-merge": "^0.0.3",
+    "@tailwindcss/container-queries": "^0.1.1",
     "class-variance-authority": "catalog:tailwind",
     "clsx": "^2.1.1",
-    "@tailwindcss/container-queries": "^0.1.1",
     "eslint": "catalog:",
     "fluid-tailwind": "^1.0.3",
     "prettier": "catalog:",
