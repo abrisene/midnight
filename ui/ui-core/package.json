@@ -168,7 +168,7 @@
     "react-dropzone": "^14.2.10",
     "react-hook-form": "catalog:client",
     "react-icon-cloud": "^4.1.4",
-    "react-resizable-panels": "^2.1.4",
+    "react-resizable-panels": "^2.1.5",
     "react-spring": "^9.7.4",
     "react-tweet": "^3.2.1",
     "recharts": "catalog:client",
