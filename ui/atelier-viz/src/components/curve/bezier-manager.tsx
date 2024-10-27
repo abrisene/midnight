@@ -12,11 +12,10 @@ import {
 } from "@acausal/ui-core/select";
 import { Trash } from "@phosphor-icons/react/Trash";
 
+import type { BezierCurve, BezierCurvesCallbacks } from "./use-bezier-editor";
+
 import { BezierCurvePath } from "../svg/svg-bezier";
 import { SVGViewer } from "../svg/svg-elements";
-import type {
-  BezierCurve,
-  BezierCurvesCallbacks} from "./use-bezier-editor";
 import {
   CURVE_OPTIONS,
   CurveType,

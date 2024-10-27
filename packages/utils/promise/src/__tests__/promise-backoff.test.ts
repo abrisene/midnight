@@ -1,4 +1,5 @@
 import type { BackoffOptions } from "../promise-backoff";
+
 import { backoff } from "../promise-backoff";
 
 describe("backoff", () => {

@@ -35,7 +35,6 @@ export type HasTail<T extends any[]> = T extends [] | [any] ? false : true;
  * PARAM REST
  * -----------------------------------------------------------------------------------------------*/
 
- 
 export type ParamRest<T extends (...args: any[]) => unknown> = T extends (
   first: Parameters<T>[0],
   ...rest: infer Rest

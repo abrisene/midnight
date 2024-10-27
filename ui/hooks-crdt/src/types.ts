@@ -1,7 +1,7 @@
 // types.ts
-import type * as Y from 'yjs';
+import type * as Y from "yjs";
 
-export type ConnectionStatus = 'connecting' | 'connected' | 'disconnected';
+export type ConnectionStatus = "connecting" | "connected" | "disconnected";
 
 export interface YDocOptions {
   documentId: string;
@@ -14,7 +14,6 @@ export interface WebSocketOptions {
   retryAttempts?: number;
   retryDelay?: number;
 }
-
 
 export interface AwarenessState {
   user: {

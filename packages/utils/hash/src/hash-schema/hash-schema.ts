@@ -1,5 +1,6 @@
-import { HASHER_XXHASH } from "../hashers/hashers";
 import type { Awaitable } from "./shared-types";
+
+import { HASHER_XXHASH } from "../hashers/hashers";
 
 /* -------------------------------------------------------------------------------------------------
  * SCHEMA HASHING

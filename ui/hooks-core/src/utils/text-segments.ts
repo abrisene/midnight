@@ -1,5 +1,6 @@
-import { highlighter } from "./text-highlight";
 import type { HighlighterChunk } from "./text-highlight";
+
+import { highlighter } from "./text-highlight";
 
 /* -------------------------------------------------------------------------------------------------
  * COMMON TYPES

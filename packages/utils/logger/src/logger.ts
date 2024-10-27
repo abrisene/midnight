@@ -1,9 +1,15 @@
 // packages/logger/src/logger.ts
 import pino from "pino";
-import type { Logger, LoggerOptions, LogContext } from "./types";
-import { formatters } from "./formatters";
-import { errorSerializer, requestSerializer, responseSerializer } from "./serializers";
+
+import type { LogContext, Logger, LoggerOptions } from "./types";
+
 import { DEFAULT_LOG_LEVEL } from "./constants";
+import { formatters } from "./formatters";
+import {
+  errorSerializer,
+  requestSerializer,
+  responseSerializer,
+} from "./serializers";
 
 export function createLogger(options: LoggerOptions = {}): Logger {
   const {
@@ -14,15 +20,15 @@ export function createLogger(options: LoggerOptions = {}): Logger {
 
   const transport = prettify
     ? {
-      transport: {
-        target: "pino-pretty",
-        options: {
-          colorize: true,
-          levelFirst: true,
-          translateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'",
+        transport: {
+          target: "pino-pretty",
+          options: {
+            colorize: true,
+            levelFirst: true,
+            translateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'",
+          },
         },
-      },
-    }
+      }
     : {};
 
   return pino({

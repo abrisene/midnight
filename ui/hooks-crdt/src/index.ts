@@ -1,4 +1,3 @@
-export { default as useUndoManager } from './use-undo-manager';
 export * from "./use-collaborative-text";
 export * from "./use-awareness";
 export * from "./use-undo-manager";
