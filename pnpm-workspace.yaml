@@ -1,6 +1,5 @@
 packages:
-  - apps/storybook/
-  - apps/*
+  - apps/web/*
   - configs/*
   - packages/client/*
   # - packages/models/*
