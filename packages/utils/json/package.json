@@ -126,7 +126,7 @@
     "json-schema": "^0.4.0",
     "json5": "^2.2.3",
     "zod": "catalog:",
-    "zod-to-json-schema": "^3.23.3"
+    "zod-to-json-schema": "^3.23.5"
   },
   "devDependencies": {
     "@configs/eslint-config": "workspace:*",
