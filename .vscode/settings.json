@@ -22,13 +22,10 @@
       "pattern": "packages/*/"
     },
     {
-      "pattern": "tooling/*/"
-    }
+      "pattern": "configs/*/"
+    },
     {
       "pattern": "turbo/*/"
-    }
-    {
-      "pattern": "ui/*/"
     }
   ],
   "tailwindCSS.experimental.classRegex": [
