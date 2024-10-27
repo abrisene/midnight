@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@acausal/ui-core/button";
 
-import { Schedule } from "./types";
+import type { Schedule } from "./types";
 
 interface ScheduleItemProps {
   schedule: Schedule;

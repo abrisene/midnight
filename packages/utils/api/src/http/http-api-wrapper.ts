@@ -1,5 +1,5 @@
 import pino, { transport } from "pino";
-import { z } from "zod";
+import type { z } from "zod";
 
 /* -------------------------------------------------------------------------------------------------
  * API WRAPPER - SCHEMAS

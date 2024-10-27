@@ -1,5 +1,5 @@
-import { JSONSchema7 } from "json-schema";
-import * as z from "zod";
+import type { JSONSchema7 } from "json-schema";
+import type * as z from "zod";
 import zodToJsonSchema from "zod-to-json-schema";
 
 export function convertZodToJSONSchema(

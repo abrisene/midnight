@@ -55,5 +55,6 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
-  }
+  },
+  "prettier": "@configs/prettier-config"
 }

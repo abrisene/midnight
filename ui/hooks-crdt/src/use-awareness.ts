@@ -1,7 +1,7 @@
 // useAwareness.ts
 import { useState, useEffect } from 'react';
-import { WebsocketProvider } from 'y-websocket';
-import { AwarenessState } from './types';
+import type { WebsocketProvider } from 'y-websocket';
+import type { AwarenessState } from './types';
 
 export const useAwareness = (wsProvider: WebsocketProvider | null) => {
   const [userCount, setUserCount] = useState(0);

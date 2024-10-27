@@ -1,5 +1,5 @@
 import * as json5 from "json5";
-import { z } from "zod";
+import type { z } from "zod";
 
 import { beautifyJSON } from "../beautify";
 import { parsePartialJson5 } from "../json5/parse-partial-json5";
@@ -87,7 +87,7 @@ const jsonStringify = (
   value: unknown,
   replacer: Function | object | unknown[] | null = null,
   space: string | number = 2,
-  limit: number = 80,
+  limit = 80,
 ) => {
   return beautifyJSON(value, replacer, space, limit);
 };

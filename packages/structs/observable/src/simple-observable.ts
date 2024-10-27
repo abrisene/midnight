@@ -5,7 +5,7 @@
  * -----------------------------------------------------------------------------------------------*/
 
 export class SimpleObservable<T> {
-  private observers: Array<(data: T) => void> = [];
+  private observers: ((data: T) => void)[] = [];
 
   constructor(public debugLabel?: string) {}
 

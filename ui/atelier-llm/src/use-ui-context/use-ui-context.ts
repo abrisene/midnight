@@ -1,4 +1,5 @@
-import { MouseEvent, useCallback, useRef, useState } from "react";
+import type { MouseEvent} from "react";
+import { useCallback, useRef, useState } from "react";
 
 /**
  * useContextualData Hook

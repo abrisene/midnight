@@ -1,4 +1,5 @@
-import { prettifyNumber, PrettyNumberOptions } from "./prettify-number";
+import type { PrettyNumberOptions } from "./prettify-number";
+import { prettifyNumber } from "./prettify-number";
 
 describe("prettifyNumber", () => {
   it("should format numbers correctly with default options", () => {

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ScheduleTimeline } from "../schedule-timeline";
-import { Schedule } from "../types";
+import type { Schedule } from "../types";
 
 const meta: Meta<typeof ScheduleTimeline> = {
   title: "Atelier/ScheduleTimeline",

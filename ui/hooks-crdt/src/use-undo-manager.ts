@@ -1,7 +1,7 @@
 // useUndoManager.ts
 import { useState, useEffect } from 'react';
 import * as Y from 'yjs';
-import { UseUndoManager } from './types';
+import type { UseUndoManager } from './types';
 
 const useUndoManager: UseUndoManager = (yText) => {
   const [undoManager] = useState(() => new Y.UndoManager(yText));

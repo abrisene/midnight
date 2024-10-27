@@ -1,7 +1,7 @@
-import { z } from "zod";
+import type { z } from "zod";
 
-import { Prettify } from "../prettify";
-import { OpenUnion } from "../string";
+import type { Prettify } from "../prettify";
+import type { OpenUnion } from "../string";
 
 /* -------------------------------------------------------------------------------------------------
  * ZOD TYPE UTILS

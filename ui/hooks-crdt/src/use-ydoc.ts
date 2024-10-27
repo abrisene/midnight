@@ -2,7 +2,7 @@
 import { useCallback, useState } from "react";
 import * as Y from "yjs";
 
-import { YDocOptions } from "./types";
+import type { YDocOptions } from "./types";
 
 export const useYDoc = ({ documentId, initialText = "" }: YDocOptions) => {
   const [state] = useState(() => {

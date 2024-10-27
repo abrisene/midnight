@@ -1,4 +1,5 @@
-import { backoff, BackoffOptions } from "../promise-backoff";
+import type { BackoffOptions } from "../promise-backoff";
+import { backoff } from "../promise-backoff";
 
 describe("backoff", () => {
   // Mock the global setTimeout function

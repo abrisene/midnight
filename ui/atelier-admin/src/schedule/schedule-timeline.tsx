@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Select } from "@acausal/ui-core/select";
 
-import { Schedule } from "./types";
+import type { Schedule } from "./types";
 
 export function ScheduleTimeline({
   schedules,
@@ -28,8 +28,8 @@ export function ScheduleTimeline({
   useEffect(() => {
     const flattenSchedules = (
       schedule: Schedule,
-      parentStart: number = 0,
-      depth: number = 0,
+      parentStart = 0,
+      depth = 0,
     ): {
       id: string;
       start: number;
@@ -155,7 +155,7 @@ export function ScheduleTimeline({
     id: string,
     updatedData: { start: number; end: number },
   ): Schedule | null => {
-    for (let schedule of schedules) {
+    for (const schedule of schedules) {
       if (schedule.id === id) {
         if (schedule.type === "calendar") {
           return {
@@ -192,7 +192,7 @@ export function ScheduleTimeline({
   };
 
   const findParentStart = (schedules: Schedule[], id: string): number => {
-    for (let schedule of schedules) {
+    for (const schedule of schedules) {
       if (schedule.children.some((child) => child.id === id)) {
         return schedule.type === "calendar"
           ? new Date(schedule.startTime).getTime()

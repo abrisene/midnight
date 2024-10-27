@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@acausal/ui-core/button";
 
+import type { Schedule } from "./types";
+
 import { ScheduleItem } from "./schedule-item";
 import { ScheduleTimeline } from "./schedule-timeline";
-import { Schedule } from "./types";
 
 interface ScheduleManagerProps {
   initialSchedules?: Schedule[];

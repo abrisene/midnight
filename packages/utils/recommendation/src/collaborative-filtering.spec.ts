@@ -1,4 +1,5 @@
-import { CollaborativeFiltering, Rating } from "./collaborative-filtering";
+import type { Rating } from "./collaborative-filtering";
+import { CollaborativeFiltering } from "./collaborative-filtering";
 
 describe("CollaborativeFiltering", () => {
   let cf: CollaborativeFiltering;
@@ -22,7 +23,7 @@ describe("CollaborativeFiltering", () => {
     it("should add a new rating", () => {
       const newRating: Rating = { userId: "u4", itemId: "i4", rating: 4 };
       cf.addRating(newRating);
-      expect(cf["ratings"]).toContainEqual(newRating);
+      expect(cf.ratings).toContainEqual(newRating);
     });
   });
 

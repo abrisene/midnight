@@ -1,6 +1,6 @@
 // hooks/useCollaborativePresence.ts
 import { useState, useEffect } from "react";
-import { WebsocketProvider } from "y-websocket";
+import type { WebsocketProvider } from "y-websocket";
 
 interface PresenceData {
   status: "active" | "idle" | "offline";

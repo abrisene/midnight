@@ -1,6 +1,6 @@
 // hooks/useCollaborativeCursor.ts
 import { useEffect, useCallback, useState } from "react";
-import { WebsocketProvider } from "y-websocket";
+import type { WebsocketProvider } from "y-websocket";
 
 interface CursorPosition {
   index: number;

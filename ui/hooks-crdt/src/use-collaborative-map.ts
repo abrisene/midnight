@@ -4,14 +4,14 @@ import { useState, useCallback } from "react";
 import * as Y from "yjs";
 import { useWebSocketProvider } from "./use-yjs-provider-ws";
 import { useAwareness } from "./use-awareness";
-import { WebSocketOptions } from "./types";
+import type { WebSocketOptions } from "./types";
 
 export function useCollaborativeMap<T extends object>(
   options: WebSocketOptions & { initialData?: T }
 ) {
   const [state] = useState(() => {
     const yDoc = new Y.Doc();
-    const yMap = yDoc.getMap("shared-map") as Y.Map<T[keyof T]>;
+    const yMap = yDoc.getMap("shared-map");
 
     if (options.initialData) {
       Object.entries(options.initialData).forEach(([key, value]) => {
