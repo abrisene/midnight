@@ -4,6 +4,7 @@ packages:
   - packages/client/*
   # - packages/models/*
   # - packages/server/*
+  - packages/server/api/*
   # - packages/server/services/*
   - packages/shared/types
   - packages/shared/utils/*
