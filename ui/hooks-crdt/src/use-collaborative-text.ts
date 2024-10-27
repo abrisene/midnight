@@ -5,9 +5,9 @@ import { useYDoc } from "./use-ydoc";
 import { useWebSocketProvider } from "./use-yjs-provider-ws";
 import { useAwareness } from "./use-awareness";
 import { useUndoManager } from "./use-undo-manager";
-import { WebSocketOptions, YDocOptions } from "./types";
+import type { WebSocketOptions, YDocOptions } from "./types";
 import * as Y from 'yjs';
-import { WebsocketProvider } from 'y-websocket';
+import type { WebsocketProvider } from 'y-websocket';
 import { Awareness } from 'y-protocols/awareness';
 
 // Define the return type for useCollaborativeText
@@ -61,6 +61,6 @@ export const useCollaborativeText = ({
     canUndo,
     canRedo,
     cleanup,
-    wsProvider: wsProvider as WebsocketProvider,
+    wsProvider: wsProvider!,
   };
 };

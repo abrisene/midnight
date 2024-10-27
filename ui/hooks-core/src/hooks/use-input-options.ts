@@ -1,5 +1,6 @@
 import type { Replace } from "@acausal/types";
-import React, { useMemo } from "react";
+import type React from "react";
+import { useMemo } from "react";
 import { z } from "zod";
 
 /* -------------------------------------------------------------------------------------------------

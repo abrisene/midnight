@@ -31,12 +31,7 @@ export const ImageMimeType = z
   ])
   .transform((value) => {
     if (typeof value === "string") {
-      return value as
-        | "image/gif"
-        | "image/png"
-        | "image/jpeg"
-        | "image/webp"
-        | "image/svg+xml";
+      return value;
     }
 
     return detectImageMimeType(value);

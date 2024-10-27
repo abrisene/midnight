@@ -28,16 +28,9 @@ export function getClientRect(
     }
   }
 
-  const { top, left, width, height, bottom, right } = rect;
-
-  return {
-    top,
-    left,
-    width,
-    height,
-    bottom,
-    right,
-  };
+  const { top, left, width, height } = rect;
+  const domRect: DOMRect = new DOMRect(top, left, width, height);
+  return domRect;
 }
 
 /**

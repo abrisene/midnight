@@ -1,10 +1,11 @@
 import pino from "pino";
 import { z } from "zod";
 
-import {
+import type {
   BaseAPIClientOptions,
-  BaseAPIWrapper,
-  QueueTask,
+  QueueTask} from "./http-api-wrapper";
+import {
+  BaseAPIWrapper
 } from "./http-api-wrapper";
 
 // Mock implementation of BaseAPIWrapper for testing
@@ -52,9 +53,9 @@ describe("BaseAPIWrapper", () => {
   });
 
   it("should initialize with correct options", () => {
-    expect(wrapper["_baseURL"].toString()).toBe("https://api.example.com/");
-    expect(wrapper["_apiKey"]).toBe("test-api-key");
-    expect(wrapper["_id"]).toBe("test-wrapper");
+    expect(wrapper._baseURL.toString()).toBe("https://api.example.com/");
+    expect(wrapper._apiKey).toBe("test-api-key");
+    expect(wrapper._id).toBe("test-wrapper");
     expect(wrapper.getStatus()).toBe("disconnected");
   });
 
@@ -76,7 +77,7 @@ describe("BaseAPIWrapper", () => {
     };
 
     wrapper.addTask(mockTask);
-    expect(wrapper["_tasks"]["task1"]).toBe(mockTask);
+    expect(wrapper._tasks.task1).toBe(mockTask);
 
     await wrapper.processQueue();
     expect(mockTask.status).toBe("completed");

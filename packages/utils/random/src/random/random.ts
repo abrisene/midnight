@@ -91,7 +91,7 @@ export class Random {
    * @param mask Array of keys to be ignored while evaluating.
    */
   public pickWeighted(
-    object: { [key: string]: number },
+    object: Record<string, number>,
     mask?: string[],
   ): string | undefined {
     const value = this.real(0, 1);
@@ -100,7 +100,7 @@ export class Random {
     let sum = 0;
 
     Object.keys(object).some((key) => {
-      if (!mask || !mask.includes(key)) {
+      if (!mask?.includes(key)) {
         sum += object[key]!;
         if (sum >= value) {
           result = key;

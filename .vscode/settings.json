@@ -24,6 +24,12 @@
     {
       "pattern": "tooling/*/"
     }
+    {
+      "pattern": "turbo/*/"
+    }
+    {
+      "pattern": "ui/*/"
+    }
   ],
   "tailwindCSS.experimental.classRegex": [
     [
@@ -41,5 +47,8 @@
     "next/router.d.ts",
     "next/dist/client/router.d.ts"
   ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 }

@@ -233,7 +233,7 @@ export class MersenneTwister {
 
   /* generates a random number on [0,1) with 53-bit resolution*/
   randomLong() {
-    var a = this.generateInt32() >>> 5,
+    const a = this.generateInt32() >>> 5,
       b = this.generateInt32() >>> 6;
     return (a * 67108864.0 + b) * (1.0 / 9007199254740992.0);
   }

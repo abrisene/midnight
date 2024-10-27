@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@acausal/ui-core";
 
-import { BezierCurve } from "../curve/use-bezier-editor";
+import type { BezierCurve } from "../curve/use-bezier-editor";
 
 /* -------------------------------------------------------------------------------------------------
  * CurveHandle

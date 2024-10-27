@@ -66,7 +66,7 @@ export class Grid<Tile> {
    */
   getTile(x: number, y: number): Tile | null {
     if (!this.isValidPosition(x, y)) return null;
-    return this.grid?.[y]?.[x] ?? null;
+    return this.grid[y]?.[x] ?? null;
   }
 
   /**
@@ -77,8 +77,8 @@ export class Grid<Tile> {
    */
   removeTile(x: number, y: number): Tile | null {
     if (!this.isValidPosition(x, y)) return null;
-    const tile = this.grid?.[y]?.[x];
-    if (this.grid?.[y]?.[x]) this.grid[y][x] = null;
+    const tile = this.grid[y]?.[x];
+    if (this.grid[y]?.[x]) this.grid[y][x] = null;
     return tile ?? null;
   }
 
@@ -99,7 +99,7 @@ export class Grid<Tile> {
   forEach(callback: (tile: Tile | null, x: number, y: number) => void): void {
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
-        callback(this.grid?.[y]?.[x] ?? null, x, y);
+        callback(this.grid[y]?.[x] ?? null, x, y);
       }
     }
   }
@@ -114,7 +114,7 @@ export class Grid<Tile> {
   ): { x: number; y: number } | null {
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
-        if (predicate(this.grid?.[y]?.[x] ?? null)) {
+        if (predicate(this.grid[y]?.[x] ?? null)) {
           return { x, y };
         }
       }

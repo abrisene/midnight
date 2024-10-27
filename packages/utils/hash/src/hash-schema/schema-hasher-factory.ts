@@ -1,5 +1,5 @@
 import { hashSchemaWithHasher } from "./hash-schema";
-import { Awaitable } from "./shared-types";
+import type { Awaitable } from "./shared-types";
 
 /* -------------------------------------------------------------------------------------------------
  * FACTORIES

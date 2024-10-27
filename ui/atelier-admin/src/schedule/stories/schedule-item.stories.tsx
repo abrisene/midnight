@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ScheduleItem } from "@acausal/ui-admin/schedule-item";
-import { Schedule } from "@acausal/ui-admin/types";
+import type { Schedule } from "@acausal/ui-admin/types";
 
 const meta: Meta<typeof ScheduleItem> = {
   title: "Atelier/ScheduleItem",

@@ -3,7 +3,7 @@ import { useState, useCallback } from "react";
 import * as Y from "yjs";
 import { useWebSocketProvider } from "./use-yjs-provider-ws";
 import { useAwareness } from "./use-awareness";
-import { WebSocketOptions } from "./types";
+import type { WebSocketOptions } from "./types";
 
 export function useCollaborativeArray<T>(
   options: WebSocketOptions & { initialData?: T[] }

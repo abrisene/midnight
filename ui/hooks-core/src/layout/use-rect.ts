@@ -6,7 +6,7 @@ import { useMutationObserver } from "./use-mutation-observer";
 import { useResizeObserver } from "./use-resize-observer";
 
 function defaultMeasure(element: HTMLElement) {
-  return new Rect(getClientRect(element), element);
+  return getClientRect(element);
 }
 
 export function useRect(

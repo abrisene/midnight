@@ -9,12 +9,12 @@ import { Sidebar } from "lucide-react";
 
 import { useContextualData } from "./use-ui-context";
 
-type Character = {
+interface Character {
   name: string;
   portrait: string;
   description: string;
   stats: Record<string, number>;
-};
+}
 
 const RPGCharacterGallery = () => {
   const {

@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ScheduleTimeline } from "../schedule-timeline";
-import { Schedule } from "../schedule/types";
+import type { Schedule } from "../schedule/types";
+
+import { ScheduleTimeline } from "../schedule/schedule-timeline";
 
 const meta: Meta<typeof ScheduleTimeline> = {
   title: "Atelier/ScheduleTimeline",
@@ -62,7 +63,7 @@ const schedules: Schedule[] = [
 export const Default: Story = {
   args: {
     schedules,
-    onUpdateSchedule: (updatedSchedule) =>
+    onUpdateSchedule: (updatedSchedule: Schedule) =>
       console.log("Schedule updated:", updatedSchedule),
   },
 };

@@ -1,8 +1,8 @@
-export type Rating = {
+export interface Rating {
   userId: string;
   itemId: string;
   rating: number;
-};
+}
 
 export class CollaborativeFiltering {
   private ratings: Rating[] = [];
@@ -95,7 +95,7 @@ export class CollaborativeFiltering {
   }
 
   // Get top similar users to the target user
-  getSimilarUsers(targetUserId: string, topN: number = 3): string[] {
+  getSimilarUsers(targetUserId: string, topN = 3): string[] {
     const allUsers = Array.from(new Set(this.ratings.map((r) => r.userId)));
     const similarities = allUsers
       .filter((userId) => userId !== targetUserId)
@@ -109,7 +109,7 @@ export class CollaborativeFiltering {
   }
 
   // Get top similar items to the target item
-  getSimilarItems(targetItemId: string, topN: number = 3): string[] {
+  getSimilarItems(targetItemId: string, topN = 3): string[] {
     const allItems = Array.from(new Set(this.ratings.map((r) => r.itemId)));
     const similarities = allItems
       .filter((itemId) => itemId !== targetItemId)
@@ -123,7 +123,7 @@ export class CollaborativeFiltering {
   }
 
   // Recommend items to a user based on other similar users (User-based filtering)
-  recommendItemsUserBased(userId: string, topN: number = 3): string[] {
+  recommendItemsUserBased(userId: string, topN = 3): string[] {
     const userRatings = this.getItemsRatedByUser(userId);
 
     // If the user has no ratings or is unknown, return an empty array
@@ -132,7 +132,7 @@ export class CollaborativeFiltering {
     }
 
     const similarUsers = this.getSimilarUsers(userId);
-    const recommendedItems: { [key: string]: number } = {};
+    const recommendedItems: Record<string, number> = {};
 
     similarUsers.forEach((similarUserId) => {
       const items = this.getItemsRatedByUser(similarUserId);
@@ -150,7 +150,7 @@ export class CollaborativeFiltering {
   }
 
   // Recommend items to a user based on similar items they have liked (Item-based filtering)
-  recommendItemsItemBased(userId: string, topN: number = 3): string[] {
+  recommendItemsItemBased(userId: string, topN = 3): string[] {
     const itemsRatedByUser = this.getItemsRatedByUser(userId);
 
     // If the user has no ratings or is unknown, return an empty array
@@ -158,7 +158,7 @@ export class CollaborativeFiltering {
       return [];
     }
 
-    const recommendedItems: { [key: string]: number } = {};
+    const recommendedItems: Record<string, number> = {};
 
     itemsRatedByUser.forEach((itemId) => {
       const similarItems = this.getSimilarItems(itemId);
@@ -177,7 +177,7 @@ export class CollaborativeFiltering {
   }
 
   // Hybrid recommendation combining user-based and item-based filtering
-  recommendItemsHybrid(userId: string, topN: number = 3): string[] {
+  recommendItemsHybrid(userId: string, topN = 3): string[] {
     const userRatings = this.getItemsRatedByUser(userId);
 
     // If the user has no ratings or is unknown, return an empty array
@@ -202,7 +202,7 @@ export class CollaborativeFiltering {
       return [];
     }
 
-    const combinedRecommendations: { [key: string]: number } = {};
+    const combinedRecommendations: Record<string, number> = {};
 
     userBasedRecommendations.forEach((itemId) => {
       if (!combinedRecommendations[itemId]) combinedRecommendations[itemId] = 0;

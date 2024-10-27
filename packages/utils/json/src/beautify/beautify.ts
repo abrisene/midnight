@@ -20,5 +20,5 @@ export const beautifyJSON = (
   value: unknown,
   replacer: Function | object | unknown[] | null = null,
   space: number | string = 2,
-  limit: number = 80,
+  limit = 80,
 ) => jsonBeautify(value, replacer, space, limit);

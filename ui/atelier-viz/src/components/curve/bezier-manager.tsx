@@ -14,9 +14,10 @@ import { Trash } from "@phosphor-icons/react/Trash";
 
 import { BezierCurvePath } from "../svg/svg-bezier";
 import { SVGViewer } from "../svg/svg-elements";
-import {
+import type {
   BezierCurve,
-  BezierCurvesCallbacks,
+  BezierCurvesCallbacks} from "./use-bezier-editor";
+import {
   CURVE_OPTIONS,
   CurveType,
   DEFAULT_CURVE,
@@ -57,7 +58,7 @@ export const BezierCurveTypeSelect: React.FC<BezierCurveTypeSelectProps> = ({
             className="flex-initial flex-shrink-0"
           >
             <BezierCurvePath
-              curve={{ ...curve, type: value as BezierCurve["type"] }}
+              curve={{ ...curve, type: value }}
               width={100}
               height={45}
             />

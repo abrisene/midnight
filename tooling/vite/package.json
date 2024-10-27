@@ -15,7 +15,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tanstack/router": "0.0.1-beta.53"
+    "@tanstack/router": "0.0.1-beta.53",
+    "@tanstack/router-vite-plugin": "^1.76.0"
   },
   "devDependencies": {
     "@configs/eslint-config": "workspace:*",

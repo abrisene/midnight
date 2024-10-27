@@ -19,7 +19,7 @@
 // CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-import { z } from "zod";
+import type { z } from "zod";
 
 /**
 Create a type from an object with all keys and nested keys set to optional.
@@ -53,11 +53,11 @@ export type DeepPartial<T> = T extends
           : T extends z.Schema<any>
             ? DeepPartial<T["_type"]>
             : T extends object
-              ? T extends ReadonlyArray<infer ItemType> // Test for arrays/tuples, per https://github.com/microsoft/TypeScript/issues/35156
+              ? T extends readonly (infer ItemType)[] // Test for arrays/tuples, per https://github.com/microsoft/TypeScript/issues/35156
                 ? ItemType[] extends T // Test for arrays (non-tuples) specifically
                   ? readonly ItemType[] extends T // Differentiate readonly and mutable arrays
-                    ? ReadonlyArray<DeepPartial<ItemType | undefined>>
-                    : Array<DeepPartial<ItemType | undefined>>
+                    ? readonly DeepPartial<ItemType | undefined>[]
+                    : DeepPartial<ItemType | undefined>[]
                   : PartialObject<T> // Tuples behave properly
                 : PartialObject<T>
               : unknown;

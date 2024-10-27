@@ -5,7 +5,7 @@
  * -----------------------------------------------------------------------------------------------*/
 
 export class StatefulObservable<T> {
-  private observers: Array<(data: T) => void> = [];
+  private observers: ((data: T) => void)[] = [];
 
   constructor(
     private state: T,

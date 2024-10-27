@@ -1,8 +1,8 @@
 // useWebSocketProvider.ts
 import { useState, useEffect, useCallback } from 'react';
 import { WebsocketProvider } from 'y-websocket';
-import { ConnectionStatus, WebSocketOptions } from "./types";
-import * as Y from "yjs";
+import type { ConnectionStatus, WebSocketOptions } from "./types";
+import type * as Y from "yjs";
 
 export const useWebSocketProvider = (
   yDoc: Y.Doc,

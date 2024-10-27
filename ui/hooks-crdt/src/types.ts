@@ -1,5 +1,5 @@
 // types.ts
-import * as Y from 'yjs';
+import type * as Y from 'yjs';
 
 export type ConnectionStatus = 'connecting' | 'connected' | 'disconnected';
 
@@ -32,6 +32,4 @@ export interface UndoManagerState {
   canRedo: boolean;
 }
 
-export interface UseUndoManager {
-  (yText: Y.Text): UndoManagerState;
-}
+export type UseUndoManager = (yText: Y.Text) => UndoManagerState;

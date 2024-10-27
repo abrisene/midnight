@@ -5,7 +5,8 @@ import { cn } from "@acausal/ui-core";
 import { BezierCurvePath } from "../svg/svg-bezier";
 import { SVGViewer } from "../svg/svg-elements";
 import { CurveHandle } from "../svg/svg-handle";
-import { BezierCurve, useBezierCurves } from "./use-bezier-editor";
+import type { BezierCurve} from "./use-bezier-editor";
+import { useBezierCurves } from "./use-bezier-editor";
 
 /* -------------------------------------------------------------------------------------------------
  * BezierCurveEditor
