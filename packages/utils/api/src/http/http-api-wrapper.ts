@@ -55,6 +55,18 @@ export abstract class BaseAPIWrapper {
     }
   }
 
+  get id(): string {
+    return this._id;
+  }
+
+  get baseURL(): URL {
+    return this._baseURL;
+  }
+
+  get apiKey(): string | undefined {
+    return this._apiKey;
+  }
+
   /**
    * Connects to the API.
    */
@@ -155,12 +167,30 @@ export abstract class BaseAPIWrapper {
   }
 
   /**
+   * Returns a task by its ID.
+   * @param id - The ID of the task to return.
+   * @returns The task with the given ID.
+   */
+  public getTask(id: string): QueueTask | undefined {
+    return this._tasks[id];
+  }
+
+  /**
    * Adds a task to the queue of tasks to be processed by the API client.
    * @param task - The task to add to the queue.
    */
   public addTask(task: QueueTask): void {
     this._logger.info(task, `Adding task ${task.id} to queue`);
     this._tasks[task.id] = task;
+  }
+
+  /**
+   * Removes a task from the queue of tasks to be processed by the API client.
+   * @param id - The ID of the task to remove from the queue.
+   */
+  public removeTask(id: string): void {
+    this._logger.info(`Removing task ${id} from queue`);
+    delete this._tasks[id];
   }
 
   /**

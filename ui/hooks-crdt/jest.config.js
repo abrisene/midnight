@@ -4,4 +4,5 @@ export default {
   testEnvironment: "node",
   modulePaths: ["<rootDir>/../../packages/utils"],
   moduleNameMapper: {},
+  passWithNoTests: true,
 };

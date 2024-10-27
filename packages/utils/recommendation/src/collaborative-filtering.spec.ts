@@ -24,7 +24,7 @@ describe("CollaborativeFiltering", () => {
     it("should add a new rating", () => {
       const newRating: Rating = { userId: "u4", itemId: "i4", rating: 4 };
       cf.addRating(newRating);
-      expect(cf.ratings).toContainEqual(newRating);
+      expect(cf.getRating("u4", "i4")).toBe(4);
     });
   });
 

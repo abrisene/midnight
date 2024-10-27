@@ -13,7 +13,7 @@ export class CollaborativeFiltering {
   }
 
   // Get the average rating for a specific user
-  private getAverageRating(userId: string): number {
+  getAverageRating(userId: string): number {
     const userRatings = this.ratings.filter((r) => r.userId === userId);
     if (userRatings.length === 0) return 0;
     const sum = userRatings.reduce((acc, curr) => acc + curr.rating, 0);
@@ -21,7 +21,7 @@ export class CollaborativeFiltering {
   }
 
   // Get rating by user and item
-  private getRating(userId: string, itemId: string): number {
+  getRating(userId: string, itemId: string): number {
     const rating = this.ratings.find(
       (r) => r.userId === userId && r.itemId === itemId,
     );
@@ -29,17 +29,17 @@ export class CollaborativeFiltering {
   }
 
   // Get list of items rated by a specific user
-  private getItemsRatedByUser(userId: string): string[] {
+  getItemsRatedByUser(userId: string): string[] {
     return this.ratings.filter((r) => r.userId === userId).map((r) => r.itemId);
   }
 
   // Get list of users who have rated a specific item
-  private getUsersWhoRatedItem(itemId: string): string[] {
+  getUsersWhoRatedItem(itemId: string): string[] {
     return this.ratings.filter((r) => r.itemId === itemId).map((r) => r.userId);
   }
 
   // Calculate the cosine similarity between two users
-  private calculateUserSimilarity(userA: string, userB: string): number {
+  calculateUserSimilarity(userA: string, userB: string): number {
     const itemsA = this.getItemsRatedByUser(userA);
     const itemsB = this.getItemsRatedByUser(userB);
 
@@ -67,7 +67,7 @@ export class CollaborativeFiltering {
   }
 
   // Calculate the cosine similarity between two items
-  private calculateItemSimilarity(itemA: string, itemB: string): number {
+  calculateItemSimilarity(itemA: string, itemB: string): number {
     const usersA = this.getUsersWhoRatedItem(itemA);
     const usersB = this.getUsersWhoRatedItem(itemB);
 

@@ -50,9 +50,9 @@ describe("BaseAPIWrapper", () => {
   });
 
   it("should initialize with correct options", () => {
-    expect(wrapper._baseURL.toString()).toBe("https://api.example.com/");
-    expect(wrapper._apiKey).toBe("test-api-key");
-    expect(wrapper._id).toBe("test-wrapper");
+    expect(wrapper.baseURL.toString()).toBe("https://api.example.com/");
+    expect(wrapper.apiKey).toBe("test-api-key");
+    expect(wrapper.id).toBe("test-wrapper");
     expect(wrapper.getStatus()).toBe("disconnected");
   });
 
@@ -74,12 +74,18 @@ describe("BaseAPIWrapper", () => {
     };
 
     wrapper.addTask(mockTask);
-    expect(wrapper._tasks.task1).toBe(mockTask);
+    expect(wrapper.getTask("task1")).toBe(mockTask);
 
     await wrapper.processQueue();
     expect(mockTask.status).toBe("completed");
     expect(mockTask.onComplete).toHaveBeenCalled();
     expect(mockTask.onProgress).toHaveBeenCalledWith(100);
+  });
+
+  it("should remove tasks", () => {
+    wrapper.addTask({ id: "task1", data: { foo: "bar" }, status: "pending" });
+    wrapper.removeTask("task1");
+    expect(wrapper.getTask("task1")).toBeUndefined();
   });
 
   it("should handle task failures", async () => {
