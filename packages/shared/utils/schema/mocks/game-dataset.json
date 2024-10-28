@@ -1,0 +1,618 @@
+{
+  "resources": [
+    {
+      "id": "res_gold_1",
+      "name": "Gold",
+      "localization_key": "resource_gold_name",
+      "color": "Yellow"
+    },
+    {
+      "id": "res_iron_2",
+      "name": "Iron",
+      "localization_key": "resource_iron_name",
+      "color": "Grey"
+    },
+    {
+      "id": "res_leather_3",
+      "name": "Leather",
+      "localization_key": "resource_leather_name",
+      "color": "Brown"
+    },
+    {
+      "id": "res_wood_4",
+      "name": "Wood",
+      "localization_key": "resource_wood_name",
+      "color": "Light Brown"
+    },
+    {
+      "id": "res_steel_5",
+      "name": "Steel",
+      "localization_key": "resource_steel_name",
+      "color": "Silver"
+    },
+    {
+      "id": "res_diamond_6",
+      "name": "Diamond",
+      "localization_key": "resource_diamond_name",
+      "color": "Blue"
+    },
+    {
+      "id": "res_elixir_7",
+      "name": "Elixir",
+      "localization_key": "resource_elixir_name",
+      "color": "Green"
+    },
+    {
+      "id": "res_mana_crystal_8",
+      "name": "Mana Crystal",
+      "localization_key": "resource_mana_crystal_name",
+      "color": "Purple"
+    }
+  ],
+  "heroes": [
+    {
+      "id": "hero_rogue_1",
+      "name": "Rogue",
+      "localization_key": "hero_rogue_name",
+      "hp": 100,
+      "attack": 25,
+      "defense": 15,
+      "speed": 2,
+      "starting_items": [
+        "itm_sword_iron_1",
+        "gear_shield_leather_1"
+      ],
+      "abilities": [
+        "abl_basic_strike_1",
+        "abl_shadow_step_4"
+      ],
+      "image_key": "hero_rogue_image"
+    },
+    {
+      "id": "hero_warrior_2",
+      "name": "Warrior",
+      "localization_key": "hero_warrior_name",
+      "hp": 140,
+      "attack": 35,
+      "defense": 25,
+      "speed": 1.5,
+      "starting_items": [
+        "itm_sword_steel_2",
+        "gear_shield_wooden_1"
+      ],
+      "abilities": [
+        "abl_basic_strike_1",
+        "abl_power_slash_7"
+      ],
+      "image_key": "hero_warrior_image"
+    },
+    {
+      "id": "hero_mage_3",
+      "name": "Mage",
+      "localization_key": "hero_mage_name",
+      "hp": 80,
+      "attack": 15,
+      "defense": 10,
+      "speed": 1,
+      "starting_items": [
+        "itm_staff_wisdom_1",
+        "itm_orb_mana_1"
+      ],
+      "abilities": [
+        "abl_fireball_3",
+        "abl_healing_light_5"
+      ],
+      "image_key": "hero_mage_image"
+    },
+    {
+      "id": "hero_paladin_4",
+      "name": "Paladin",
+      "localization_key": "hero_paladin_name",
+      "hp": 160,
+      "attack": 30,
+      "defense": 30,
+      "speed": 1.2,
+      "starting_items": [
+        "itm_hammer_steel_1",
+        "gear_shield_diamond_1"
+      ],
+      "abilities": [
+        "abl_basic_strike_1",
+        "abl_basic_defend_2",
+        "abl_holy_blessing_6"
+      ],
+      "image_key": "hero_paladin_image"
+    }
+  ],
+  "items": [
+    {
+      "id": "itm_sword_iron_1",
+      "name": "Iron Sword",
+      "localization_key": "item_sword_iron_name",
+      "slot": "weapon",
+      "equipped": true,
+      "hp": 0,
+      "attack": 15,
+      "defense": 0,
+      "speed": 0,
+      "effects": [],
+      "image_key": "item_sword_iron_image"
+    },
+    {
+      "id": "itm_sword_steel_2",
+      "name": "Steel Sword",
+      "localization_key": "item_sword_steel_name",
+      "slot": "weapon",
+      "equipped": true,
+      "hp": 0,
+      "attack": 20,
+      "defense": 0,
+      "speed": 0,
+      "effects": [],
+      "image_key": "item_sword_steel_image"
+    },
+    {
+      "id": "gear_shield_wooden_1",
+      "name": "Wooden Shield",
+      "localization_key": "gear_shield_wooden_name",
+      "slot": "shield",
+      "equipped": true,
+      "hp": 0,
+      "attack": 0,
+      "defense": 10,
+      "speed": 0,
+      "effects": [],
+      "image_key": "gear_shield_wooden_image"
+    },
+    {
+      "id": "gear_shield_leather_1",
+      "name": "Leather Shield",
+      "localization_key": "gear_shield_leather_name",
+      "slot": "shield",
+      "equipped": true,
+      "hp": 0,
+      "attack": 0,
+      "defense": 8,
+      "speed": 0,
+      "effects": [],
+      "image_key": "gear_shield_leather_image"
+    },
+    {
+      "id": "itm_staff_wisdom_1",
+      "name": "Staff of Wisdom",
+      "localization_key": "item_staff_wisdom_name",
+      "slot": "weapon",
+      "equipped": true,
+      "hp": 0,
+      "attack": 10,
+      "defense": 0,
+      "speed": 0,
+      "effects": [
+        "mana_regeneration"
+      ],
+      "image_key": "item_staff_wisdom_image"
+    },
+    {
+      "id": "gear_shield_diamond_5",
+      "name": "Diamond Shield",
+      "localization_key": "gear_shield_diamond_name",
+      "slot": "shield",
+      "equipped": true,
+      "hp": 0,
+      "attack": 0,
+      "defense": 25,
+      "speed": -0.5,
+      "effects": [],
+      "image_key": "gear_shield_diamond_image"
+    },
+    {
+      "id": "itm_orb_mana_3",
+      "name": "Orb of Mana",
+      "localization_key": "item_orb_mana_name",
+      "slot": "offhand",
+      "equipped": false,
+      "hp": 0,
+      "attack": 5,
+      "defense": 5,
+      "speed": 0,
+      "effects": [
+        "mana_boost"
+      ],
+      "image_key": "item_orb_mana_image"
+    },
+    {
+      "id": "itm_health_potion_1",
+      "name": "Common Health Potion",
+      "localization_key": "item_health_potion_common_name",
+      "slot": "consumable",
+      "effect": {
+        "restore_hp": 50
+      },
+      "image_key": "item_health_potion_common_image"
+    },
+    {
+      "id": "itm_health_potion_5",
+      "name": "Epic Health Potion",
+      "localization_key": "item_health_potion_epic_name",
+      "slot": "consumable",
+      "effect": {
+        "restore_hp": 200
+      },
+      "image_key": "item_health_potion_epic_image"
+    },
+    {
+      "id": "itm_mana_potion_1",
+      "name": "Common Mana Potion",
+      "localization_key": "item_mana_potion_common_name",
+      "slot": "consumable",
+      "effect": {
+        "restore_mana": 30
+      },
+      "image_key": "item_mana_potion_common_image"
+    }
+  ],
+  "shops": [
+    {
+      "id": "shop_general_1",
+      "name": "General Store",
+      "localization_key": "shop_general_name",
+      "location": "Town Center",
+      "inventory": [
+        "itm_sword_iron_1",
+        "gear_shield_wooden_1",
+        "itm_health_potion_1"
+      ],
+      "image_key": "shop_general_image"
+    },
+    {
+      "id": "shop_magic_emporium_1",
+      "name": "Magic Emporium",
+      "localization_key": "shop_magic_emporium_name",
+      "location": "Mage District",
+      "inventory": [
+        "itm_staff_wisdom_1",
+        "itm_orb_mana_3",
+        "itm_mana_potion_1"
+      ],
+      "image_key": "shop_magic_emporium_image"
+    },
+    {
+      "id": "shop_blacksmith_1",
+      "name": "Blacksmith",
+      "localization_key": "shop_blacksmith_name",
+      "location": "Market Square",
+      "inventory": [
+        "itm_sword_steel_2",
+        "gear_shield_diamond_5",
+        "gear_shield_wooden_1"
+      ],
+      "image_key": "shop_blacksmith_image"
+    }
+  ],
+  "random_rewards": [
+    {
+      "id": "random_hero_summon_6",
+      "name": "Hero Summon",
+      "localization_key": "random_hero_summon_name",
+      "cost": 300,
+      "currency": "Gold",
+      "rewards": [
+        [
+          {
+            "key": "hero_rogue_1",
+            "value": 1
+          },
+          {
+            "key": "res_gold_1",
+            "value": 100
+          }
+        ],
+        [
+          {
+            "key": "hero_mage_3",
+            "value": 1
+          },
+          {
+            "key": "res_gold_1",
+            "value": 200
+          },
+          {
+            "key": "itm_health_potion_5",
+            "value": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "random_item_chest_7",
+      "name": "Item Chest",
+      "localization_key": "random_item_chest_name",
+      "cost": 150,
+      "currency": "Gold",
+      "rewards": [
+        [
+          {
+            "key": "itm_sword_steel_2",
+            "value": 1
+          },
+          {
+            "key": "res_gold_1",
+            "value": 50
+          }
+        ],
+        [
+          {
+            "key": "gear_shield_wooden_1",
+            "value": 1
+          },
+          {
+            "key": "itm_mana_potion_1",
+            "value": 3
+          }
+        ]
+      ]
+    },
+    {
+      "id": "random_ultimate_pack_8",
+      "name": "Ultimate Pack",
+      "localization_key": "random_ultimate_pack_name",
+      "cost": 500,
+      "currency": "Gold",
+      "rewards": [
+        [
+          {
+            "key": "random_hero_summon_6",
+            "value": 1
+          },
+          {
+            "key": "random_item_chest_7",
+            "value": 1
+          },
+          {
+            "key": "res_diamond_6",
+            "value": 500
+          }
+        ],
+        [
+          {
+            "key": "hero_paladin_4",
+            "value": 1
+          },
+          {
+            "key": "itm_health_potion_5",
+            "value": 5
+          },
+          {
+            "key": "res_elixir_7",
+            "value": 100
+          }
+        ]
+      ]
+    }
+  ],
+  "rewards": [
+    {
+      "id": "reward_beginners_pack_1",
+      "name": "Beginner's Pack",
+      "localization_key": "reward_beginners_pack_name",
+      "items": [
+        "itm_sword_iron_1",
+        "gear_shield_wooden_1",
+        "itm_health_potion_1"
+      ],
+      "gold": 500
+    },
+    {
+      "id": "reward_mages_gift_2",
+      "name": "Mage's Gift",
+      "localization_key": "reward_mages_gift_name",
+      "items": [
+        "itm_staff_wisdom_1",
+        "itm_mana_potion_1"
+      ],
+      "gold": 300
+    }
+  ],
+  "stats": [
+    {
+      "id": "stat_attack_power",
+      "name": "Attack Power",
+      "localization_key": "stat_attack_power_name",
+      "type": "combat",
+      "description": "Determines the physical attack strength of the character."
+    },
+    {
+      "id": "stat_defense",
+      "name": "Defense",
+      "localization_key": "stat_defense_name",
+      "type": "combat",
+      "description": "Reduces incoming physical damage."
+    },
+    {
+      "id": "stat_hp",
+      "name": "Health Points",
+      "localization_key": "stat_hp_name",
+      "type": "vital",
+      "description": "Determines how much damage the character can take before dying."
+    },
+    {
+      "id": "stat_speed",
+      "name": "Speed",
+      "localization_key": "stat_speed_name",
+      "type": "combat",
+      "description": "Determines turn order and frequency of actions."
+    }
+  ],
+  "research_trees": [
+    {
+      "tree_id": "res_tree_weapon_mastery",
+      "name": "Weapon Mastery Tree",
+      "localization_key": "research_tree_weapon_mastery_name"
+    },
+    {
+      "tree_id": "res_tree_armor_fortification",
+      "name": "Armor Fortification Tree",
+      "localization_key": "research_tree_armor_fortification_name"
+    }
+  ],
+  "research": [
+    {
+      "id": "res_apprentice_1",
+      "tree_id": "res_tree_weapon_mastery",
+      "name": "Apprentice",
+      "localization_key": "research_apprentice_name",
+      "unlockCost": 0,
+      "req": [],
+      "bonuses": {}
+    },
+    {
+      "id": "res_sword_mastery_2",
+      "tree_id": "res_tree_weapon_mastery",
+      "parent": "res_apprentice_1",
+      "name": "Sword Mastery",
+      "localization_key": "research_sword_mastery_name",
+      "unlockCost": {
+        "resource": "res_iron_2",
+        "amount": 20
+      },
+      "req": [
+        "res_apprentice_1"
+      ],
+      "bonuses": {
+        "criticalChance": 0.1,
+        "damageBonus": 0.15
+      }
+    },
+    {
+      "id": "res_shield_defense_3",
+      "tree_id": "res_tree_armor_fortification",
+      "name": "Shield Defense",
+      "localization_key": "research_shield_defense_name",
+      "unlockCost": {
+        "resource": "res_leather_3",
+        "amount": 30
+      },
+      "req": [],
+      "bonuses": {
+        "blockChance": 0.05,
+        "armorBonus": 0.10
+      }
+    },
+    {
+      "id": "res_advanced_plate_4",
+      "tree_id": "res_tree_armor_fortification",
+      "parent": "res_shield_defense_3",
+      "name": "Advanced Plate Armor",
+      "localization_key": "research_advanced_plate_name",
+      "unlockCost": {
+        "resource": "res_steel_5",
+        "amount": 50
+      },
+      "req": [
+        "res_shield_defense_3"
+      ],
+      "bonuses": {
+        "damageReduction": 0.2,
+        "armorBonus": 0.25
+      }
+    }
+  ],
+  "ability_trees": [
+    {
+      "tree_id": "abl_tree_stealth_combat",
+      "name": "Stealth Combat Tree",
+      "localization_key": "ability_tree_stealth_combat_name"
+    },
+    {
+      "tree_id": "abl_tree_holy_magic",
+      "name": "Holy Magic Tree",
+      "localization_key": "ability_tree_holy_magic_name"
+    }
+  ],
+  "abilities": [
+    {
+      "id": "abl_basic_strike_1",
+      "tree_id": "abl_tree_stealth_combat",
+      "name": "Basic Strike",
+      "localization_key": "ability_basic_strike_name",
+      "description": "Deals damage equal to attack.",
+      "damage": 100,
+      "cooldown": 1,
+      "parent": null,
+      "req": []
+    },
+    {
+      "id": "abl_basic_defend_2",
+      "type": "defend",
+      "name": "Basic Defend",
+      "localization_key": "ability_basic_defend_name",
+      "description": "Blocks 50% of the next attack.",
+      "block": 50,
+      "cooldown": 10
+    },
+    {
+      "id": "abl_fireball_3",
+      "type": "magic",
+      "name": "Fireball",
+      "localization_key": "ability_fireball_name",
+      "description": "Deals fire damage to an enemy.",
+      "damage": 150,
+      "cooldown": 3,
+      "mana_cost": 30
+    },
+    {
+      "id": "abl_shadow_step_4",
+      "type": "stealth",
+      "name": "Shadow Step",
+      "localization_key": "ability_shadow_step_name",
+      "description": "Avoids the next attack and deals double damage on the next turn.",
+      "cooldown": 5
+    },
+    {
+      "id": "abl_healing_light_5",
+      "tree_id": "abl_tree_holy_magic",
+      "name": "Healing Light",
+      "localization_key": "ability_healing_light_name",
+      "description": "Restores 50 HP to an ally.",
+      "healing": 50,
+      "mana_cost": 20,
+      "cooldown": 4,
+      "parent": null,
+      "req": []
+    },
+    {
+      "id": "abl_holy_blessing_6",
+      "tree_id": "abl_tree_holy_magic",
+      "parent": "abl_healing_light_3",
+      "name": "Holy Blessing",
+      "localization_key": "ability_holy_blessing_name",
+      "description": "Increases defense of all allies by 20 for 3 turns.",
+      "cooldown": 6,
+      "mana_cost": 40,
+      "req": [
+        "abl_healing_light_3"
+      ]
+    },
+    {
+      "id": "abl_power_slash_7",
+      "type": "attack",
+      "name": "Power Slash",
+      "localization_key": "ability_power_slash_name",
+      "description": "Deals heavy damage to an enemy.",
+      "damage": 200,
+      "cooldown": 5
+    },
+    {
+      "id": "abl_shadow_step_2",
+      "tree_id": "abl_tree_stealth_combat",
+      "parent": "abl_basic_strike_1",
+      "name": "Shadow Step",
+      "localization_key": "ability_shadow_step_name",
+      "description": "Avoids the next attack and deals double damage on the next turn.",
+      "cooldown": 5,
+      "req": [
+        "abl_basic_strike_1"
+      ]
+    }
+  ]
+}
