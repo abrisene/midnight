@@ -66,6 +66,24 @@ export class PatternDetector {
       constraints.multipleOf = gcd;
     }
 
+    // Detect if numbers are sequential
+    const isSequential = samples.every((n, i, arr) => {
+      return i === 0 || n === (arr[i - 1] as number) + 1;
+    });
+
+    if (isSequential) {
+      constraints.isSequential = true;
+    }
+
+    // Detect if numbers are ascending or descending
+    const isAscending = samples.every((n, i, arr) => {
+      return i === 0 || n === (arr[i - 1] as number) + 1;
+    });
+
+    const isDescending = samples.every((n, i, arr) => {
+      return i === 0 || n === (arr[i - 1] as number) - 1;
+    });
+
     return constraints;
   }
 

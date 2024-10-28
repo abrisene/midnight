@@ -15,6 +15,9 @@ export interface TypeConstraints {
   maximum?: number;
   multipleOf?: number;
   isInteger?: boolean;
+  isSequential?: boolean;
+  isAscending?: boolean;
+  isDescending?: boolean;
 
   // Array constraints
   minItems?: number;

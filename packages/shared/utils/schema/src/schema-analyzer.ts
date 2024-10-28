@@ -116,7 +116,7 @@ export class SchemaAnalyzer {
       const isOptional = propertySamples.length < samples.length;
       const propertyType = this.inferSchema(propertySamples);
 
-      // Fix: Set optional flag on the node
+      // Set optional flag on the node
       const node = this.graph.getNode(propertyType);
       if (node) {
         node.optional = isOptional;

@@ -33,7 +33,11 @@ async function analyzeAndExport() {
 
   // Export Zod schemas
   const zodExporter = new ZodExporter();
-  const schemas = zodExporter.export(graph);
+  const zodSchemaString = zodExporter.exportString(graph, {
+    rootNodeId,
+    schemaName: "GameDataSchema",
+    useImportedZod: true,
+  });
 
   // Save artifacts
   await Promise.all([
@@ -42,10 +46,7 @@ async function analyzeAndExport() {
       JSON.stringify(visualization, null, 2),
     ),
     fs.writeFile(path.join(dataDir, "schema-diagram.mmd"), mermaidDiagram),
-    fs.writeFile(
-      path.join(dataDir, "schema-zod.ts"),
-      generateZodSchemaFile(schemas),
-    ),
+    fs.writeFile(path.join(dataDir, "schema-zod.ts"), zodSchemaString),
     fs.writeFile(
       path.join(dataDir, "schema-graph.json"),
       JSON.stringify(graph.getAllNodes(), null, 2),
@@ -57,11 +58,11 @@ async function analyzeAndExport() {
  * @param {Record<string, import("zod").ZodType<any, import("zod").ZodTypeDef, any>>} schemas
  */
 function generateZodSchemaFile(schemas) {
-  return `import { z } from "zod";
-
-// Generated Zod schemas
-export const schemas = ${JSON.stringify(schemas, null, 2)};
-`;
+  //   return `import { z } from "zod";
+  // // Generated Zod schemas
+  // export const schemas = ${JSON.stringify(schemas, null, 2)};
+  // `;
+  // return
 }
 
 // Run if called directly
