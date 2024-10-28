@@ -1,5 +1,5 @@
 {
-  "name": "@acausal/utils-zod",
+  "name": "@acausal/utils-schema",
   "private": true,
   "version": "1.0.0",
   "type": "module",
