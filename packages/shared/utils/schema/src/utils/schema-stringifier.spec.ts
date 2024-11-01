@@ -111,7 +111,7 @@ describe("Schema Stringifier", () => {
         schemaName: "UserSchema",
       });
       expect(code).toBe(
-        "export const UserSchema = zod.object({\n  name: zod.string()\n});\n",
+        "export const UserSchema = z.object({\n  name: z.string()\n});\n",
       );
     });
   });

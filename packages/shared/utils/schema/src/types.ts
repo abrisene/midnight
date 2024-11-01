@@ -33,6 +33,7 @@ export interface TypeConstraints {
 
   // Custom constraints
   customPatterns?: Map<string, number>; // pattern -> frequency
+  examples?: any[];
 }
 
 export interface SchemaNode {
@@ -46,6 +47,7 @@ export interface SchemaNode {
     lastUpdated: Date;
     frequency: number; // Frequency of occurrence in overall dataset
     confidence: number; // Confidence score for the type inference
+    examples?: any[];
   };
 }
 

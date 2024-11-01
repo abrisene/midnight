@@ -13,22 +13,38 @@ export class PatternDetector {
     ZIP_CODE: /^\d{5}(-\d{4})?$/,
   };
 
+  /**
+   * Detects constraints from an array of samples.
+   * @param samples - The array of samples to detect constraints from.
+   * @returns The detected constraints.
+   */
   detectConstraints(samples: any[]): TypeConstraints {
-    if (samples.length === 0) return {};
+    if (samples.length === 0 || samples.every((s) => s == null)) return {};
 
     const type = typeof samples[0];
     switch (type) {
       case "string":
-        return this.detectStringConstraints(samples as string[]);
+        return this.detectStringConstraints(
+          samples.filter((s) => typeof s === "string"),
+        );
       case "number":
-        return this.detectNumberConstraints(samples as number[]);
+        return this.detectNumberConstraints(
+          samples.filter((s) => typeof s === "number"),
+        );
       case "object":
-        return this.detectObjectConstraints(samples);
+        return this.detectObjectConstraints(
+          samples.filter((s) => s && typeof s === "object"),
+        );
       default:
         return {};
     }
   }
 
+  /**
+   * Detects string constraints from an array of samples.
+   * @param samples - The array of samples to detect string constraints from.
+   * @returns The detected string constraints.
+   */
   private detectStringConstraints(samples: string[]): TypeConstraints {
     const constraints: TypeConstraints = {
       minLength: Math.min(...samples.map((s) => s.length)),
@@ -46,13 +62,29 @@ export class PatternDetector {
 
     // Detect custom patterns
     const customPatterns = this.detectCustomPatterns(samples);
-    if (customPatterns.size > 0) {
-      constraints.customPatterns = customPatterns;
+    const totalSamples = samples.length;
+
+    // Only keep patterns that match a significant portion of samples
+    const significantPatterns = new Map<string, number>();
+    for (const [pattern, count] of customPatterns.entries()) {
+      if (count / totalSamples >= 0.8) {
+        // 80% threshold
+        significantPatterns.set(pattern, count);
+      }
+    }
+
+    if (significantPatterns.size > 0) {
+      constraints.customPatterns = significantPatterns;
     }
 
     return constraints;
   }
 
+  /**
+   * Detects number constraints from an array of samples.
+   * @param samples - The array of samples to detect number constraints from.
+   * @returns The detected number constraints.
+   */
   private detectNumberConstraints(samples: number[]): TypeConstraints {
     const constraints: TypeConstraints = {
       minimum: Math.min(...samples),
@@ -87,18 +119,39 @@ export class PatternDetector {
     return constraints;
   }
 
+  /**
+   * Detects object constraints from an array of samples.
+   * @param samples - The array of samples to detect object constraints from.
+   * @returns The detected object constraints.
+   */
   private detectObjectConstraints(samples: object[]): TypeConstraints {
+    if (samples.length === 0) return {};
+
     return {
       minProperties: Math.min(...samples.map((obj) => Object.keys(obj).length)),
       maxProperties: Math.max(...samples.map((obj) => Object.keys(obj).length)),
     };
   }
 
+  /**
+   * Detects custom patterns from an array of samples.
+   * @param samples - The array of samples to detect custom patterns from.
+   * @returns A map of patterns to their counts.
+   */
   private detectCustomPatterns(samples: string[]): Map<string, number> {
     const patterns = new Map<string, number>();
 
     // Convert samples to generalized patterns
     const generalizedPatterns = samples.map((sample) => {
+      if (typeof sample !== "string") return "";
+
+      // More specific pattern detection
+      if (sample.match(/^[A-Z_]+$/)) return "ENUM"; // Enum-like
+      if (sample.match(/^[a-z]+_[a-z]+_\d+$/)) return "resource_id"; // resource_type_number
+      if (sample.match(/^[A-Z]{3}_\d{3}$/)) return "code_id"; // ABC_123
+      if (sample.includes("@")) return "email"; // Email-like
+
+      // Generic pattern detection as fallback
       return sample
         .replace(/[A-Z]+/g, "A")
         .replace(/[a-z]+/g, "a")
@@ -108,12 +161,19 @@ export class PatternDetector {
 
     // Count pattern frequencies
     for (const pattern of generalizedPatterns) {
-      patterns.set(pattern, (patterns.get(pattern) || 0) + 1);
+      if (pattern) {
+        patterns.set(pattern, (patterns.get(pattern) || 0) + 1);
+      }
     }
 
     return patterns;
   }
 
+  /**
+   * Finds the greatest common divisor of an array of numbers.
+   * @param numbers - The array of numbers to find the greatest common divisor of.
+   * @returns The greatest common divisor.
+   */
   private findGCD(numbers: number[]): number {
     const gcd = (a: number, b: number): number => {
       return b === 0 ? a : gcd(b, a % b);

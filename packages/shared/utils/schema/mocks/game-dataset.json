@@ -614,5 +614,65 @@
         "abl_basic_strike_1"
       ]
     }
+  ],
+  "achievements": [
+    {
+      "id": "ach_001",
+      "name": "First Blood",
+      "description": "Win your first battle",
+      "reward_gold": 100,
+      "criteria": {
+        "type": "battle_win",
+        "count": 1,
+        "pattern": "^battle_.*_win$"
+      },
+      "email_notification": "player@example.com"
+    },
+    {
+      "id": "ach_002",
+      "name": "Warrior Elite",
+      "description": "Win 100 battles",
+      "reward_gold": 1000,
+      "criteria": {
+        "type": "battle_win",
+        "count": 100,
+        "pattern": "^battle_.*_win$"
+      },
+      "email_notification": "player@example.com"
+    },
+    {
+      "id": "ach_003",
+      "name": "Resource Baron",
+      "description": "Collect 1000 of any resource",
+      "reward_gold": 500,
+      "criteria": {
+        "type": "resource_collect",
+        "count": 1000,
+        "pattern": "^res_.*_[0-9]+$"
+      },
+      "email_notification": "player@example.com"
+    }
+  ],
+  "player_stats": [
+    {
+      "player_id": "USR_001",
+      "username": "DragonSlayer",
+      "email": "dragon@example.com",
+      "stats": {
+        "battles_won": 45,
+        "resources_collected": 2340,
+        "play_time_minutes": 240
+      }
+    },
+    {
+      "player_id": "USR_002",
+      "username": "MageSupreme",
+      "email": "mage@example.com",
+      "stats": {
+        "battles_won": 23,
+        "resources_collected": 1200,
+        "play_time_minutes": 120
+      }
+    }
   ]
 }
