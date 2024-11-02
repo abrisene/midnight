@@ -15,95 +15,69 @@ atelier/
 │   │   └── utils/       # Utility functions
 │   │       ├── api/     # API client utilities
 │   │       ├── common/  # Common utilities
+│   │       ├── hash/    # Hashing utilities
+│   │       ├── http/    # HTTP client utilities
+│   │       ├── image/   # Image utilities
 │   │       ├── json/    # JSON manipulation
+│   │       ├── logger/  # Logging utilities
+│   │       ├── promise/ # Promise utilities
+│   │       ├── random/  # Random number generation
 │   │       ├── schema/  # Schema tools
 │   │       └── zod/     # Zod utilities
 │   └── client/          # Client-side packages
 │       ├── hooks/       # React hooks
+│       │   ├── core/    # Core React hooks
+│       │   └── crdt/    # CRDT collaboration hooks
 │       └── ui/          # UI components
+│           ├── admin/   # Admin interface components
+│           ├── core/    # Core UI components
+│           ├── json/    # JSON visualization
+│           ├── llm/     # LLM interface components
+│           └── viz/     # Visualization components
 └── configs/             # Shared configurations
 ```
 
 ## Core Modules
 
-### Data Structures (@shared/structs)
+### Shared Packages
 
-#### Observable Pattern (@structs/observable)
+#### Data Structures
 
-Type-safe implementation of the Observer pattern with two main variants:
+- [@atelier/structs-observable](packages/shared/structs/observable/README.md) - Observer pattern implementation
+- [@acausal/structs-spatial](packages/shared/structs/spatial-partitioning/README.md) - Spatial data structures
 
-- **SimpleObservable**: Basic pub/sub implementation for event-driven architectures
-- **StatefulObservable**: State management with automatic value broadcasting
-- Perfect for building reactive systems and state management solutions
+#### Type System
 
-#### Spatial Partitioning (@structs/spatial)
+- [@acausal/types](packages/shared/types/README.md) - TypeScript type utilities
 
-Efficient spatial data structures for 2D and N-dimensional space:
+#### Core Utilities
 
-- **Grid**: Optimized 2D grid with O(1) access and updates
-- **MultiDimensionalGrid**: N-dimensional space partitioning
-- Ideal for game development, spatial queries, and optimization problems
+- [@acausal/utils-api](packages/shared/utils/api/README.md) - API client wrapper utilities
+- [@acausal/utils-common](packages/shared/utils/common/README.md) - Common utility functions
+- [@acausal/utils-hash](packages/shared/utils/hash/README.md) - Hashing algorithms and utilities
+- [@acausal/utils-http](packages/shared/utils/http/README.md) - HTTP client with Zod validation
+- [@acausal/utils-image](packages/shared/utils/image/README.md) - Image type detection and handling
+- [@acausal/utils-json](packages/shared/utils/json/README.md) - JSON manipulation utilities
+- [@acausal/utils-logger](packages/shared/utils/logger/README.md) - Structured logging utilities
+- [@acausal/utils-promise](packages/shared/utils/promise/README.md) - Promise utilities with backoff
+- [@acausal/utils-random](packages/shared/utils/random/README.md) - Random number generation
+- [@acausal/utils-schema](packages/shared/utils/schema/README.md) - Schema analysis tools
+- [@acausal/utils-zod](packages/shared/utils/zod/README.md) - Zod schema utilities
 
-### Type Utilities (@shared/types)
+### Client Packages
 
-Comprehensive TypeScript type helpers:
+#### React Hooks
 
-- **Function Types**: Advanced function type manipulation (currying, composition)
-- **Object Types**: Deep partial, recursive types, and object manipulation
-- **Promise Types**: Async operation type utilities
-- **String Types**: Advanced string literal type manipulation
-- **Zod Integration**: Enhanced schema type inference
+- [@acausal/hooks-core](packages/client/hooks-core/README.md) - Core React hooks
+- [@acausal/hooks-crdt](packages/client/hooks-crdt/README.md) - CRDT collaboration hooks
 
-### Utility Functions (@shared/utils)
+#### UI Components
 
-#### API Client (@utils/api)
-
-Robust API client building toolkit:
-
-- Queue-based request management
-- Automatic retry and reconnection
-- Progress tracking for long operations
-- Type-safe response handling
-- Comprehensive error management
-
-#### Common Utilities (@utils/common)
-
-General-purpose utility functions:
-
-- Array manipulation (chunking, shuffling, filtering)
-- String operations (case conversion, templating)
-- Number formatting and manipulation
-- Type-safe utility functions
-
-#### JSON Tools (@utils/json)
-
-Advanced JSON manipulation utilities:
-
-- Partial JSON parsing with error recovery
-- JSON beautification with customization
-- Deep equality checking
-- Schema-based validation
-- Circular reference handling
-
-#### Schema Tools (@utils/schema)
-
-Schema analysis and generation toolkit:
-
-- Automatic schema inference from data
-- Pattern detection and analysis
-- Code generation (TypeScript, Zod)
-- Schema visualization
-- Documentation generation
-
-#### Zod Extensions (@utils/zod)
-
-Enhanced Zod schema utilities:
-
-- Advanced schema composition
-- Custom validation rules
-- Schema transformation tools
-- Code generation utilities
-- Schema analysis and metrics
+- [@acausal/ui-admin](packages/client/ui-admin/README.md) - Admin interface components
+- [@acausal/ui-core](packages/client/ui-core/README.md) - Core UI components
+- [@acausal/ui-json](packages/client/ui-json/README.md) - JSON visualization
+- [@acausal/ui-llm](packages/client/ui-llm/README.md) - LLM interface components
+- [@acausal/ui-viz](packages/client/ui-viz/README.md) - Visualization components
 
 ## Getting Started
 
@@ -141,26 +115,35 @@ pnpm lint
 pnpm typecheck
 ```
 
-## Package Documentation
+## Key Features
 
-### Shared Packages
+### Type Safety
 
-#### Data Structures
+- Full TypeScript support across all packages
+- Zod schema validation
+- Runtime type checking
+- Advanced type utilities
 
-- [@atelier/structs-observable](packages/shared/structs/observable/README.md)
-- [@acausal/structs-spatial](packages/shared/structs/spatial-partitioning/README.md)
+### UI Components
 
-#### Types
+- Shadcn/ui integration
+- Responsive design
+- Dark mode support
+- Accessibility features
 
-- [@acausal/types](packages/shared/types/README.md)
+### Data Handling
 
-#### Utilities
+- CRDT-based collaboration
+- JSON visualization
+- Schema analysis
+- Data validation
 
-- [@acausal/utils-api](packages/shared/utils/api/README.md)
-- [@acausal/utils-common](packages/shared/utils/common/README.md)
-- [@acausal/utils-json](packages/shared/utils/json/README.md)
-- [@acausal/utils-schema](packages/shared/utils/schema/README.md)
-- [@acausal/utils-zod](packages/shared/utils/zod/README.md)
+### Development Tools
+
+- Storybook documentation
+- Jest testing
+- ESLint configuration
+- Prettier formatting
 
 ## Contributing
 
