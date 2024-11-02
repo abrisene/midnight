@@ -130,3 +130,7 @@ interface PrettyJsonProps {
   theme?: "light" | "dark"; // Color theme
 }
 ```
+
+## Documentation
+
+See the [API documentation](./docs/api.md) for detailed usage information and advanced features.

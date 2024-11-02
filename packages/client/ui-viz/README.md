@@ -144,3 +144,7 @@ type CurveType =
   | "step-after"
   | "step-before";
 ```
+
+## Documentation
+
+See the [API documentation](./docs/api.md) for detailed usage information and advanced features.

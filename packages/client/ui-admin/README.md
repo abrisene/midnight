@@ -108,3 +108,7 @@ interface ScheduleTimelineProps {
   onUpdateSchedule: (updatedSchedule: Schedule) => void;
 }
 ```
+
+## Documentation
+
+See the [API documentation](./docs/api.md) for detailed usage information and advanced features.

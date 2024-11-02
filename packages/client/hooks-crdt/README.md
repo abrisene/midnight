@@ -153,3 +153,7 @@ interface ListItem<T> {
   order: number;
 }
 ```
+
+## Documentation
+
+See the [API documentation](./docs/api.md) for detailed usage information and advanced features.
