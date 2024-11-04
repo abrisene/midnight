@@ -161,7 +161,7 @@
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.3.0",
     "framer-motion": "catalog:client",
-    "input-otp": "^1.2.4",
+    "input-otp": "^1.4.1",
     "lucide-react": "catalog:client",
     "next-themes": "^0.3.0",
     "react": "catalog:react18",

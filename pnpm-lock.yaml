@@ -258,7 +258,7 @@ importers:
         version: 7.37.2(eslint@9.9.0(jiti@2.3.3))
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc-cae764ce-20241025(eslint@9.9.0(jiti@2.3.3))
+        version: 5.1.0-rc-4d577fd2-20241104(eslint@9.9.0(jiti@2.3.3))
       eslint-plugin-turbo:
         specifier: ^2.2.3
         version: 2.2.3(eslint@9.9.0(jiti@2.3.3))
@@ -697,8 +697,8 @@ importers:
         specifier: catalog:client
         version: 11.11.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       input-otp:
-        specifier: ^1.2.4
-        version: 1.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^1.4.1
+        version: 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       lucide-react:
         specifier: catalog:client
         version: 0.452.0(react@18.3.1)
@@ -1402,6 +1402,80 @@ importers:
         version: 5.5.4
 
   packages/shared/utils/recommendation:
+    dependencies:
+      zod:
+        specifier: 'catalog:'
+        version: 3.23.8
+    devDependencies:
+      '@configs/eslint-config':
+        specifier: workspace:*
+        version: link:../../../../configs/eslint
+      '@configs/prettier-config':
+        specifier: workspace:*
+        version: link:../../../../configs/prettier
+      '@configs/tsconfig':
+        specifier: workspace:*
+        version: link:../../../../configs/typescript
+      '@types/jest':
+        specifier: 'catalog:'
+        version: 29.5.12
+      eslint:
+        specifier: 'catalog:'
+        version: 9.9.0(jiti@2.3.3)
+      jest:
+        specifier: 'catalog:'
+        version: 29.7.0(@types/node@22.7.4)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@22.7.4)(typescript@5.5.4))
+      prettier:
+        specifier: 'catalog:'
+        version: 3.3.3
+      ts-jest:
+        specifier: 'catalog:'
+        version: 29.2.4(@babel/core@7.25.8)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.8))(jest@29.7.0(@types/node@22.7.4)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@22.7.4)(typescript@5.5.4)))(typescript@5.5.4)
+      tsup:
+        specifier: 'catalog:'
+        version: 8.2.4(@swc/core@1.7.26(@swc/helpers@0.5.12))(jiti@2.3.3)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.5.4)(yaml@2.5.1)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
+  packages/shared/utils/schema:
+    dependencies:
+      zod:
+        specifier: 'catalog:'
+        version: 3.23.8
+    devDependencies:
+      '@configs/eslint-config':
+        specifier: workspace:*
+        version: link:../../../../configs/eslint
+      '@configs/prettier-config':
+        specifier: workspace:*
+        version: link:../../../../configs/prettier
+      '@configs/tsconfig':
+        specifier: workspace:*
+        version: link:../../../../configs/typescript
+      '@types/jest':
+        specifier: 'catalog:'
+        version: 29.5.12
+      eslint:
+        specifier: 'catalog:'
+        version: 9.9.0(jiti@2.3.3)
+      jest:
+        specifier: 'catalog:'
+        version: 29.7.0(@types/node@22.7.4)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@22.7.4)(typescript@5.5.4))
+      prettier:
+        specifier: 'catalog:'
+        version: 3.3.3
+      ts-jest:
+        specifier: 'catalog:'
+        version: 29.2.4(@babel/core@7.25.8)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.8))(jest@29.7.0(@types/node@22.7.4)(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.12))(@types/node@22.7.4)(typescript@5.5.4)))(typescript@5.5.4)
+      tsup:
+        specifier: 'catalog:'
+        version: 8.2.4(@swc/core@1.7.26(@swc/helpers@0.5.12))(jiti@2.3.3)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.5.4)(yaml@2.5.1)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
+  packages/shared/utils/zod:
     dependencies:
       zod:
         specifier: 'catalog:'
@@ -5674,8 +5748,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
-  eslint-plugin-react-hooks@5.1.0-rc-cae764ce-20241025:
-    resolution: {integrity: sha512-T0dII19NLMIDsd/kbOrPSVnbr0IhlFITOQoCVZuHDBatzGUY6p9wFPuAei7tQYpOnBhdywGIdx2nR4w/cfkcsA==}
+  eslint-plugin-react-hooks@5.1.0-rc-4d577fd2-20241104:
+    resolution: {integrity: sha512-HHUAprkTjOv2yPBJXcd6epxROnY2iFcBaLq0mxaNc2eeGgbAkcImyNOp8IVWemqmnPJwZgMefgZHgLg5hNXe1Q==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -6262,11 +6336,11 @@ packages:
   inline-style-parser@0.2.3:
     resolution: {integrity: sha512-qlD8YNDqyTKTyuITrDOffsl6Tdhv+UC4hcdAVuQsK4IMQ99nSgd1MIA/Q+jQYoh9r3hVUXhYh7urSRmXPkW04g==}
 
-  input-otp@1.2.4:
-    resolution: {integrity: sha512-md6rhmD+zmMnUh5crQNSQxq3keBRYvE3odbr4Qb9g2NWzQv9azi+t1a3X4TBTbh98fsGHgEEJlzbe1q860uGCA==}
+  input-otp@1.4.1:
+    resolution: {integrity: sha512-+yvpmKYKHi9jIGngxagY9oWiiblPB7+nEO75F2l2o4vs+6vpPZZmUl4tBNYuTCvQjhvEIbdNeJu70bhfYP2nbw==}
     peerDependencies:
-      react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^16.8 || ^17.0 || ^18.0
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
 
   inquirer@7.3.3:
     resolution: {integrity: sha512-JG3eIAj5V9CwcGvuOmoo6LB9kbAYT8HXffUl6memuszlwDC/qvFAJw49XJ5NROSFNPxp3iQg1GqkFhaY/CR0IA==}
@@ -14502,7 +14576,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-react-hooks@5.1.0-rc-cae764ce-20241025(eslint@9.9.0(jiti@2.3.3)):
+  eslint-plugin-react-hooks@5.1.0-rc-4d577fd2-20241104(eslint@9.9.0(jiti@2.3.3)):
     dependencies:
       eslint: 9.9.0(jiti@2.3.3)
 
@@ -15266,7 +15340,7 @@ snapshots:
 
   inline-style-parser@0.2.3: {}
 
-  input-otp@1.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  input-otp@1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
