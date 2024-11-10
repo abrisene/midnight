@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@tanstack/router": "0.0.1-beta.53",
-    "@tanstack/router-vite-plugin": "^1.76.4"
+    "@tanstack/router-vite-plugin": "^1.79.0"
   },
   "devDependencies": {
     "@configs/eslint-config": "workspace:*",
