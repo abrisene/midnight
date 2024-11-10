@@ -156,7 +156,7 @@
     "@tanstack/react-virtual": "catalog:tanstack",
     "class-variance-authority": "catalog:tailwind",
     "clsx": "^2.1.1",
-    "cmdk": "^1.0.0",
+    "cmdk": "^1.0.4",
     "cobe": "^0.6.3",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.3.0",
