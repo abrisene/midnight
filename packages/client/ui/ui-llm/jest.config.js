@@ -2,6 +2,6 @@
 export default {
   preset: "ts-jest",
   testEnvironment: "node",
-  modulePaths: ["<rootDir>/../../packages/utils"],
+  modulePaths: ["<rootDir>/../../../packages/shared/utils"],
   moduleNameMapper: {},
 };

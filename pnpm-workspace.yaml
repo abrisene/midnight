@@ -1,7 +1,8 @@
 packages:
   - apps/web/*
   - configs/*
-  - packages/client/*
+  - packages/client/ui/*
+  - packages/client/hooks/*
   # - packages/models/*
   # - packages/server/*
   # - packages/server/services/*
