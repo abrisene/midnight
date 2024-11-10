@@ -375,7 +375,7 @@ importers:
         specifier: 0.0.1-beta.53
         version: 0.0.1-beta.53
       '@tanstack/router-vite-plugin':
-        specifier: ^1.76.4
+        specifier: ^1.79.0
         version: 1.79.0(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))
       '@vitejs/plugin-react':
         specifier: ^4.3.3
