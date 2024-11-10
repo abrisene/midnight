@@ -1,6 +1,6 @@
 # @acausal/utils-zod
 
-Extended utilities for working with Zod schemas, including validation, transformation, and code generation.
+Advanced utilities for Zod schema manipulation, code generation, and analysis.
 
 ## Installation
 
@@ -10,55 +10,102 @@ pnpm add @acausal/utils-zod
 
 ## Features
 
-### Schema Utilities
+### Schema Analysis
 
-Enhanced Zod schema operations:
+Schema analysis and introspection:
 
-- Schema composition helpers
-- Type inference utilities
-- Validation extensions
-- Schema transformation
-- Custom validators
+- Schema structure analysis
+- Type inference
+- Constraint detection
+- Pattern recognition
+- Complexity metrics
 
 ### Code Generation
 
-Generate code from Zod schemas:
+Comprehensive code generation tools:
 
-- TypeScript types
-- JSON Schema
-- Documentation
+- TypeScript type generation
+- Zod schema generation
+- Schema documentation
+- Test case generation
 - Validation code
-- Test cases
 
-### Schema Analysis
+### Schema Stringification
 
-Tools for understanding schema structure:
+Schema to string conversion utilities:
 
-- Schema visualization
-- Dependency analysis
-- Coverage checking
-- Complexity metrics
-- Pattern detection
+- Pretty printing
+- Custom formatting
+- Import management
+- Code organization
+- Template generation
 
-## API Reference
+## Usage
 
-### Schema Generation
+### Analysis
+
+```typescript
+import { SchemaAnalyzer } from "@acausal/utils-zod";
+
+const analyzer = new SchemaAnalyzer();
+const analysis = analyzer.analyzeSchema(samples);
+```
+
+### Generation
 
 ```typescript
 import { generateSchemaCode } from "@acausal/utils-zod";
 
 const code = generateSchemaCode(schema, {
-  name: "UserSchema",
-  format: "typescript",
+  schemaName: "UserSchema",
+  useImportedZod: true,
 });
 ```
 
-### Schema Analysis
+### Stringification
 
 ```typescript
-import { analyzeSchema } from "@acausal/utils-zod";
+import { stringifySchema } from "@acausal/utils-zod";
 
-const analysis = analyzeSchema(schema);
+const schemaString = stringifySchema(schema, {
+  indentSpaces: 2,
+  useImportedZod: true,
+});
 ```
 
-See the [API documentation](./docs/api.md) for detailed usage information.
+## API Reference
+
+### Schema Generation API
+
+```typescript
+interface StringifyOptions {
+  indentSpaces?: number;
+  useImportedZod?: boolean;
+  zodPrefix?: string;
+  schemaName?: string;
+}
+
+function generateSchemaCode(
+  schema: z.ZodType,
+  options?: StringifyOptions,
+): string;
+```
+
+### Schema Analysis API
+
+```typescript
+interface SchemaAnalysis {
+  type: string;
+  constraints?: TypeConstraints;
+  patterns?: SchemaPattern[];
+  complexity: number;
+}
+
+class SchemaAnalyzer {
+  analyzeSchema(schema: z.ZodType): SchemaAnalysis;
+}
+```
+
+## Documentation
+
+See the [API documentation](./docs/api.md) for detailed usage information and advanced features.
