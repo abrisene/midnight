@@ -53,7 +53,7 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "lint:exports": "pnpx @arethetypeswrong/cli",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
     "@acausal/hooks": "workspace:*",

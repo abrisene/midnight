@@ -1,7 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./base.json",
+  "buildOptions": {},
   "compilerOptions": {
-    "incremental": false
-  }
+    "incremental": false,
+    "declaration": true,
+    "declarationMap": true,
+    "noEmit": false,
+  },
 }
