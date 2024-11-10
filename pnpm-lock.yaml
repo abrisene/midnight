@@ -245,7 +245,7 @@ importers:
         specifier: ^1.2.2
         version: 1.2.2(eslint@9.14.0(jiti@1.21.6))
       '@next/eslint-plugin-next':
-        specifier: ^15.0.1
+        specifier: ^15.0.3
         version: 15.0.3
       eslint-plugin-import:
         specifier: ^2.31.0
