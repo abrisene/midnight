@@ -68,16 +68,16 @@ atelier/
 
 #### React Hooks
 
-- [@acausal/hooks-core](packages/client/hooks-core/README.md) - Core React hooks
-- [@acausal/hooks-crdt](packages/client/hooks-crdt/README.md) - CRDT collaboration hooks
+- [@acausal/hooks-core](packages/client/hooks/hooks-core/README.md) - Core React hooks
+- [@acausal/hooks-crdt](packages/client/hooks/hooks-crdt/README.md) - CRDT collaboration hooks
 
 #### UI Components
 
-- [@acausal/ui-admin](packages/client/ui-admin/README.md) - Admin interface components
-- [@acausal/ui-core](packages/client/ui-core/README.md) - Core UI components
-- [@acausal/ui-json](packages/client/ui-json/README.md) - JSON visualization
-- [@acausal/ui-llm](packages/client/ui-llm/README.md) - LLM interface components
-- [@acausal/ui-viz](packages/client/ui-viz/README.md) - Visualization components
+- [@acausal/ui-admin](packages/client/ui/ui-admin/README.md) - Admin interface components
+- [@acausal/ui-core](packages/client/ui/ui-core/README.md) - Core UI components
+- [@acausal/ui-json](packages/client/ui/ui-json/README.md) - JSON visualization
+- [@acausal/ui-llm](packages/client/ui/ui-llm/README.md) - LLM interface components
+- [@acausal/ui-viz](packages/client/ui/ui-viz/README.md) - Visualization components
 
 ## Getting Started
 
