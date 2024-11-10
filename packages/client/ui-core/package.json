@@ -159,7 +159,7 @@
     "cmdk": "^1.0.4",
     "cobe": "^0.6.3",
     "date-fns": "^4.1.0",
-    "embla-carousel-react": "^8.3.0",
+    "embla-carousel-react": "^8.3.1",
     "framer-motion": "catalog:client",
     "input-otp": "^1.4.1",
     "lucide-react": "catalog:client",
