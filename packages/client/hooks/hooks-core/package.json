@@ -198,7 +198,7 @@
   "dependencies": {
     "@dnd-kit/utilities": "^3.2.2",
     "html2canvas": "^1.4.1",
-    "jotai": "^2.10.1",
+    "jotai": "^2.10.4",
     "tinycolor2": "^1.6.0",
     "zod": "catalog:"
   },
