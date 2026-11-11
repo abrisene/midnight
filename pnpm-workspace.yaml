@@ -82,4 +82,4 @@ catalogs:
     "vite-plugin-top-level-await": ^1.4.4
     "vite-plugin-wasm": ^3.3.0
     "vite-tsconfig-paths": ^5.0.1
-    "@mdx-js/rollup": ^3.0.1
+    "@mdx-js/rollup": ^3.1.1
